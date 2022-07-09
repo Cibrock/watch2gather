@@ -1,8 +1,10 @@
 import React from 'react';
 import "./styles/CreateRoom.css"
+import {Link} from "react-router-dom"
+import {createRoom} from './RoomController'
 
 
-const CreateRoom = () => {
+ const CreateRoomUi = () => {
     return (
         <div className="flex-container">
             <div className="flex-inner">
@@ -10,7 +12,7 @@ const CreateRoom = () => {
                     <h2 className="accessibility">Einen Raum erstellen</h2>
                     <h2 role="none">enjoy with me.</h2>
                     </div>
-                <div><button id="roombutton">Einen Raum Erstellen</button></div>
+                <div><Link to="/Room"><button type="button" onClick={createRoom} id="roombutton">Einen Raum Erstellen</button></Link></div>
             </div>
             <div className="flex-rooms">
                 <div><h2>Einem Raum beitreten</h2></div>
@@ -21,5 +23,4 @@ const CreateRoom = () => {
         </div> 
     )
 }
-
-export default CreateRoom
+export default CreateRoomUi
