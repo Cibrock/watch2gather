@@ -1,0 +1,28 @@
+.sum {
+    display:  flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+.logo{
+    margin-left: 1rem;
+    color: white;
+    font-size: 2em;
+    font-weight: bolder;
+}
+.ul {
+    display: flex;
+    margin: 2em;
+}
+.item{
+    display: flex;
+}
+li{
+    margin: 0 1rem;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}
