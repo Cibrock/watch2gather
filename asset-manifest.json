@@ -1,14 +1,14 @@
 {
-  "files": {
-    "main.css": "/Cibrock/watch2gather/static/css/main.73560867.css",
-    "main.js": "/Cibrock/watch2gather/static/js/main.23a899f4.js",
-    "static/media/bgvid.mp4": "/Cibrock/watch2gather/static/media/bgvid.01335932c51884896961.mp4",
-    "index.html": "/Cibrock/watch2gather/index.html",
-    "main.73560867.css.map": "/Cibrock/watch2gather/static/css/main.73560867.css.map",
-    "main.23a899f4.js.map": "/Cibrock/watch2gather/static/js/main.23a899f4.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.73560867.css",
-    "static/js/main.23a899f4.js"
-  ]
+  "main.css": "/watch2gather/static/css/main.03715f34.chunk.css",
+  "main.js": "/watch2gather/static/js/main.40c492a4.chunk.js",
+  "main.js.map": "/watch2gather/static/js/main.40c492a4.chunk.js.map",
+  "static/js/1.cf341745.chunk.js": "/watch2gather/static/js/1.cf341745.chunk.js",
+  "static/js/1.cf341745.chunk.js.map": "/watch2gather/static/js/1.cf341745.chunk.js.map",
+  "runtime~main.js": "/watch2gather/static/js/runtime~main.51ef4534.js",
+  "runtime~main.js.map": "/watch2gather/static/js/runtime~main.51ef4534.js.map",
+  "static/media/bgvid.mp4": "/watch2gather/static/media/bgvid.860475ab.mp4",
+  "static/css/main.03715f34.chunk.css.map": "/watch2gather/static/css/main.03715f34.chunk.css.map",
+  "index.html": "/watch2gather/index.html",
+  "precache-manifest.2c5f9a8c5af534f90be34f230698188a.js": "/watch2gather/precache-manifest.2c5f9a8c5af534f90be34f230698188a.js",
+  "service-worker.js": "/watch2gather/service-worker.js"
 }
