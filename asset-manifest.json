@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/watch2gather/static/css/main.73560867.css",
+    "main.js": "/watch2gather/static/js/main.0509445d.js",
+    "static/media/bgvid.mp4": "/watch2gather/static/media/bgvid.01335932c51884896961.mp4",
+    "index.html": "/watch2gather/index.html",
+    "main.73560867.css.map": "/watch2gather/static/css/main.73560867.css.map",
+    "main.0509445d.js.map": "/watch2gather/static/js/main.0509445d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73560867.css",
+    "static/js/main.0509445d.js"
+  ]
+}
