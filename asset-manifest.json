@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Cibrock/watch2gather/static/css/main.73560867.css",
+    "main.js": "/Cibrock/watch2gather/static/js/main.23a899f4.js",
+    "static/media/bgvid.mp4": "/Cibrock/watch2gather/static/media/bgvid.01335932c51884896961.mp4",
+    "index.html": "/Cibrock/watch2gather/index.html",
+    "main.73560867.css.map": "/Cibrock/watch2gather/static/css/main.73560867.css.map",
+    "main.23a899f4.js.map": "/Cibrock/watch2gather/static/js/main.23a899f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73560867.css",
+    "static/js/main.23a899f4.js"
+  ]
+}
