@@ -1,27 +1,54 @@
 import React from 'react';
+import {useEffect} from 'react';
 import './components/styles/App.css';
 import Navbar from './components/Navbar';
-import Backgroundvideo from './components/Backgroundvideo';
 import CreateRoom from './components/CreateRoom';
-import { Helmet } from 'react-helmet'
+import Backgroundvideo from './components/Backgroundvideo';
+import PostUser from './components/PostUser';
+import { Helmet } from 'react-helmet';
+import { deleteUser, getUser } from './components/UserController';
 
 const TITLE = 'StreamWithMe'
+let user
+export async function SetUser(id){
+  getUser()
+  console.log(user)
+  if(user != null){
+    deleteUser(user)
+  }
+  user = id
+
+console.log(user)
+}
 
 
-function App() {
+const App = () => { 
+  useEffect(() => {
+    const handleTabClose = event => {
+       event.preventDefault();
+
+      console.log('beforeunload event triggered');
+      deleteUser(user)
+      return (event.returnValue = 'Are you sure you want to exit?');
+    };
+
+    window.addEventListener('beforeunload', handleTabClose);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleTabClose);
+    };
+  }, []);
   return (
     <div className="App">
-      <header>
       <Helmet>
           <title>{ TITLE }</title>
         </Helmet>
         <Navbar/>
-        </header>
-        <body>
         <CreateRoom/>
         <Backgroundvideo/>
-        </body>
+        <PostUser />
     </div>
+
   );
 }
 
