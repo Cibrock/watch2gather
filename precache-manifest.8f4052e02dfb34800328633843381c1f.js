@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "e8b6c134e56c2a4eabfe",
-    "url": "/watch2gather/static/css/main.03715f34.chunk.css"
+    "revision": "d03dac8c5a12ce55456f",
+    "url": "/watch2gather/static/css/main.cdeed373.chunk.css"
   },
   {
-    "revision": "e8b6c134e56c2a4eabfe",
-    "url": "/watch2gather/static/js/main.e8b6c134.chunk.js"
+    "revision": "d03dac8c5a12ce55456f",
+    "url": "/watch2gather/static/js/main.d03dac8c.chunk.js"
   },
   {
     "revision": "3562b564a795bd130ae9",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/watch2gather/static/media/bgvid.860475ab.mp4"
   },
   {
-    "revision": "95ef393b9450048faf2960adb4a0ed55",
+    "revision": "0e48daddea085a8e992960c5d128dfce",
     "url": "/watch2gather/index.html"
   }
 ];
