@@ -1,0 +1,60 @@
+#roombutton{
+    background-color: #4b80f3;
+    border: none;
+    color: rgb(3, 3, 3);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0.3em;
+}
+h1{
+    color: white;
+}
+.flex-container {
+    display: flex;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.flex-inner{
+    display: flex;
+    height: 10em;
+    width: 25em;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: auto;
+    border: 0.1em solid rgba(201, 201, 201, 0.39);
+    border-radius: 0.3em;
+    margin: 8em;
+    background-color: rgba(58, 58, 58, 0.582);
+}
+.flex-rooms{
+    display: flex;
+    width: 96%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em;
+    border: 0.1em solid rgba(201, 201, 201, 0.39);
+    border-radius: 0.3em;
+    margin: 1rem;
+    background-color: rgba(58, 58, 58, 0.582);
+}
+.flex-room{
+    display: flex;
+    width: 96%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em;
+    border: 0.1em solid rgba(201, 201, 201, 0.39);
+    border-radius: 0.3em;
+    margin: 1rem;
+    background-color: rgba(58, 58, 58, 0.582);
+}
