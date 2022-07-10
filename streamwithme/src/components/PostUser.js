@@ -1,38 +1,46 @@
 import React from "react";
-import {createUser} from "./UserController";
+import { createUser } from "./UserController";
+import Room, { roomName } from "../Room"
+import { getRoomUsers, joinRoom } from "./RoomController";
+import { user } from "../App";
 
 class PostUser extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        name: ""
-      };
-      this.handleInputChange = this.handleInputChange.bind(this);
-      this.UserInput = this.UserInput.bind(this);
-    }
-    handleInputChange(event) {
-        this.setState({name: event.target.value});
-        }
-
-     UserInput(event) {
-        createUser(this.state.name);
-        this.setState({name: ""});
-        event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <form onSubmit={this.UserInput}>
-          <label>
-            Name
-            <input
-              name="UserName"  type="name"
-              value={this.state.name}
-              onChange={this.handleInputChange} />
-              <input type="submit" value="Submit" />
-          </label>
-        </form>
-      );
-    }
+  constructor(props) {
+    super(props);
+    this.state = { name: "", trigger: (props.trigger == undefined) ? false : props.trigger};
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.UserInput = this.UserInput.bind(this);
   }
+  handleInputChange(event) {
+    //Update the shown text whilst typing
+    this.setState({ name: event.target.value });
+  }
+
+  async UserInput(event) {
+    //On Submit create the user and join a room if possible
+    createUser(this.state.name);
+    if(roomName!="Test"){
+      joinRoom(roomName,user)
+    }
+    //Set Trigger false, make this invisible
+    this.setState({ name: "", trigger: "false" });
+    event.preventDefault();
+    
+  }
+
+  render() {
+    return (this.state.trigger) ? (
+      <form onSubmit={this.UserInput}>
+        <label>
+          Name
+          <input
+            name="UserName" type="name"
+            value={this.state.name}
+            onChange={this.handleInputChange} />
+          <input type="submit" value="Submit" />
+        </label>
+      </form>
+    ) : null;
+  }
+}
 export default PostUser

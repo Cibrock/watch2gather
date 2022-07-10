@@ -1,31 +1,28 @@
 import React from 'react';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import './components/styles/App.css';
 import Navbar from './components/Navbar';
 import CreateRoom from './components/CreateRoom';
 import Backgroundvideo from './components/Backgroundvideo';
 import PostUser from './components/PostUser';
 import { Helmet } from 'react-helmet';
-import { deleteUser, getUser } from './components/UserController';
+import { deleteUser } from './components/UserController';
 
 const TITLE = 'StreamWithMe'
-let user
-export async function SetUser(id){
-  getUser()
-  console.log(user)
-  if(user != null){
+export let user
+export function SetUser(id) {
+  //Set the user id and delete the previous if necessary
+  if (user != null) {
     deleteUser(user)
   }
   user = id
-
-console.log(user)
 }
 
-
-const App = () => { 
+const App = () => {
   useEffect(() => {
+    //Delete the current user when the side is closed
     const handleTabClose = event => {
-       event.preventDefault();
+      event.preventDefault();
 
       console.log('beforeunload event triggered');
       deleteUser(user)
@@ -41,12 +38,12 @@ const App = () => {
   return (
     <div className="App">
       <Helmet>
-          <title>{ TITLE }</title>
-        </Helmet>
-        <Navbar/>
-        <CreateRoom/>
-        <Backgroundvideo/>
-        <PostUser />
+        <title>{TITLE}</title>
+      </Helmet>
+      <Navbar />
+      <PostUser />
+      <CreateRoom />
+      <Backgroundvideo />
     </div>
 
   );

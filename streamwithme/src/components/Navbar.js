@@ -6,7 +6,7 @@ const Navbar = () => {
     return ( 
         <nav className='sum'>
             <div className='logo'>
-            <Link to="/">StreamWithMe</Link>
+                <Link to="/">StreamWithMe</Link>
             </div>
         </nav>
         )

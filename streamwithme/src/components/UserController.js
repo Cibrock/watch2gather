@@ -1,5 +1,5 @@
-
 import { SetUser } from "../App"
+
 export const createUser = async (_name) => {
     try {
         let res = await fetch('https://gruppe15.toni-barth.com/users/',
@@ -17,7 +17,7 @@ export const createUser = async (_name) => {
         SetUser(json.id)
     }
     catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
 }
 export const getUser = async () => {
@@ -26,11 +26,10 @@ export const getUser = async () => {
             {
                 method: "GET",
             })
-        let json = await res.json();
-        console.log(json)
+        return await res.json();
     }
     catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
 }
 export const deleteUser = (userId) => {
@@ -41,7 +40,7 @@ export const deleteUser = (userId) => {
             })
     }
     catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
 }
 
