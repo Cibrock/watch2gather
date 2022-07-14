@@ -8,7 +8,7 @@ export const getVideoStatus = async (roomName) => {
         return await res.json()
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const changeVideoStatus = async (roomName, id, status) => {
@@ -21,13 +21,14 @@ export const changeVideoStatus = async (roomName, id, status) => {
                 },
                 body: JSON.stringify({
                     "user": id,
-                    "status":  status
-                })
+                    "status": status
+                }
+                )
             }
         )
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const changeVideoUrl = async (roomName, id, url) => {
@@ -46,7 +47,7 @@ export const changeVideoUrl = async (roomName, id, url) => {
         )
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const getVideoUrl = async (roomName) => {
@@ -59,7 +60,7 @@ export const getVideoUrl = async (roomName) => {
         return await res.json()
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const changeVideoPosition = async (roomName, id, position) => {
@@ -78,7 +79,7 @@ export const changeVideoPosition = async (roomName, id, position) => {
         )
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const getVideoPosition = async (roomName) => {
@@ -91,6 +92,6 @@ export const getVideoPosition = async (roomName) => {
         return await res.json()
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }

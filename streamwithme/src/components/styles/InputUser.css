@@ -1,0 +1,11 @@
+label{
+    color:white;
+    font-weight: bold;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin: 1em;
+}
+
+#UserName{
+    color:white;
+    background-color: rgb(30, 30, 30); 
+}

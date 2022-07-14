@@ -9,7 +9,7 @@ export const createRoom = async () => {
         return json.name
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const joinRoom = async (roomName, id) => {
@@ -27,7 +27,7 @@ export const joinRoom = async (roomName, id) => {
         )
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const getRoomUsers = async (roomName) => {
@@ -40,7 +40,7 @@ export const getRoomUsers = async (roomName) => {
         return await res.json()
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const leaveRoom = async (roomName, id) => {
@@ -58,7 +58,7 @@ export const leaveRoom = async (roomName, id) => {
         )
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 
@@ -72,6 +72,6 @@ export const getRooms = async () => {
         return await res.json()
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }

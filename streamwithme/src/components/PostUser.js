@@ -20,7 +20,7 @@ class PostUser extends React.Component {
     //On Submit create the user and join a room if possible
     createUser(this.state.name);
     if(roomName!="Test"){
-      joinRoom(roomName,user)
+      // joinRoom(roomName,user)
     }
     //Set Trigger false, make this invisible
     this.setState({ name: "", trigger: "false" });
@@ -31,14 +31,16 @@ class PostUser extends React.Component {
   render() {
     return (this.state.trigger) ? (
       <form onSubmit={this.UserInput}>
-        <label>
-          Name
+        <label htmlFor="UserName">
+          Name eingeben
+          </label>
           <input
-            name="UserName" type="name"
+            name="UserName" 
+            type="name"
+            id="UserName"
             value={this.state.name}
             onChange={this.handleInputChange} />
           <input type="submit" value="Submit" />
-        </label>
       </form>
     ) : null;
   }

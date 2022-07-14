@@ -1,5 +1,5 @@
 #roombutton{
-    background-color: #4b80f3;
+    background-color:aqua;
     border: none;
     color: rgb(3, 3, 3);
     padding: 15px 32px;
@@ -13,6 +13,8 @@
 }
 h2{
     color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bolder;
 }
 .accessibility{
     border: 0; 
@@ -38,23 +40,19 @@ h2{
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: auto;
-    border: 0.1em solid rgba(201, 201, 201, 0.39);
     border-radius: 0.3em;
     margin: 8em;
-    background-color: rgba(58, 58, 58, 0.582);
+    color: black;
 }
 .flex-rooms{
     display: flex;
-    width: 96%;
+    width: 110%;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     padding: 1em;
-    border: 0.1em solid rgba(201, 201, 201, 0.39);
     border-radius: 0.3em;
     margin: 1rem;
-    background-color: rgba(58, 58, 58, 0.582);
 }
 .flex-room{
     display: flex;
@@ -63,8 +61,37 @@ h2{
     align-items: center;
     flex-direction: column;
     padding: 1em;
-    border: 0.1em solid rgba(201, 201, 201, 0.39);
     border-radius: 0.3em;
     margin: 1rem;
-    background-color: rgba(58, 58, 58, 0.582);
+    background-color: rgb(10, 10, 10);
+}
+
+@media only screen and (max-width:900px) and (min-width:700px){
+    .flex-inner{
+        display: flex;
+        height: 1em;
+    }
+    .flex-room{
+        display: flex;
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width:700px){
+    .flex-inner{
+        display: flex;
+        height: 1em;
+        border-radius: 0.3em;
+        margin: 4em;
+    }
+    .flex-rooms{
+        padding: 1em;
+        margin: 1rem;
+    }
+    .flex-room{
+        display: flex;
+        width: 300px;
+        padding: 1em;
+        margin: 0rem;
+    }
 }

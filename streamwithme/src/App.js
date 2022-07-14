@@ -3,10 +3,9 @@ import { useEffect } from 'react';
 import './components/styles/App.css';
 import Navbar from './components/Navbar';
 import CreateRoom from './components/CreateRoom';
-import Backgroundvideo from './components/Backgroundvideo';
-import PostUser from './components/PostUser';
 import { Helmet } from 'react-helmet';
 import { deleteUser } from './components/UserController';
+import Footer from './components/Footer';
 
 const TITLE = 'StreamWithMe'
 export let user
@@ -41,9 +40,8 @@ const App = () => {
         <title>{TITLE}</title>
       </Helmet>
       <Navbar />
-      <PostUser />
       <CreateRoom />
-      <Backgroundvideo />
+      <Footer/>
     </div>
 
   );

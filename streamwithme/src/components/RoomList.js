@@ -1,10 +1,11 @@
 import React from 'react'
 import RoomListElement from "./RoomListElement"
+import './styles/RoomList.css';
 import Async from "react-async";
 import { getRooms} from './RoomController'
 
 let startIndex = 0
-let endIndex = 10
+let endIndex = 12
 let maxLength
 
 const shownRooms = (rooms) => {
@@ -23,11 +24,9 @@ const RoomList = () => (
             if (error) return `Something went wrong: ${error.message}`;
             if (data)
                 return (
-                    <div>
-                    <ul>
-                        {shownRooms(data.rooms).map(room => (
-                            <RoomListElement roomName={room} />
-                            ))}
+                    <div className='roomlist_container'>
+                    <ul className='roomlist' aria-label="Räume">
+                        {shownRooms(data.rooms).map(room => (<RoomListElement roomName={room} />))}
                     </ul>
                     </div>
                 );

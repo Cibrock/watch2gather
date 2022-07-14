@@ -1,79 +1,71 @@
-import React, { useState, useEffect } from "react";
-import PostUser from "./components/PostUser";
+import React from "react";
+import "./components/styles/Room.css"
+import InputUser from "./components/InputUser";
 import { user } from "./App";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import Video from "./Video";
+import Video from "./components/Video";
 import Navbar from "./components/Navbar";
-import { leaveRoom } from "./components/RoomController";
+import { getRooms, leaveRoom } from "./components/RoomController";
 import { deleteUser } from "./components/UserController";
+import Backgroundvideo from "./components/Backgroundvideo";
+import Footer from "./components/Footer";
 
-export let roomName = "Test"
+const TITLE = 'StreamWithMe'
+
+export let roomName = ""
 export const setRoomName = (name) => {
     roomName = name
 }
 class Room extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {userState: user==undefined};
+        this.state = { userState: user === undefined, title: TITLE + " - " + roomName };
     }
-    componentDidMount() {
-                //remove the user from the room if they leave the side
-                const handleTabClose = event => {
-                    event.preventDefault();
-        
-                    console.log('beforeunload event triggered');
-                    leaveRoom(roomName, user)
-                    deleteUser(user)
-                    return (event.returnValue = 'Are you sure you want to exit?');
-                };
-        
-                window.addEventListener('beforeunload', handleTabClose);
-        
-                return () => {
-                    window.removeEventListener('beforeunload', handleTabClose);
-                };
-      }
-    componentDidUpdate() {
-                //remove the user from the room if they leave the side
-                const handleTabClose = event => {
-                    event.preventDefault();
-        
-                    console.log('beforeunload event triggered');
-                    leaveRoom(roomName, user)
-                    deleteUser(user)
-                    return (event.returnValue = 'Are you sure you want to exit?');
-                };
-        
-                window.addEventListener('beforeunload', handleTabClose);
-        
-                return () => {
-                    window.removeEventListener('beforeunload', handleTabClose);
-                };
-      }
+
+    async componentDidMount() {
+        //Set the default roomName
+        if (roomName === undefined) {
+            let roomData = await getRooms()
+            roomName = roomData.rooms[0].name
+            this.setState({ title: TITLE + " - " + roomName })
+        }
+
+        //remove the user from the room if they leave the side
+        const handleTabClose = event => {
+            event.preventDefault();
+            leaveRoom(roomName, user)
+            deleteUser(user)
+            console.log("beforeunload");
+            return (event.returnValue = 'Are you sure you want to exit?');
+        };
+        window.addEventListener('beforeunload', handleTabClose);
+
+        return () => {
+            window.removeEventListener('beforeunload', handleTabClose);
+        };
+    }
 
     render() {
         return (
-            <HelmetProvider>
-                <div>
+            <div className="Room">
+                <HelmetProvider>
                     <Helmet>
-                        <title>{roomName}</title>
+                        <title>{this.state.title}</title>
                     </Helmet>
-                    <div>
-                        <Navbar />
-                    </div>
-                    <h1>{roomName}</h1>
-                    <div>
+                    <Navbar />
+                    <div className="room-container">
+                        <h1>{roomName}</h1>
                         {/* Only show this if the user is not set  */}
-                        <PostUser trigger={this.state.userState} />
-                    </div>
-                    <div>
+                        <InputUser trigger={this.state.userState} />
                         <Video />
                     </div>
-                </div>
-            </HelmetProvider>
+                    <Backgroundvideo />
+                </HelmetProvider>
+                <Footer />
+            </div>
         )
     }
-    customForceUpdate(){
+    customForceUpdate() {
         this.forceUpdate()
     }
 }

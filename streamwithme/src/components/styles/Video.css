@@ -1,0 +1,33 @@
+.video-container {
+    display: flex;
+}
+
+.video-input {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: flex-start;
+    height: 20vh;
+}
+
+.video{
+    margin-top: 10rem;
+}
+
+#Url{
+    color:white;
+    background-color: rgb(30, 30, 30); 
+}
+
+input[type=submit]{
+    background: aqua;
+    border: none;
+    margin: 1em;
+}
+
+label{
+    color:white;
+    font-weight: bold;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin: 1em;
+}

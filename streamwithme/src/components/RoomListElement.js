@@ -1,4 +1,5 @@
 import React from 'react'
+import "./styles/RoomListElement.css";
 import { Link } from "react-router-dom"
 import { setRoomName } from '../Room';
 
@@ -15,8 +16,8 @@ class RoomListElement extends React.Component {
   
     render() {
         return (
-            <li key={this.state.roomName} onClick={this.enterRoom}>
-                <Link to="/Room">
+            <li className='listelement' key={this.state.roomName} onClick={this.enterRoom}>
+                <Link className='element' to="/Room">
                     {this.state.roomName}
                 </Link>
             </li>

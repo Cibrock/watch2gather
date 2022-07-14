@@ -17,7 +17,7 @@ export const createUser = async (_name) => {
         SetUser(json.id)
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const getUser = async () => {
@@ -29,7 +29,7 @@ export const getUser = async () => {
         return await res.json();
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 export const deleteUser = (userId) => {
@@ -40,7 +40,7 @@ export const deleteUser = (userId) => {
             })
     }
     catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 

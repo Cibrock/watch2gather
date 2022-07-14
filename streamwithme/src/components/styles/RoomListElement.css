@@ -1,0 +1,11 @@
+.element{
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.element:hover{
+    color:aqua;
+    transition: 50ms;
+}
