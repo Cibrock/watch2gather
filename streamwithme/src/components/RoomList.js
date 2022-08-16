@@ -11,6 +11,7 @@ let maxLength
 const shownRooms = (rooms) => {
     let out = []
     maxLength = rooms.length;
+    if (rooms.length === 0) return
     for (let i = startIndex; i < endIndex; i++) {
         out.push(rooms[i].name)
     }
@@ -21,15 +22,15 @@ const RoomList = () => (
     <Async promiseFn={getRooms}>
         {({ data, error, isLoading }) => {
             if (isLoading) return "Loading...";
-            if (error) return `Something went wrong: ${error.message}`;
+            if (error) return 'Something went wrong: ${error.message}';
             if (data)
-                return (
+                return false ? (
                     <div className='roomlist_container'>
                     <ul className='roomlist' aria-label="Räume">
                         {shownRooms(data.rooms).map(room => (<RoomListElement roomName={room} />))}
                     </ul>
                     </div>
-                );
+                ): null;
             return null;
         }}
     </Async>

@@ -1,6 +1,6 @@
 export const getVideoStatus = async (roomName) => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+'/status',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+'/status',
             {
                 method: "GET",
             }
@@ -13,7 +13,7 @@ export const getVideoStatus = async (roomName) => {
 }
 export const changeVideoStatus = async (roomName, id, status) => {
     try {
-        fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+'/status',
+        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+'/status',
             {
                 method: "PUT",
                 headers: {
@@ -33,7 +33,7 @@ export const changeVideoStatus = async (roomName, id, status) => {
 }
 export const changeVideoUrl = async (roomName, id, url) => {
     try {
-        fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+'/video',
+        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+'/video',
             {
                 method: "PUT",
                 headers: {
@@ -52,7 +52,7 @@ export const changeVideoUrl = async (roomName, id, url) => {
 }
 export const getVideoUrl = async (roomName) => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+'/video',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+'/video',
             {
                 method: "GET",
             }
@@ -65,7 +65,7 @@ export const getVideoUrl = async (roomName) => {
 }
 export const changeVideoPosition = async (roomName, id, position) => {
     try {
-        fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+'/position',
+        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+'/position',
             {
                 method: "PUT",
                 headers: {
@@ -84,7 +84,7 @@ export const changeVideoPosition = async (roomName, id, position) => {
 }
 export const getVideoPosition = async (roomName) => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+'/position',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+'/position',
             {
                 method: "GET",
             }

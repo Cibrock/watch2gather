@@ -1,6 +1,6 @@
 export const createRoom = async () => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/rooms/',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/',
             {
                 method: "POST",
             }
@@ -14,7 +14,7 @@ export const createRoom = async () => {
 }
 export const joinRoom = async (roomName, id) => {
     try {
-        fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+ '/users',
+        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/users',
             {
                 method: "PUT",
                 headers: {
@@ -32,7 +32,7 @@ export const joinRoom = async (roomName, id) => {
 }
 export const getRoomUsers = async (roomName) => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+ '/users',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/users',
             {
                 method: "GET",
             }
@@ -45,7 +45,7 @@ export const getRoomUsers = async (roomName) => {
 }
 export const leaveRoom = async (roomName, id) => {
     try {
-        fetch('https://gruppe15.toni-barth.com/rooms/'+roomName+ '/users',
+        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/users',
             {
                 method: "DELETE",
                 headers: {
@@ -64,7 +64,7 @@ export const leaveRoom = async (roomName, id) => {
 
 export const getRooms = async () => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/rooms/',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/',
             {
                 method: "GET",
             }

@@ -2,7 +2,7 @@ import { SetUser } from "../App"
 
 export const createUser = async (_name) => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/users/',
+        let res = await fetch('https://gruppe10.toni-barth.com/users/',
             {
                 method: "POST",
                 headers: {
@@ -22,7 +22,7 @@ export const createUser = async (_name) => {
 }
 export const getUser = async () => {
     try {
-        let res = await fetch('https://gruppe15.toni-barth.com/users/',
+        let res = await fetch('https://gruppe10.toni-barth.com/users/',
             {
                 method: "GET",
             })
@@ -34,7 +34,7 @@ export const getUser = async () => {
 }
 export const deleteUser = (userId) => {
     try {
-         fetch('https://gruppe15.toni-barth.com/users/' + userId,
+         fetch('https://gruppe10.toni-barth.com/users/' + userId,
             {
                 method: "DELETE"
             })
