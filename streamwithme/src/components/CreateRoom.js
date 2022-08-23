@@ -1,17 +1,15 @@
 import React, { useCallback, useState } from 'react';
-import "./styles/CreateRoom.css"
+import "./styles/CreateRoom.css";
 import { useNavigate } from 'react-router-dom';
-import { createRoom } from './API/RoomAPI'
+import { createRoom } from './API/RoomAPI';
 import { setRoomName } from '../Room';
 import RoomList from './RoomList';
 import Backgroundvideo from './Backgroundvideo';
 import { user } from '../App';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InputUser from './InputUser.js';
-import UserPopup from './UserPopup';
 import { hookstate, useHookstate } from '@hookstate/core';
-import {openPopup} from './InputUser'
+import { openPopup } from './InputUser';
 
 let condition;
 
@@ -20,10 +18,10 @@ const CreateRoom = () => {
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     const instantiateRoom = async () => {
         if (user === undefined) {
-            condition = true
+            condition = true;
             console.log("Blocked join room");
-            openPopup.set(true)
-            return
+            openPopup.set(true);
+            return;
         }
         let name = await createRoom();
         setRoomName(name);
@@ -32,9 +30,8 @@ const CreateRoom = () => {
 
     return (
         <div className="flex-container">
-                        <InputUser trigger={user!==null} open={openPopup}/>
+            <InputUser/>
             <div className="flex-inner">
-
                 <div>
                     <h2 className="accessibility">Einen Raum erstellen</h2>
                     <h2 role="none">enjoy with me.</h2>
