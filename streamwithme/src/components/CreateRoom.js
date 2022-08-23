@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import "./styles/CreateRoom.css";
 import { useNavigate } from 'react-router-dom';
 import { createRoom } from './API/RoomAPI';
@@ -8,20 +8,15 @@ import Backgroundvideo from './Backgroundvideo';
 import { user } from '../App';
 import 'reactjs-popup/dist/index.css';
 import InputUser from './InputUser.js';
-import { hookstate, useHookstate } from '@hookstate/core';
 import { openPopup } from './InputUser';
-
-let condition;
 
 const CreateRoom = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     const instantiateRoom = async () => {
         if (user === undefined) {
-            condition = true;
-            console.log("Blocked join room");
             openPopup.set(true);
-            return;
+            return console.log("Blocked join room, user is " + user);
         }
         let name = await createRoom();
         setRoomName(name);
