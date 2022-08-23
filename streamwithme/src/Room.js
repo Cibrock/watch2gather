@@ -12,9 +12,8 @@ import Footer from "./components/Footer";
 const TITLE = 'StreamWithMe'
 
 export let roomName = ""
-export const setRoomName = (name) => {
-    roomName = name
-}
+export const setRoomName = (name) => { roomName = name }
+
 class Room extends React.Component {
     constructor(props) {
         super(props);

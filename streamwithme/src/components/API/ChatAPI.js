@@ -22,7 +22,7 @@ export const getChat = async (roomName, start) => {
     try {
         fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/chat',
             {
-                method: "PUT",
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json"
                 },

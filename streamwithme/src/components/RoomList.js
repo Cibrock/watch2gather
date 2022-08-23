@@ -6,12 +6,11 @@ import { getRooms} from './API/RoomAPI'
 
 let startIndex = 0
 let endIndex = 12
-let maxLength
+// let maxLength
 
 const shownRooms = (rooms) => {
     let out = []
-    maxLength = rooms.length;
-    // console.log(rooms)
+    // maxLength = rooms.length;
     if (rooms.length === 0) return
     for (let i = startIndex; i < endIndex; i++) {
         if (typeof(rooms[i]) === "object"){
@@ -27,13 +26,13 @@ const RoomList = () => (
             if (isLoading) return "Loading...";
             if (error) return 'Something went wrong: ${error.message}';
             if (data)
-                return true ? (
+                return (
                     <div className='roomlist_container'>
                     <ul className='roomlist' aria-label="Räume">
                         {shownRooms(data.rooms).map(room => (<RoomListElement roomName={room} />))}
                     </ul>
                     </div>
-                ): null;
+                );
             return null;
         }}
     </Async>

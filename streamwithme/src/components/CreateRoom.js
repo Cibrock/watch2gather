@@ -1,32 +1,47 @@
-import React from 'react';
+import React,{useCallback} from 'react';
 import "./styles/CreateRoom.css"
-import { Link } from "react-router-dom"
-import { createRoom} from './API/RoomAPI'
-import { setRoomName } from '../Room';
+import {useNavigate} from 'react-router-dom';
+import {createRoom} from './API/RoomAPI'
+import {setRoomName} from '../Room';
 import RoomList from './RoomList';
 import Backgroundvideo from './Backgroundvideo';
+import { user } from '../App';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import InputUser from './InputUser.js';
 
-const instantiateRoom = async () => {
-    let name = await createRoom()
-    setRoomName(name)
-}
-
+let condition
 
 const CreateRoomUi = () => {
+    const navigate = useNavigate();
+    const navigateToRoom = useCallback( () => navigate("/Room", { replace: true }), [navigate] );
+    
+    const instantiateRoom = async () => {
+        if (user===undefined) {
+            condition = true
+            console.log("Blocked join room");
+            return
+        }
+        let name = await createRoom()
+        setRoomName(name)
+        navigateToRoom()
+    }
+
     return (
         <div className="flex-container">
             <div className="flex-inner">
+                <Popup trigger={condition} >
+                    <InputUser/>
+                </Popup>
                 <div>
                     <h2 className="accessibility">Einen Raum erstellen</h2>
                     <h2 role="none">enjoy with me.</h2>
                 </div>
                 <div>
                     <Backgroundvideo />
-                    <Link to="/Room">
-                        <button type="button" onClick={instantiateRoom} id="roombutton">
-                            Einen Raum Erstellen
-                        </button>
-                    </Link>
+                    <button type="button" onClick={instantiateRoom} id="roombutton">
+                        Einen Raum Erstellen
+                    </button>
                 </div>
             </div>
             <div className="flex-rooms">

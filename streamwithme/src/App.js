@@ -12,7 +12,7 @@ const TITLE = 'StreamWithMe'
 export let user
 export function SetUser(id) {
     //Set the user id and delete the previous if necessary
-    if (user != null)
+    if (user !== null)
         deleteUser(user);
     user = id;
 }
