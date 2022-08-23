@@ -1,25 +1,28 @@
-import React,{useCallback} from 'react';
+import React, { useCallback, useState } from 'react';
 import "./styles/CreateRoom.css"
-import {useNavigate} from 'react-router-dom';
-import {createRoom} from './API/RoomAPI'
-import {setRoomName} from '../Room';
+import { useNavigate } from 'react-router-dom';
+import { createRoom } from './API/RoomAPI'
+import { setRoomName } from '../Room';
 import RoomList from './RoomList';
 import Backgroundvideo from './Backgroundvideo';
 import { user } from '../App';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InputUser from './InputUser.js';
+import UserPopup from './UserPopup';
 
 let condition
 
 const CreateRoomUi = () => {
     const navigate = useNavigate();
-    const navigateToRoom = useCallback( () => navigate("/Room", { replace: true }), [navigate] );
-    
+    const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
+
+    const [openPopup, setOpenPopup] = useState(false);
+
     const instantiateRoom = async () => {
-        if (user===undefined) {
+        if (user === undefined) {
             condition = true
             console.log("Blocked join room");
+            setOpenPopup(true);
             return
         }
         let name = await createRoom()
@@ -29,10 +32,9 @@ const CreateRoomUi = () => {
 
     return (
         <div className="flex-container">
+                        <InputUser trigger={user!==null} open={openPopup}/>
             <div className="flex-inner">
-                <Popup trigger={condition} >
-                    <InputUser/>
-                </Popup>
+
                 <div>
                     <h2 className="accessibility">Einen Raum erstellen</h2>
                     <h2 role="none">enjoy with me.</h2>
@@ -47,7 +49,7 @@ const CreateRoomUi = () => {
             <div className="flex-rooms">
                 <div><h2>Einem Raum beitreten</h2></div>
                 <div className="flex-room">
-                    <RoomList/>
+                    <RoomList />
                 </div>
             </div>
         </div>

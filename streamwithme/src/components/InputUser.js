@@ -22,7 +22,7 @@ class InputUser extends React.Component {
         }
 
     render() {
-        return (this.state.trigger) ? (
+        return (true) ? (
             <form onSubmit={this.submitInput}>
                 <label htmlFor="UserName">
                     Name eingeben
