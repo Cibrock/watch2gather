@@ -6,11 +6,9 @@ import { getRooms} from './API/RoomAPI'
 
 let startIndex = 0
 let endIndex = 12
-// let maxLength
 
 const shownRooms = (rooms) => {
     let out = []
-    // maxLength = rooms.length;
     if (rooms.length === 0) return
     for (let i = startIndex; i < endIndex; i++) {
         if (typeof(rooms[i]) === "object"){
@@ -24,7 +22,7 @@ const RoomList = () => (
     <Async promiseFn={getRooms}>
         {({ data, error, isLoading }) => {
             if (isLoading) return "Loading...";
-            if (error) return 'Something went wrong: ${error.message}';
+            if (error) return 'Something went wrong: ' + error.message;
             if (data)
                 return (
                     <div className='roomlist_container'>
