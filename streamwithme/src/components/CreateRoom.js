@@ -6,13 +6,14 @@ import { setRoomName } from '../Room';
 import RoomList from './RoomList';
 import Backgroundvideo from './Backgroundvideo';
 import { user } from '../App';
+import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InputUser from './InputUser.js';
 import UserPopup from './UserPopup';
 
-let condition
+let condition;
 
-const CreateRoomUi = () => {
+const CreateRoom = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
 
@@ -25,10 +26,10 @@ const CreateRoomUi = () => {
             setOpenPopup(true);
             return
         }
-        let name = await createRoom()
-        setRoomName(name)
-        navigateToRoom()
-    }
+        let name = await createRoom();
+        setRoomName(name);
+        navigateToRoom();
+    };
 
     return (
         <div className="flex-container">
@@ -53,7 +54,7 @@ const CreateRoomUi = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default CreateRoomUi
+export default CreateRoom;
