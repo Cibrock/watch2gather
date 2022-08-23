@@ -11,6 +11,7 @@ import InputUser from './components/InputUser';
 
 const TITLE = 'StreamWithMe'
 export let user
+
 export function SetUser(id) {
     //Set the user id and delete the previous if necessary
     if (user !== null)
