@@ -10,20 +10,19 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InputUser from './InputUser.js';
 import UserPopup from './UserPopup';
+import { hookstate, useHookstate } from '@hookstate/core';
+import {openPopup} from './InputUser'
 
 let condition;
 
 const CreateRoom = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
-
-    const [openPopup, setOpenPopup] = useState(false);
-
     const instantiateRoom = async () => {
         if (user === undefined) {
             condition = true
             console.log("Blocked join room");
-            setOpenPopup(true);
+            openPopup.set(true)
             return
         }
         let name = await createRoom();
@@ -56,5 +55,4 @@ const CreateRoom = () => {
         </div>
     );
 };
-
 export default CreateRoom;
