@@ -1,8 +1,8 @@
-import React,{useCallback} from 'react';
-import "./styles/CreateRoom.css"
-import {useNavigate} from 'react-router-dom';
-import {createRoom} from './API/RoomAPI'
-import {setRoomName} from '../Room';
+import React, { useCallback } from 'react';
+import "./styles/CreateRoom.css";
+import { useNavigate } from 'react-router-dom';
+import { createRoom } from './API/RoomAPI';
+import { setRoomName } from '../Room';
 import RoomList from './RoomList';
 import Backgroundvideo from './Backgroundvideo';
 import { user } from '../App';
@@ -10,28 +10,27 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InputUser from './InputUser.js';
 
-let condition
+let condition;
 
-const CreateRoomUi = () => {
+const CreateRoom = () => {
     const navigate = useNavigate();
-    const navigateToRoom = useCallback( () => navigate("/Room", { replace: true }), [navigate] );
-    
+    const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
+
     const instantiateRoom = async () => {
-        if (user===undefined) {
-            condition = true
-            console.log("Blocked join room");
-            return
+        if (user === undefined) {
+            condition = true;
+            return console.log("Blocked join room, user is " + user);
         }
-        let name = await createRoom()
-        setRoomName(name)
-        navigateToRoom()
-    }
+        let name = await createRoom();
+        setRoomName(name);
+        navigateToRoom();
+    };
 
     return (
         <div className="flex-container">
             <div className="flex-inner">
                 <Popup trigger={condition} >
-                    <InputUser/>
+                    <InputUser />
                 </Popup>
                 <div>
                     <h2 className="accessibility">Einen Raum erstellen</h2>
@@ -47,11 +46,11 @@ const CreateRoomUi = () => {
             <div className="flex-rooms">
                 <div><h2>Einem Raum beitreten</h2></div>
                 <div className="flex-room">
-                    <RoomList/>
+                    <RoomList />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default CreateRoomUi
+export default CreateRoom;
