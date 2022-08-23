@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './components/styles/App.css';
 import Navbar from './components/Navbar';
 import CreateRoom from './components/CreateRoom';
@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import { deleteUser } from './components/API/UserAPI';
 import Footer from './components/Footer';
 import InputUser from './components/InputUser';
+
 
 const TITLE = 'StreamWithMe'
 export let user
@@ -19,6 +20,7 @@ export function SetUser(id) {
 }
 
 const App = () => {
+
     useEffect(() => {
         //Delete the current user when the side is closed
         const handleTabClose = event => {
@@ -39,7 +41,7 @@ const App = () => {
                 <title>{TITLE}</title>
             </Helmet>
             <Navbar />
-            <InputUser trigger={user!==null} />{/* Only show this if the user is not set  */}
+            {/* <InputUser trigger={user!==null} /> Only show this if the user is not set  */}
             <CreateRoom />
             <Footer/>
         </div>
