@@ -1,14 +1,16 @@
 {
-  "main.css": "/watch2gather/static/css/main.bcbbfc33.chunk.css",
-  "main.js": "/watch2gather/static/js/main.07efe42d.chunk.js",
-  "main.js.map": "/watch2gather/static/js/main.07efe42d.chunk.js.map",
-  "static/js/1.6bd89e7b.chunk.js": "/watch2gather/static/js/1.6bd89e7b.chunk.js",
-  "static/js/1.6bd89e7b.chunk.js.map": "/watch2gather/static/js/1.6bd89e7b.chunk.js.map",
+  "main.css": "/watch2gather/static/css/main.88b057c2.chunk.css",
+  "main.js": "/watch2gather/static/js/main.1a642ecf.chunk.js",
+  "main.js.map": "/watch2gather/static/js/main.1a642ecf.chunk.js.map",
+  "static/css/1.1d69f8d9.chunk.css": "/watch2gather/static/css/1.1d69f8d9.chunk.css",
+  "static/js/1.b8d8b3ff.chunk.js": "/watch2gather/static/js/1.b8d8b3ff.chunk.js",
+  "static/js/1.b8d8b3ff.chunk.js.map": "/watch2gather/static/js/1.b8d8b3ff.chunk.js.map",
   "runtime~main.js": "/watch2gather/static/js/runtime~main.51ef4534.js",
   "runtime~main.js.map": "/watch2gather/static/js/runtime~main.51ef4534.js.map",
   "static/media/bgvid.860475ab.mp4": "/watch2gather/static/media/bgvid.860475ab.860475ab.mp4",
-  "static/css/main.bcbbfc33.chunk.css.map": "/watch2gather/static/css/main.bcbbfc33.chunk.css.map",
+  "static/css/main.88b057c2.chunk.css.map": "/watch2gather/static/css/main.88b057c2.chunk.css.map",
+  "static/css/1.1d69f8d9.chunk.css.map": "/watch2gather/static/css/1.1d69f8d9.chunk.css.map",
   "index.html": "/watch2gather/index.html",
-  "precache-manifest.6e14c55957434aa2d3789c82bb408ec6.js": "/watch2gather/precache-manifest.6e14c55957434aa2d3789c82bb408ec6.js",
+  "precache-manifest.d6d06b264f50f55aaedceb2a81d95fa8.js": "/watch2gather/precache-manifest.d6d06b264f50f55aaedceb2a81d95fa8.js",
   "service-worker.js": "/watch2gather/service-worker.js"
 }
