@@ -1,7 +1,7 @@
 import React from 'react';
 import "./styles/CreateRoom.css"
 import { Link } from "react-router-dom"
-import { createRoom} from './RoomController'
+import { createRoom} from './API/RoomAPI'
 import { setRoomName } from '../Room';
 import RoomList from './RoomList';
 import Backgroundvideo from './Backgroundvideo';

@@ -1,12 +1,11 @@
 import React from "react";
 import "./components/styles/Room.css"
-import InputUser from "./components/InputUser";
 import { user } from "./App";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Video from "./components/Video";
 import Navbar from "./components/Navbar";
-import { getRooms, leaveRoom } from "./components/RoomController";
-import { deleteUser } from "./components/UserController";
+import { getRooms, leaveRoom } from "./components/API/RoomAPI";
+import { deleteUser } from "./components/API/UserAPI";
 import Backgroundvideo from "./components/Backgroundvideo";
 import Footer from "./components/Footer";
 
@@ -55,8 +54,6 @@ class Room extends React.Component {
                     <Navbar />
                     <div className="room-container">
                         <h1>{roomName}</h1>
-                        {/* Only show this if the user is not set  */}
-                        <InputUser trigger={this.state.userState} />
                         <Video />
                     </div>
                     <Backgroundvideo />

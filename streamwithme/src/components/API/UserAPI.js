@@ -1,4 +1,4 @@
-import { SetUser } from "../App"
+import { SetUser } from "../../App"
 
 export const createUser = async (_name) => {
     try {
@@ -20,7 +20,7 @@ export const createUser = async (_name) => {
         console.log(error)
     }
 }
-export const getUser = async () => {
+export const getUsers = async () => {
     try {
         let res = await fetch('https://gruppe10.toni-barth.com/users/',
             {
@@ -43,4 +43,3 @@ export const deleteUser = (userId) => {
         console.log(error)
     }
 }
-

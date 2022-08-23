@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import "./styles/Video.css"
 import { user } from '../App'
-import { changeVideoUrl, getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './VideoController'
+import { changeVideoUrl, getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI'
 import { roomName } from '../Room'
 
 class Video extends React.Component {
@@ -18,6 +18,7 @@ class Video extends React.Component {
     }
     async componentDidMount() {
         const interval = setInterval(async () => {
+            if (roomName === "") return;
             //Sync url with API
             let dataUrl = await getVideoUrl(roomName)
             let url = dataUrl.url
@@ -26,20 +27,20 @@ class Video extends React.Component {
             let dataStatus = await getVideoStatus(roomName)
             let status = dataStatus.status
             if (status !== this.state.status) {
-                if (status === "paused") {
-                    this.setState({ status: status, isPlaying: false })
-                } else if (status === "playing") {
-                    this.setState({ status: status, isPlaying: true })
-                }
+                if (status === "paused") 
+                    this.setState({ status: status, isPlaying: false });
+                else if (status === "playing")
+                    this.setState({ status: status, isPlaying: true });
+                
             }
-            //Sync position in video with API
-            // let dataPos = await getVideoPosition(roomName)
-            // let pos = dataPos.position
-            // if (pos !==this.state.pos) {
-            // // if ((typeof(pos)==="number") && (Math.abs(pos - this.state.pos) > 7)) {
+            // Sync position in video with API
+            let dataPos = await getVideoPosition(roomName)
+            let pos = dataPos.position
+            if (pos !==this.state.pos) {
+            // // if ((typeof(pos)==="number") && (Math.abs(pos - this.state.pos) > 3)) {
             //     this.setState({ pos: pos })
             //     this.player.seekTo(pos, 'seconds');
-            // }
+            }
 
         }, 3000);
         return () => clearInterval(interval);
@@ -64,7 +65,7 @@ class Video extends React.Component {
                 <div className="video-input">
                     <form onSubmit={this.UrlInput}>
                         <label htmlFor="Url">
-                            URL eingeben
+                            Video URL eingeben
                             <input
                                 type='text'
                                 name="Url"
@@ -72,17 +73,18 @@ class Video extends React.Component {
                                 placeholder="z.B: https://youtu.be/dQw4w9WgXcQ"
                                 value={this.state.input}
                                 onChange={this.handleInputChange} />
-                            <input type="submit" className="submitVideo" value="Video Teilen" />
+                                
                         </label>
+                        <div role='presentation'>
+                            <ReactPlayer
+                                height='9em'
+                                width='18em'
+                                poster={this.state.input}
+                                url={this.state.input}
+                            />
+                        </div>
+                        <input type="submit" className="submitVideo" value="Video Teilen" />
                     </form>
-                    <div role='presentation'>
-                        <ReactPlayer
-                            height='6em'
-                            width='auto'
-                            poster={this.state.input}
-                            url={this.state.input}
-                        />
-                    </div>
                 </div>
                 <div className="video">
                     <ReactPlayer
@@ -101,7 +103,6 @@ class Video extends React.Component {
                         progressInterval={3000}
                     />
                 </div>
-
             </div>
         )
     }

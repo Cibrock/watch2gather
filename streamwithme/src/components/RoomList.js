@@ -2,7 +2,7 @@ import React from 'react'
 import RoomListElement from "./RoomListElement"
 import './styles/RoomList.css';
 import Async from "react-async";
-import { getRooms} from './RoomController'
+import { getRooms} from './API/RoomAPI'
 
 let startIndex = 0
 let endIndex = 12
@@ -11,9 +11,12 @@ let maxLength
 const shownRooms = (rooms) => {
     let out = []
     maxLength = rooms.length;
+    // console.log(rooms)
     if (rooms.length === 0) return
     for (let i = startIndex; i < endIndex; i++) {
-        out.push(rooms[i].name)
+        if (typeof(rooms[i]) === "object"){
+            out[i] = rooms[i].name
+        }
     }
     return out;
 }
@@ -24,7 +27,7 @@ const RoomList = () => (
             if (isLoading) return "Loading...";
             if (error) return 'Something went wrong: ${error.message}';
             if (data)
-                return false ? (
+                return true ? (
                     <div className='roomlist_container'>
                     <ul className='roomlist' aria-label="Räume">
                         {shownRooms(data.rooms).map(room => (<RoomListElement roomName={room} />))}
