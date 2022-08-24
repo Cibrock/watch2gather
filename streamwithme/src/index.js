@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './components/styles/index.css';
 import App from './App';
 import Room from './Room';
 import {HashRouter as Router, Routes, Route} from 'react-router-dom'

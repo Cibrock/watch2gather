@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import "./styles/RoomListElement.css";
 import { useNavigate } from 'react-router-dom';
-import { setRoomName } from '../Room';
+import { setRoom } from '../Room';
 import { user } from '../App';
-import { openPopup } from './InputUser';
+import { setPopup } from './InputUser';
 
 const RoomListElement = (props) => {
     const [name] = useState(props.name);
@@ -12,10 +12,10 @@ const RoomListElement = (props) => {
 
     const enterRoom = () => {
         if (user === undefined) {
-            openPopup.set(true);
+            setPopup.set(true);
             return console.log("Blocked join room, user is " + user);
         }
-        setRoomName(name);
+        setRoom.set(name);
         navigateToRoom();
     };
 

@@ -20,7 +20,6 @@ export function SetUser(id) {
 }
 
 const App = () => {
-
     useEffect(() => {
         //Delete the current user when the side is closed
         const handleTabClose = event => {
@@ -35,6 +34,7 @@ const App = () => {
 
         return () => window.removeEventListener('beforeunload', handleTabClose);
     }, []);
+    
     return (
         <div className="App">
             <Helmet>

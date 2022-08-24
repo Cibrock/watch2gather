@@ -1,69 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./components/styles/Room.css"
 import { user } from "./App";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Video from "./components/Video";
 import Navbar from "./components/Navbar";
-import { getRooms, leaveRoom } from "./components/API/RoomAPI";
+import { leaveRoom } from "./components/API/RoomAPI";
 import { deleteUser } from "./components/API/UserAPI";
 import Backgroundvideo from "./components/Backgroundvideo";
 import Footer from "./components/Footer";
+import { hookstate, useHookstate } from '@hookstate/core';
 
-const TITLE = 'StreamWithMe'
 
-export let roomName = ""
-export const setRoomName = (name) => { roomName = name }
+export const setRoom = hookstate(false);
 
-class Room extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { userState: user === undefined, title: TITLE + " - " + roomName };
-    }
+const APP = 'StreamWithMe'
 
-    async componentDidMount() {
-        //Set the default roomName
-        if (roomName === undefined) {
-            let roomData = await getRooms()
-            roomName = roomData.rooms[0].name
-            this.setState({ title: TITLE + " - " + roomName })
-        }
+const Room = () => {
+    const roomName = useHookstate(setRoom);
 
-        //remove the user from the room if they leave the side
+    useEffect( () => {
+        // if (roomName === undefined) {
+        //     let roomData = await getRooms()
+        //     setRoom.set(roomData.rooms[0].name)
+        // }
         const handleTabClose = event => {
             event.preventDefault();
-            leaveRoom(roomName, user)
+            leaveRoom(roomName.get(), user)
             deleteUser(user)
             console.log("beforeunload");
             return (event.returnValue = 'Are you sure you want to exit?');
         };
         window.addEventListener('beforeunload', handleTabClose);
 
-        return () => {
-            window.removeEventListener('beforeunload', handleTabClose);
-        };
-    }
+        return () => window.removeEventListener('beforeunload', handleTabClose);
+    } )
 
-    render() {
-        return (
-            <div className="Room">
-                <HelmetProvider>
-                    <Helmet>
-                        <title>{this.state.title}</title>
-                    </Helmet>
-                    <Navbar />
-                    <div className="room-container">
-                        <h1>{roomName}</h1>
-                        <Video />
-                    </div>
-                    <Backgroundvideo />
-                </HelmetProvider>
-                <Footer />
-            </div>
-        )
-    }
-    customForceUpdate() {
-        this.forceUpdate()
-    }
+    return (
+        <div className="Room">
+            <HelmetProvider>
+                <Helmet>
+                    <title>{APP + " - " + roomName.get()}</title>
+                </Helmet>
+                <Navbar />
+                <div className="room-container">
+                    <h1>{roomName.get()}</h1>
+                    <Video />
+                </div>
+                <Backgroundvideo />
+                <Footer/>
+            </HelmetProvider>
+        </div>
+    )
 }
 
 export default Room

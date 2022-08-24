@@ -1,13 +1,13 @@
+import "./styles/InputUser.css";
 import React, { useState } from "react";
 import { createUser } from "./API/UserAPI";
 import { hookstate, useHookstate } from '@hookstate/core';
-import "./styles/InputUser.css";
 
-export const openPopup = hookstate(false);
+export const setPopup = hookstate(false);
 
 const InputUser = () => {
     const [name, setName] = useState("");
-    const PopUpState = useHookstate(openPopup);
+    const status = useHookstate(setPopup);
 
     const handleInputChange = (event) => {
         //Update the shown text whilst typing
@@ -17,11 +17,11 @@ const InputUser = () => {
     const submitInput = async (event) => {
         createUser(name);
         setName("");
-        PopUpState.set(false);
+        status.set(false);
         event.preventDefault();
     };
 
-    return (PopUpState.get()) ? (
+    return (status.get()) ? (
         <div className="modal">
             <div className="overlay">
                 <div className="modal-content">

@@ -2,22 +2,22 @@ import React, { useCallback } from 'react';
 import "./styles/CreateRoom.css";
 import { useNavigate } from 'react-router-dom';
 import { createRoom } from './API/RoomAPI';
-import { setRoomName } from '../Room';
+import { setRoom } from '../Room';
 import RoomList from './RoomList';
 import { user } from '../App';
 import 'reactjs-popup/dist/index.css';
-import { openPopup } from './InputUser';
+import { setPopup } from './InputUser';
 
 const CreateRoom = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     const instantiateRoom = async () => {
         if (user === undefined) {
-            openPopup.set(true);
+            setPopup.set(true);
             return console.log("Blocked join room, user is " + user);
         }
         let name = await createRoom();
-        setRoomName(name);
+        setRoom.set(name)
         navigateToRoom();
     };
 
