@@ -6,6 +6,8 @@ import CreateRoom from './components/CreateRoom';
 import { Helmet } from 'react-helmet';
 import { deleteUser } from './components/API/UserAPI';
 import Footer from './components/Footer';
+import InputUser from './components/InputUser.js';
+import Backgroundvideo from './components/Backgroundvideo';
 
 
 const TITLE = 'StreamWithMe'
@@ -39,7 +41,9 @@ const App = () => {
                 <title>{TITLE}</title>
             </Helmet>
             <Navbar />
+            <InputUser/>
             <CreateRoom />
+            <Backgroundvideo />
             <Footer/>
         </div>
     );

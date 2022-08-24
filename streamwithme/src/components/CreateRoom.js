@@ -4,10 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { createRoom } from './API/RoomAPI';
 import { setRoomName } from '../Room';
 import RoomList from './RoomList';
-import Backgroundvideo from './Backgroundvideo';
 import { user } from '../App';
 import 'reactjs-popup/dist/index.css';
-import InputUser from './InputUser.js';
 import { openPopup } from './InputUser';
 
 const CreateRoom = () => {
@@ -25,14 +23,12 @@ const CreateRoom = () => {
 
     return (
         <div className="flex-container">
-            <InputUser/>
             <div className="flex-inner">
                 <div>
                     <h2 className="accessibility">Einen Raum erstellen</h2>
                     <h2 role="none">enjoy with me.</h2>
                 </div>
                 <div>
-                    <Backgroundvideo />
                     <button type="button" onClick={instantiateRoom} id="roombutton">
                         Einen Raum Erstellen
                     </button>

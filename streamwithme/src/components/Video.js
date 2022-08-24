@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactPlayer from 'react-player'
-import "./styles/Video.css"
-import { user } from '../App'
-import { changeVideoUrl, getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI'
-import { roomName } from '../Room'
+import React from 'react';
+import ReactPlayer from 'react-player';
+import "./styles/Video.css";
+import { user } from '../App';
+import { changeVideoUrl, getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI';
+import { roomName } from '../Room';
 
 class Video extends React.Component {
     constructor(props) {
@@ -20,26 +20,26 @@ class Video extends React.Component {
         const interval = setInterval(async () => {
             if (roomName === "") return;
             //Sync url with API
-            let dataUrl = await getVideoUrl(roomName)
-            let url = dataUrl.url
+            let dataUrl = await getVideoUrl(roomName);
+            let url = dataUrl.url;
             if (url !== this.state.url) this.setState({ url: url });
             //Sync status with API
-            let dataStatus = await getVideoStatus(roomName)
-            let status = dataStatus.status
+            let dataStatus = await getVideoStatus(roomName);
+            let status = dataStatus.status;
             if (status !== this.state.status) {
-                if (status === "paused") 
+                if (status === "paused")
                     this.setState({ status: status, isPlaying: false });
                 else if (status === "playing")
                     this.setState({ status: status, isPlaying: true });
-                
+
             }
             // Sync position in video with API
-            let dataPos = await getVideoPosition(roomName)
-            let pos = dataPos.position
-            if (pos !==this.state.pos) {
-            // // if ((typeof(pos)==="number") && (Math.abs(pos - this.state.pos) > 3)) {
-            //     this.setState({ pos: pos })
-            //     this.player.seekTo(pos, 'seconds');
+            let dataPos = await getVideoPosition(roomName);
+            let pos = dataPos.position;
+            if (pos !== this.state.pos) {
+                // // if ((typeof(pos)==="number") && (Math.abs(pos - this.state.pos) > 3)) {
+                //     this.setState({ pos: pos })
+                //     this.player.seekTo(pos, 'seconds');
             }
 
         }, 3000);
@@ -49,15 +49,15 @@ class Video extends React.Component {
     async UrlInput(event) {
         //On Submit create the user and join a room if possible
         if (user !== undefined) {
-            changeVideoUrl(roomName, user, this.state.input)
+            changeVideoUrl(roomName, user, this.state.input);
             this.setState({ input: "", url: this.state.input });
         }
         event.preventDefault();
     }
 
     ref = player => {
-        this.player = player
-    }
+        this.player = player;
+    };
 
     render() {
         return (
@@ -72,8 +72,8 @@ class Video extends React.Component {
                                 id="Url"
                                 placeholder="z.B: https://youtu.be/dQw4w9WgXcQ"
                                 value={this.state.input}
-                                onChange={this.handleInputChange} />
-                                
+                                onChange={this.handleInputChange}
+                            />
                         </label>
                         <div role='presentation'>
                             <ReactPlayer
@@ -104,7 +104,7 @@ class Video extends React.Component {
                     />
                 </div>
             </div>
-        )
+        );
     }
 }
-export default Video
+export default Video;

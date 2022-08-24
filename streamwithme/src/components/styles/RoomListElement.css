@@ -3,6 +3,7 @@
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
+    color: antiquewhite;
 }
 
 .element:hover{

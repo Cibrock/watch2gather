@@ -11,6 +11,9 @@
     cursor: pointer;
     border-radius: 0.3em;
 }
+#roombutton:hover{
+    color:teal;
+}
 h2{
     color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
