@@ -1,7 +1,7 @@
 {
   "name": "streamwithme",
   "homepage": "https://cibrock.github.io/watch2gather/",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "dependencies": {
     "@hookstate/core": "^4.0.0-rc21",
