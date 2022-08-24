@@ -24,10 +24,15 @@ const RoomList = () => (
             if (error) return 'Something went wrong: ' + error.message;
             if (data)
                 return (
-                    <div className='roomlist_container'>
-                        <ul className='roomlist' aria-label="Räume">
-                            {shownRooms(data.rooms).map(room => (<RoomListElement name={room} key={room} />))}
-                        </ul>
+                    <div className="flex-rooms">
+                        <div><h2>Einem Raum beitreten</h2></div>
+                        <div className="flex-room">
+                            <div className='roomlist_container'>
+                                <ul className='roomlist' aria-label="Räume">
+                                    {shownRooms(data.rooms).map(room => (<RoomListElement name={room} key={room} />))}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 );
             return null;

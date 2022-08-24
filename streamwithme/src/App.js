@@ -8,7 +8,7 @@ import { deleteUser } from './components/API/UserAPI';
 import Footer from './components/Footer';
 import InputUser from './components/InputUser.js';
 import Backgroundvideo from './components/Backgroundvideo';
-
+import RoomList from './components/RoomList';
 
 const TITLE = 'StreamWithMe'
 export let user
@@ -40,10 +40,11 @@ const App = () => {
             <Helmet>
                 <title>{TITLE}</title>
             </Helmet>
-            <Navbar />
+            <Navbar/>
             <InputUser/>
-            <CreateRoom />
-            <Backgroundvideo />
+            <CreateRoom/>
+            <RoomList/>
+            <Backgroundvideo/>
             <Footer/>
         </div>
     );

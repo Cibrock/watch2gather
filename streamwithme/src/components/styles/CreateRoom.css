@@ -31,7 +31,7 @@ h2{
 }
 .flex-container {
     display: flex;
-    height: 70vh;
+    height: 40vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -47,36 +47,11 @@ h2{
     margin: 8em;
     color: black;
 }
-.flex-rooms{
-    display: flex;
-    width: 110%;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 1em;
-    border-radius: 0.3em;
-    margin: 1rem;
-}
-.flex-room{
-    display: flex;
-    width: 96%;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 1em;
-    border-radius: 0.3em;
-    margin: 1rem;
-    background-color: rgb(10, 10, 10);
-}
 
 @media only screen and (max-width:900px) and (min-width:700px){
     .flex-inner{
         display: flex;
         height: 1em;
-    }
-    .flex-room{
-        display: flex;
-        width: 80%;
     }
 }
 
@@ -86,15 +61,5 @@ h2{
         height: 1em;
         border-radius: 0.3em;
         margin: 4em;
-    }
-    .flex-rooms{
-        padding: 1em;
-        margin: 1rem;
-    }
-    .flex-room{
-        display: flex;
-        width: 300px;
-        padding: 1em;
-        margin: 0rem;
     }
 }

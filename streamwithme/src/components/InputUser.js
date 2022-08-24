@@ -1,13 +1,17 @@
 import "./styles/InputUser.css";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+import { useNavigate } from 'react-router-dom';
 import { createUser } from "./API/UserAPI";
 import { hookstate, useHookstate } from '@hookstate/core';
+import { setRoom } from "../Room";
 
 export const setPopup = hookstate(false);
 
 const InputUser = () => {
     const [name, setName] = useState("");
     const status = useHookstate(setPopup);
+    const navigate = useNavigate();
+    const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
 
     const handleInputChange = (event) => {
         //Update the shown text whilst typing
@@ -18,10 +22,12 @@ const InputUser = () => {
         createUser(name);
         setName("");
         status.set(false);
+        console.log(setRoom.get());
+        if (setRoom.get() !== false) navigateToRoom();
         event.preventDefault();
     };
 
-    return (status.get()) ? (
+    return (status.get()) && (
         <div className="modal">
             <div className="overlay">
                 <div className="modal-content">
@@ -41,6 +47,6 @@ const InputUser = () => {
                 </div>
             </div>
         </div>
-    ) : null;
+    );
 };
 export default InputUser;

@@ -11,11 +11,11 @@ const RoomListElement = (props) => {
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
 
     const enterRoom = () => {
+        setRoom.set(name);
         if (user === undefined) {
             setPopup.set(true);
             return console.log("Blocked join room, user is " + user);
         }
-        setRoom.set(name);
         navigateToRoom();
     };
 
