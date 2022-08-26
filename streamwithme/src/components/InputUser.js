@@ -31,6 +31,7 @@ const InputUser = () => {
         <div className="modal">
             <div className="overlay">
                 <div className="modal-content">
+                    <h2>Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
                     <form onSubmit={submitInput}>
                         <label htmlFor="UserName">
                             Name eingeben
