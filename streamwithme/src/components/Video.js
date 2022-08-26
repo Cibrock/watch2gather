@@ -38,14 +38,23 @@ const Video = () => {
                 else if (newStatus === "playing") setPlaying(true);
             }
             // Sync position in video with API
-            let dataPos = await getVideoPosition(roomName);
-            let newPos = dataPos.position;
-            if (newPos !== pos) {
-                if ((typeof (newPos) === "number") && (Math.abs(newPos - pos) > 3)) {
-                    setPos(newPos);
+            // let dataPos = await getVideoPosition(roomName);
+            // let newPos = dataPos.position;
+            // if (newPos !== pos) {
+            //     if ((typeof (newPos) === "number") && (Math.abs(newPos - pos) > 3)) {
+            //         setPos(newPos);
             //         playerRef.current.seekTo(newPos, 'seconds');
-                }
-            }
+            //         setPlaying(true);
+            //     }
+            // }
+
+            const apiTime = await getVideoPosition()
+            const ownTime = data.playedSeconds
+            if (Math.abs(apiTime-ownTime) > 3){
+                setPos(apiTime);
+                playerRef.current.seekTo(apiTime, 'seconds');
+                setPlaying(true)
+            } 
 
         }, 3000);
         return () => clearInterval(interval);
@@ -100,8 +109,9 @@ const Video = () => {
                     onPause={() => changeVideoStatus(roomName, user, 'paused')}
                     onEnded={() => console.log('onEnd callback')}
                     onError={() => console.log('onError callback')}
-                    onProgress={(data) => changeVideoPosition(roomName, user, Math.round(data.playedSeconds))}
-                    progressInterval={3000}
+                    // onProgress={(data) => {func(data)}}
+                    onSeek={(data) => {setPos(data.seconds); changeVideoPosition(roomName, user, data.seconds);}}
+                    // progressInterval={3000}
                     ref={playerRef}
                 />
             </div>
