@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useCallback } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./components/styles/Room.css"
 import { user } from "./App";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -17,12 +18,13 @@ const APP = 'StreamWithMe'
 
 const Room = () => {
     const roomName = useHookstate(setRoom);
+    const navigate = useNavigate();
+    const navigateToHome = useCallback(() => navigate("/", { replace: true }), [navigate]);
 
     useEffect( () => {
-        // if (roomName === undefined) {
-        //     let roomData = await getRooms()
-        //     setRoom.set(roomData.rooms[0].name)
-        // }
+        if (roomName.get() === false) {
+            navigateToHome()
+        }
         const handleTabClose = event => {
             event.preventDefault();
             leaveRoom(roomName.get(), user)

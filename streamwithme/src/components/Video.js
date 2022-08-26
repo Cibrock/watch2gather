@@ -19,7 +19,7 @@ const Video = () => {
     };
 
     const playerRef = useRef(null);
-    const roomName = setRoom.get()
+    const roomName = setRoom.get();
 
     useEffect(() => {
         const interval = setInterval(async () => {
@@ -48,13 +48,15 @@ const Video = () => {
             //     }
             // }
 
-            const apiTime = await getVideoPosition()
-            const ownTime = data.playedSeconds
-            if (Math.abs(apiTime-ownTime) > 3){
+            const dataPos = await getVideoPosition(roomName);
+            const apiTime = dataPos.position;
+            const ownTime = pos;
+            console.log(ownTime, apiTime);
+            if (Math.abs(apiTime - ownTime) > 3) {
                 setPos(apiTime);
                 playerRef.current.seekTo(apiTime, 'seconds');
-                setPlaying(true)
-            } 
+                setPlaying(true);
+            }
 
         }, 3000);
         return () => clearInterval(interval);
@@ -109,9 +111,9 @@ const Video = () => {
                     onPause={() => changeVideoStatus(roomName, user, 'paused')}
                     onEnded={() => console.log('onEnd callback')}
                     onError={() => console.log('onError callback')}
-                    // onProgress={(data) => {func(data)}}
-                    onSeek={(data) => {setPos(data.seconds); changeVideoPosition(roomName, user, data.seconds);}}
-                    // progressInterval={3000}
+                    onProgress={(data) => { setPos(data.playedSeconds); }}
+                    onSeek={(data) => { setPos(data.seconds); changeVideoPosition(roomName, user, data.seconds); }}
+                    progressInterval={3000}
                     ref={playerRef}
                 />
             </div>
