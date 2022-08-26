@@ -12,55 +12,14 @@ const Video = () => {
     const [isPlaying, setPlaying] = useState(false);
     const [pos, setPos] = useState(0);
 
+    const playerRef = useRef(null);
+    const roomName = setRoom.get();
+
     const handleInputChange = (event) => {
         //Update the shown text whilst typing
         setInput(event.target.value);
         setPlaying(false);
     };
-
-    const playerRef = useRef(null);
-    const roomName = setRoom.get();
-
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            console.log("interval update");
-            if (roomName === "") return console.log("No Roomname set");
-            //Sync url with API
-            let dataUrl = await getVideoUrl(roomName);
-            let newUrl = dataUrl.url;
-            if (newUrl !== url) setUrl(newUrl);
-            //Sync status with API
-            let dataStatus = await getVideoStatus(roomName);
-            let newStatus = dataStatus.status;
-            if (newStatus !== status) {
-                setStatus(newStatus);
-                if (newStatus === "paused") setPlaying(false);
-                else if (newStatus === "playing") setPlaying(true);
-            }
-            // Sync position in video with API
-            // let dataPos = await getVideoPosition(roomName);
-            // let newPos = dataPos.position;
-            // if (newPos !== pos) {
-            //     if ((typeof (newPos) === "number") && (Math.abs(newPos - pos) > 3)) {
-            //         setPos(newPos);
-            //         playerRef.current.seekTo(newPos, 'seconds');
-            //         setPlaying(true);
-            //     }
-            // }
-
-            const dataPos = await getVideoPosition(roomName);
-            const apiTime = dataPos.position;
-            const ownTime = pos;
-            console.log(ownTime, apiTime);
-            if (Math.abs(apiTime - ownTime) > 3) {
-                setPos(apiTime);
-                playerRef.current.seekTo(apiTime, 'seconds');
-                setPlaying(true);
-            }
-
-        }, 3000);
-        return () => clearInterval(interval);
-    });
 
     const urlInput = (event) => {
         //On Submit create the user and join a room if possible
@@ -71,6 +30,38 @@ const Video = () => {
         } else console.log("user is " + user);
         event.preventDefault();
     };
+
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            //Sync url with API
+            const dataUrl = await getVideoUrl(roomName);
+            const newUrl = dataUrl.url;
+            if (newUrl !== url) setUrl(newUrl);
+            //Sync status with API
+            const dataStatus = await getVideoStatus(roomName);
+            const newStatus = dataStatus.status;
+            if (newStatus !== status) {
+                setStatus(newStatus);
+                if (newStatus === "paused") setPlaying(false);
+                else if (newStatus === "playing") setPlaying(true);
+            }
+            const dataPos = await getVideoPosition(roomName);
+            const newPos = dataPos.position;
+            console.log("own:",pos," api:", newPos, " dif:",Math.abs(newPos - pos));
+            if (Math.abs(newPos - pos) > 3) {
+                setPos(newPos);
+                setPlaying(true);
+                playerRef.current.seekTo(newPos, 'seconds');
+            }
+
+        }, 3000);
+        return () => clearInterval(interval);
+    });
+
+    const updatePos = (data) => {
+        setPos(Math.round(data.playedSeconds)); 
+        changeVideoPosition(roomName, user, Math.round(data.playedSeconds));
+    }
 
     return (
         <div className="video-container">
@@ -111,8 +102,8 @@ const Video = () => {
                     onPause={() => changeVideoStatus(roomName, user, 'paused')}
                     onEnded={() => console.log('onEnd callback')}
                     onError={() => console.log('onError callback')}
-                    onProgress={(data) => { setPos(data.playedSeconds); }}
-                    onSeek={(data) => { setPos(data.seconds); changeVideoPosition(roomName, user, data.seconds); }}
+                    onProgress={(data) => { updatePos(data) }}
+                    onSeek={(data) => { updatePos(data) }}
                     progressInterval={3000}
                     ref={playerRef}
                 />
