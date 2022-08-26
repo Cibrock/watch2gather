@@ -26,9 +26,9 @@ export const getChat = async (roomName, start) => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    "start": start
-                })
+                // body: JSON.stringify({
+                //     "start": start
+                // })
             }
         )
     }
