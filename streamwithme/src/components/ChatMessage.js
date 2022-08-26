@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { getUsers } from "./API/UserAPI";
+import "./styles/ChatMessage.css";
 
 const ChatMessage = (props) => {
     const [text] = useState(props.text);
-    const [time] = useState(props.time);
+    const [time, setTime] = useState(props.time);
     const [user, setUser] = useState(props.user);
 
     useEffect(() => {
         getUsername(user);
+        // setTime(new Date(time).toISOString().substring(11, 8))
+      let date = new Date(null)  
+      console.log(typeof(time));
+      if(typeof(time) == "string")
+      return;
+      date.setMilliseconds(time)
+      let result = date.toISOString()
+      let resultsub = result.substring(11, 19)
+      setTime(resultsub)
     });
 
     const getUsername = async (id) => {
@@ -23,10 +33,10 @@ const ChatMessage = (props) => {
     };
 
     return (
-        <li>
-            <p>{time}</p>
-            <p>{user}</p>
-            <p>{text}</p>
+        <li className="messages">
+            <span className="messageTime">{time}</span>
+            <span className="messageUser">{user}:</span>
+            <span className="messageText">{text}</span>
         </li>
     );
 };

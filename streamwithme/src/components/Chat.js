@@ -18,11 +18,11 @@ const Chat = (props) => {
                 userId: messages[i].userId
             });
         }
+        console.log(out);
         return out;
     };
     const roomName = setRoom.get();
     const getLastTen = async () => {
-        console.log(roomName);
         return await getChat(roomName, startMessage);
     };
 
@@ -32,7 +32,6 @@ const Chat = (props) => {
                 if (isLoading) return "Loading...";
                 if (error) return 'Something went wrong: ' + error.message;
                 if (data)
-                    console.log(data);
                 return (
                     <div className="flex-chat">
                         <div className='chat_container'>
