@@ -23,11 +23,12 @@ const Video = () => {
 
     const urlInput = (event) => {
         //On Submit create the user and join a room if possible
-        if (user !== undefined) {
+        if (user === undefined) console.log("user is " + user);
+        else {
             changeVideoUrl(roomName, user, input);
             setUrl(input);
             setInput("");
-        } else console.log("user is " + user);
+        }
         event.preventDefault();
     };
 
@@ -43,8 +44,7 @@ const Video = () => {
     const videoUrl = async () => {
         const dataUrl = await getVideoUrl(roomName);
         const newUrl = dataUrl.url;
-        if (newUrl !== url)
-            setUrl(newUrl);
+        if (newUrl !== url) setUrl(newUrl);
     };
 
     const videoStatus = async () => {
@@ -63,7 +63,6 @@ const Video = () => {
         console.log("own:", pos, " api:", newPos, " dif:", Math.abs(newPos - pos));
         if (Math.abs(newPos - pos) > 3) {
             setPos(newPos);
-            // setPlaying(true);
             playerRef.current.seekTo(newPos, 'seconds');
         }
     };
@@ -73,11 +72,7 @@ const Video = () => {
         const newPos = dataPos.position;
         setPos(newPos);
         playerRef.current.seekTo(newPos, 'seconds');
-    };
-
-    const updatePos = (data) => {
-        setPos(Math.round(data.playedSeconds));
-        changeVideoPosition(roomName, user, Math.round(data.playedSeconds));
+        changeVideoStatus(roomName,user,"paused")
     };
 
     return (
@@ -112,6 +107,7 @@ const Video = () => {
                     width='35em'
                     border='bold'
                     controls
+                    muted
                     playing={isPlaying}
                     url={url}
                     ref={playerRef}
