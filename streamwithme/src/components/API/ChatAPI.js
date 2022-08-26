@@ -1,4 +1,4 @@
-export const sendMessage = async (id, roomName, message) => {
+export const sendMessage = async (roomName, id, message) => {
     try {
         fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/chat',
             {
