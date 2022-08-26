@@ -48,8 +48,8 @@ const Room = () => {
                 <div className="room-container">
                     <h1>{roomName.get()}</h1>
                     <Video />
-                    <Chat />
                 </div>
+                <Chat />
                 <Backgroundvideo />
                 <Footer/>
             </HelmetProvider>

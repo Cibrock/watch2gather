@@ -20,17 +20,19 @@ export const sendMessage = async (id, roomName, message) => {
 
 export const getChat = async (roomName, start) => {
     try {
-        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/chat',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/chat',
             {
                 method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                // headers: {
+                //     "Content-Type": "application/json"
+                // },
                 // body: JSON.stringify({
                 //     "start": start
                 // })
             }
+            
         )
+        return await res.json();
     }
     catch (error) {
         console.log(error)
