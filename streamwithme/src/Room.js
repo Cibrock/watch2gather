@@ -10,6 +10,7 @@ import { deleteUser } from "./components/API/UserAPI";
 import Backgroundvideo from "./components/Backgroundvideo";
 import Footer from "./components/Footer";
 import { hookstate, useHookstate } from '@hookstate/core';
+import Chat from "./components/Chat";
 
 
 export const setRoom = hookstate(false);
@@ -47,6 +48,7 @@ const Room = () => {
                 <div className="room-container">
                     <h1>{roomName.get()}</h1>
                     <Video />
+                    <Chat />
                 </div>
                 <Backgroundvideo />
                 <Footer/>
