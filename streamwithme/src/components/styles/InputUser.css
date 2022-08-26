@@ -1,34 +1,48 @@
-label{
-    color:white;
+label {
+    color: white;
     font-weight: bold;
     font-family: 'Helvetica', 'Arial', sans-serif;
     margin: 1em;
 }
 
-#UserName{
-    color:white;
+#UserName {
+    color: white;
     background-color: rgb(30, 30, 30);
 }
 
-.modal .overlay{
-    width:100vw;
-    height:100vh;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    position:fixed;
+.modal-btn {
+    background-color: white;
+    color: black;
+    width: 30px;
+    height: 25px;
+    right: 10px;
+    top: 10px;
+    position: fixed;
+    font-size: larger;
+    font-weight: bold;
 }
 
-.overlay{
+.modal .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+}
+
+.overlay {
     background-color: rgba(40, 40, 40, 0.8);
+    z-index: 2;
 }
 
-.modal-content{
+.modal-content {
+    z-index: 3;
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-color: black;
     padding: 14px 28px;
     border-radius: 3px;

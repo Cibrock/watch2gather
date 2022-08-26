@@ -18,10 +18,14 @@ const InputUser = () => {
         setName(event.target.value);
     };
 
+    const toggle = () => {
+        status.set(!status.get())
+    }
+
     const submitInput = async (event) => {
         createUser(name);
         setName("");
-        status.set(false);
+        toggle();
         console.log(setRoom.get());
         if (setRoom.get() !== false) navigateToRoom();
         event.preventDefault();
@@ -29,23 +33,23 @@ const InputUser = () => {
 
     return (status.get()) && (
         <div className="modal">
-            <div className="overlay">
-                <div className="modal-content">
-                    <h2>Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
-                    <form onSubmit={submitInput}>
-                        <label htmlFor="UserName">
-                            Name eingeben
-                        </label>
-                        <input
-                            name="UserName"
-                            type="name"
-                            id="UserName"
-                            value={name}
-                            placeholder="Name"
-                            onChange={handleInputChange} />
-                        <input type="submit" value="Bestätigen" />
-                    </form>
-                </div>
+            <div className="overlay" onClick={toggle}></div>
+            <div className="modal-content">
+                <h2 className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
+                <button className = "modal-btn" onClick={toggle}>×</button>
+                <form onSubmit={submitInput}>
+                    <label htmlFor="UserName">
+                        Name eingeben
+                    </label>
+                    <input
+                        name="UserName"
+                        type="name"
+                        id="UserName"
+                        value={name}
+                        placeholder="Name"
+                        onChange={handleInputChange} />
+                    <input type="submit" value="Bestätigen"/>
+                </form>
             </div>
         </div>
     );
