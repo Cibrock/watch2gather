@@ -60,7 +60,6 @@ const Video = () => {
     const videoPosition = async () => {
         const dataPos = await getVideoPosition(roomName);
         const newPos = dataPos.position;
-        console.log("own:", pos, " api:", newPos, " dif:", Math.abs(newPos - pos));
         if (Math.abs(newPos - pos) > 3) {
             setPos(newPos);
             playerRef.current.seekTo(newPos, 'seconds');
