@@ -3,6 +3,7 @@ import Async from "react-async";
 import { setRoom } from "../Room";
 import { getChat } from "./API/ChatAPI";
 import ChatMessage from "./ChatMessage";
+import "./styles/Chat.css";
 
 const Chat = (props) => {
     const [startMessage, setStartMessage] = useState();
@@ -34,7 +35,7 @@ const Chat = (props) => {
                 if (data)
                 return (
                     <div className="flex-chat">
-                        <div className='chat_container'>
+                        <div className='chat-container'>
                             <ul className='chat' aria-label="Chat">
                                 {shownMessages(data.messages).map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} user={m.userId} />))}
                             </ul>

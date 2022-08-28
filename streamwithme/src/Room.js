@@ -1,4 +1,4 @@
-import React, { useEffect,useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./components/styles/Room.css"
 import { user } from "./App";
@@ -22,7 +22,7 @@ const Room = () => {
     const navigate = useNavigate();
     const navigateToHome = useCallback(() => navigate("/", { replace: true }), [navigate]);
 
-    useEffect( () => {
+    useEffect(() => {
         if (roomName.get() === false) {
             navigateToHome()
         }
@@ -36,7 +36,7 @@ const Room = () => {
         window.addEventListener('beforeunload', handleTabClose);
 
         return () => window.removeEventListener('beforeunload', handleTabClose);
-    } )
+    })
 
     return (
         <div className="Room">
@@ -44,15 +44,14 @@ const Room = () => {
                 <Helmet>
                     <title>{APP + " - " + roomName.get()}</title>
                 </Helmet>
-                <Navbar />
-                <div className="room-container">
-                    <h1>{roomName.get()}</h1>
-                    <Video />
-                </div>
-                <Chat />
-                <Backgroundvideo />
-                <Footer/>
+                <div className="header">    <Navbar /></div>
+                <div className="title">     <h1>{roomName.get()}</h1></div>
+                <div className="video">     <div><Video /></div></div>
+                <div className="chat">      <h2>Chat</h2><Chat /></div>
+                <div className="users">     <h2>Users</h2><Chat /></div>
+                <div className="footer">    <Footer /></div>
             </HelmetProvider>
+            <Backgroundvideo/>
         </div>
     )
 }

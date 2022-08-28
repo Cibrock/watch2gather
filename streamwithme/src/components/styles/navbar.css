@@ -3,14 +3,24 @@
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    width: 110%;
+    width: 100%;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
 .logo{
-    margin-left: 1rem;
+    padding-top: 0.5em;
+    margin-left: 2rem;
     color: white;
     font-size: 2em;
     font-weight: bolder;
+    height: 2em;
+}
+.help{
+    padding-top: 0.5em;
+    margin-right: 2rem;
+    color: white;
+    font-size: 2em;
+    font-weight: bolder;
+    height: 2em;
 }
 .ul {
     display: flex;

@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import Room from './Room';
+import Help from './Help';
 import {HashRouter as Router, Routes, Route} from 'react-router-dom'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,6 +12,7 @@ root.render(
     <Routes>
         <Route path="/" element={<App/>}/>
         <Route path="/Room" element={<Room/>}/>
+        <Route path="/Help" element={<Help/>}/>
     </Routes>
 </Router>
 );

@@ -8,6 +8,9 @@ const Navbar = () => {
             <div className='logo'>
                 <Link to="/">StreamWithMe</Link>
             </div>
+            <div className='help'>
+                <Link to="/Help">Help</Link>
+            </div>
         </nav>
     );
 };

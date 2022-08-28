@@ -71,7 +71,7 @@ const Video = () => {
         const newPos = dataPos.position;
         setPos(newPos);
         playerRef.current.seekTo(newPos, 'seconds');
-        changeVideoStatus(roomName,user,"paused")
+        changeVideoStatus(roomName, user, "paused")
     };
 
     return (
@@ -80,16 +80,17 @@ const Video = () => {
                 <form onSubmit={urlInput}>
                     <label htmlFor="Url">
                         Video URL eingeben
-                        <input
-                            type='text'
-                            name="Url"
-                            id="Url"
-                            placeholder="z.B: https://youtu.be/dQw4w9WgXcQ"
-                            value={input}
-                            onChange={handleInputChange}
-                        />
                     </label>
-                    <div role='presentation'>
+                    <input
+                        type='text'
+                        name="Url"
+                        id="Url"
+                        placeholder="z.B: https://youtu.be/dQw4w9WgXcQ"
+                        value={input}
+                        onChange={handleInputChange}
+                    />
+                    <input type="submit" className="submitVideo" value="Video Teilen" />
+                    <div role='presentation' className='previewVideo'>
                         <ReactPlayer
                             height='9em'
                             width='18em'
@@ -97,7 +98,6 @@ const Video = () => {
                             url={input}
                         />
                     </div>
-                    <input type="submit" className="submitVideo" value="Video Teilen" />
                 </form>
             </div>
             <div className="video">

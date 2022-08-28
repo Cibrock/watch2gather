@@ -34,18 +34,18 @@ const App = () => {
 
         return () => window.removeEventListener('beforeunload', handleTabClose);
     }, []);
-    
+
     return (
         <div className="App">
             <Helmet>
                 <title>{TITLE}</title>
             </Helmet>
-            <Navbar/>
-            <InputUser/>
-            <CreateRoom/>
-            <RoomList/>
-            <Backgroundvideo/>
-            <Footer/>
+            <div className='header'>    <Navbar /></div>
+            <div className='create'>    <CreateRoom /></div>
+            <div className='join'>      <RoomList /></div>
+            <div className='footer'>    <Footer /></div>
+            <InputUser />
+            <Backgroundvideo />
         </div>
     );
 }

@@ -1,17 +1,17 @@
 .video-container {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: none;
+    border: none;
+    height: 0;
 }
 
 .video-input {
     display: flex;
-    flex-direction: column;
-    position: absolute;
+    flex-direction: row;
     justify-content: flex-start;
     height: 20vh;
-}
-
-.video{
-    margin-top: 10rem;
 }
 
 #Url{
@@ -20,7 +20,7 @@
 }
 
 input[type=submit]{
-    background: aqua;
+    background-color:rgb(0, 217, 255);
     border: none;
     margin: 1em;
 }
@@ -30,4 +30,12 @@ label{
     font-weight: bold;
     font-family: 'Helvetica', 'Arial', sans-serif;
     margin: 1em;
+}
+@media only screen and (max-width:700px){
+    .previewVideo{
+        display: none;
+    }
+    .video-input {
+        height: auto;
+    }
 }

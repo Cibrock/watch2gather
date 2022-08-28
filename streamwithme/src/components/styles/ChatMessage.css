@@ -2,12 +2,13 @@
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     list-style: none;
-    margin: 5px;
+
     max-height: 10em;
     height: 100%;
-    max-width: 10%;
     background-color: gray;
-    padding: 5px;
+    padding: 5px 0  5px 0;
+    margin: 5px 0 0 0;
+    width: 100%;
 }
 .messageUser::after{
     content: '\A';
@@ -16,7 +17,6 @@
 .messageTime{
     white-space: nowrap;
     margin: 5px;
-
 }
 .messageUser{
     white-space: nowrap;
@@ -26,4 +26,15 @@
 .messageText{
     white-space: nowrap;
     margin: 5px;
+}
+@media only screen and (max-width:700px){
+    .messages{
+        margin: 1px;
+        margin-right: 1vh;
+    }
+    .messageUser::after{
+        content: normal;
+        white-space: pre;
+    }
+
 }

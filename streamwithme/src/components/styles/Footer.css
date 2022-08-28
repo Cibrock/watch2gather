@@ -10,10 +10,10 @@
     position: absolute;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     color: white;
-    background: black;
+    background: rgb(0, 0, 0);
     bottom: 0px;
 }
 

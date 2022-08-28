@@ -5,7 +5,7 @@ import Async from "react-async";
 import { getRooms } from './API/RoomAPI';
 
 let startIndex = 0;
-let endIndex = 12;
+let endIndex = 35;
 
 const shownRooms = (rooms) => {
     let out = [];
