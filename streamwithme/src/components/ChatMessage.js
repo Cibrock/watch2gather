@@ -9,15 +9,12 @@ const ChatMessage = (props) => {
 
     useEffect(() => {
         getUsername(user);
-        // setTime(new Date(time).toISOString().substring(11, 8))
-      let date = new Date(null)  
-      console.log(typeof(time));
-      if(typeof(time) == "string")
-      return;
-      date.setMilliseconds(time)
-      let result = date.toISOString()
-      let resultsub = result.substring(11, 19)
-      setTime(resultsub)
+        let date = new Date(null)
+        if(typeof(time) == "string") return;
+        date.setMilliseconds(time)
+        let result = date.toISOString()
+        let resultsub = result.substring(11, 19)
+        setTime(resultsub)
     });
 
     const getUsername = async (id) => {
