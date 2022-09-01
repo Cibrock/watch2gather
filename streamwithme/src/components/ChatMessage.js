@@ -10,7 +10,7 @@ const ChatMessage = (props) => {
     useEffect(() => {
         getUsername(user);
         let date = new Date(null)
-        if(typeof(time) == "string") return;
+        if(typeof(time) === "string") return;
         date.setMilliseconds(time)
         let result = date.toISOString()
         let resultsub = result.substring(11, 19)
@@ -21,7 +21,7 @@ const ChatMessage = (props) => {
         const data = await getUsers();
         const list = data.users
         for (let i = 0; i < list.length; i++) {
-            if (toString(list[i].id) == toString(id)) {
+            if (toString(list[i].id) === toString(id)) {
                 setUser(list[i].name);
                 return
             }
