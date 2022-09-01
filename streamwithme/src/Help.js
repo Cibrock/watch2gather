@@ -4,9 +4,9 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import "./components/styles/Help.css"
 
-
-
-
+/*
+    Dies sollte ein Popup sein oder nicht?
+*/
 const Help = () => {
     const APP = 'StreamWithMe'
 

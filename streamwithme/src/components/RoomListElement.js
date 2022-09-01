@@ -1,27 +1,33 @@
 import React, { useCallback, useState } from 'react';
 import "./styles/RoomListElement.css";
 import { useNavigate } from 'react-router-dom';
-import { setRoom } from '../Room';
+import { roomState } from '../Room';
 import { user } from '../App';
-import { setPopup } from './InputUser';
+import { popupState } from './InputUser';
+import { titleState } from './Navbar';
+import { joinRoom } from './API/RoomAPI';
 
 const RoomListElement = (props) => {
-    const [name] = useState(props.name);
+    const [roomName] = useState(props.name);
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
 
-    const enterRoom = () => {
-        setRoom.set(name);
+    const enterRoom = async () => {
         if (user === undefined) {
-            setPopup.set(true);
-            return console.log("Blocked join room, user is " + user);
+            popupState.set(true);
+            console.log("Blocked join room, user is " + user);
+            return 
+        }else{
+            roomState.set(roomName);
+            titleState.set(roomName)
+            joinRoom(roomName, user)
+            navigateToRoom();
         }
-        navigateToRoom();
     };
 
     return (
         <li className='element' onClick={enterRoom}>
-            {name}
+            {roomName}
         </li>
     );
 };

@@ -3,13 +3,13 @@ import React, { useState, useCallback } from "react";
 import { useNavigate } from 'react-router-dom';
 import { createUser } from "./API/UserAPI";
 import { hookstate, useHookstate } from '@hookstate/core';
-import { setRoom } from "../Room";
+import { roomState } from "../Room";
 
-export const setPopup = hookstate(false);
+export const popupState = hookstate(false);
 
 const InputUser = () => {
     const [name, setName] = useState("");
-    const status = useHookstate(setPopup);
+    const status = useHookstate(popupState);
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
 
@@ -26,8 +26,7 @@ const InputUser = () => {
         createUser(name);
         setName("");
         toggle();
-        console.log(setRoom.get());
-        if (setRoom.get() !== false) navigateToRoom();
+        if (roomState.get() !== false) navigateToRoom();
         event.preventDefault();
     };
 

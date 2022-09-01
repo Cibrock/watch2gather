@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Async from "react-async";
-import { setRoom } from "../Room";
+import { roomState } from "../Room";
 import { getChat } from "./API/ChatAPI";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
@@ -10,8 +10,8 @@ import "./styles/Chat.css"
 export const setNewestMessage = hookstate("");
 
 const Chat = () => {
-    // const [startMessage, setStartMessage] = useState();
     const newestMessage = useHookstate(setNewestMessage);
+    const roomName = roomState.get();
 
     const shownMessages = (messages) => {
         const out = [];
@@ -25,12 +25,7 @@ const Chat = () => {
                 userId: messages[i].userId
             });
         }
-        console.log(out);
         return out;
-    };
-    const roomName = setRoom.get();
-    const getLastTen = async () => {
-        return await getChat(roomName, newestMessage.get());
     };
 
     return (
@@ -41,15 +36,12 @@ const Chat = () => {
                 if (data)
                     return (
                         <div className="flex-chat">
-                            <div className='chat_container'>
-                                <ul className='chat' aria-label="Chat">
-                                    {shownMessages(data.messages).map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} user={m.userId} />))}
-                                </ul>
-                            </div>
-                            <div className="chat_input">
-                                <ChatInput/>
-                                <p>{newestMessage.get()}</p>
-                            </div>
+                            <ul className='chat-list' aria-label="Chat">
+                                {shownMessages(data.messages).map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} user={m.userId} />))}
+                                <li className="chat-input">
+                                    <ChatInput/>
+                                </li>
+                            </ul>
                         </div>
                     );
                 return null;
