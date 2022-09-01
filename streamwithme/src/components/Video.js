@@ -102,8 +102,8 @@ const Video = () => {
             </div>
             <div className="video">
                 <ReactPlayer
-                    height='20em'
-                    width='35em'
+                    height='70vh'
+                    width='70vw'
                     border='bold'
                     controls
                     muted
