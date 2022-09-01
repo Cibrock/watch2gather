@@ -17,7 +17,7 @@ const Chat = () => {
         const out = [];
         if (messages === undefined) return out;
         if (messages.length < 10) return messages;
-        for (let i = messages.length; i >= 0; i--) {
+        for (let i = messages.length -1; i >= 0; i--) {
             out.push({
                 id: messages[i].id,
                 time: messages[i].time,

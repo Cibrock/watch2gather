@@ -51,7 +51,6 @@ const Room = () => {
                 <div className="users">     <h2>Users</h2><Chat /></div>
                 <div className="footer">    <Footer /></div>
             </HelmetProvider>
-            <Backgroundvideo/>
         </div>
     )
 }
