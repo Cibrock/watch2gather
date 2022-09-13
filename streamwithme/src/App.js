@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import './components/styles/App.css';
-import Navbar from './components/Navbar';
+import Navbar, { titleState } from './components/Navbar';
 import CreateRoom from './components/CreateRoom';
 import { Helmet } from 'react-helmet';
 import { deleteUser } from './components/API/UserAPI';

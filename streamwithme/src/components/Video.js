@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import "./styles/Video.css";
 import { user } from '../App';
 import { changeVideoUrl, getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI';
-import { setRoom } from '../Room';
+import { roomState } from '../Room';
 
 const Video = () => {
     const [input, setInput] = useState("");
@@ -13,7 +13,7 @@ const Video = () => {
     const [pos, setPos] = useState(0);
 
     const playerRef = useRef(null);
-    const roomName = setRoom.get();
+    const roomName = roomState.get();
 
     const handleInputChange = (event) => {
         //Update the shown text whilst typing
@@ -102,7 +102,7 @@ const Video = () => {
             </div>
             <div className="video">
                 <ReactPlayer
-                    height='50vw'
+                    height='70vh'
                     width='70vw'
                     border='bold'
                     controls

@@ -1,22 +1,26 @@
 import React, { useCallback } from 'react';
 import "./styles/CreateRoom.css";
 import { useNavigate } from 'react-router-dom';
-import { createRoom } from './API/RoomAPI';
-import { setRoom } from '../Room';
+import { createRoom, joinRoom } from './API/RoomAPI';
+import { roomState } from '../Room';
 import { user } from '../App';
 import 'reactjs-popup/dist/index.css';
-import { setPopup } from './InputUser';
+import { popupState } from './InputUser';
+import { titleState } from './Navbar';
 
 const CreateRoom = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     const instantiateRoom = async () => {
         if (user === undefined) {
-            setPopup.set(true);
-            return console.log("Blocked create room, user is " + user);
+            popupState.set(true);
+            console.log("Blocked create room, user is " + user);
+            return 
         }
-        let name = await createRoom();
-        setRoom.set(name)
+        const roomName = await createRoom();
+        joinRoom(roomName, user)
+        roomState.set(roomName)
+        titleState.set(roomName)
         navigateToRoom();
     };
 
