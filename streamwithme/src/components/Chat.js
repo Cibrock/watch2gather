@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Async from "react-async";
 import { roomState } from "../Room";
 import { getChat } from "./API/ChatAPI";
 import ChatMessage from "./ChatMessage";
@@ -17,9 +16,7 @@ const Chat = () => {
     useEffect(() => {
         const interval = setInterval(async () => {
             await shownMessages();
-        },
-            3000
-        );
+        }, 3000 );
         return () => clearInterval(interval);
     });
 
@@ -43,10 +40,10 @@ const Chat = () => {
     return (
         <div className="flex-chat">
             <ul className='chat-list' aria-label="Chat">
-                {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} user={m.userId} />))}
+                {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} id={m.userId} />))}
                 <li className="chat-input">
                     <ChatInput />
-                    {newestMessage.text}
+                    {newestMessage.id}
                 </li>
             </ul>
         </div>

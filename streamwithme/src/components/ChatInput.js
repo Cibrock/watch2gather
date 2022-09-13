@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { user } from "../App";
 import { roomState } from "../Room";
-import { getChat, sendMessage } from "./API/ChatAPI";
-import { setNewestMessage } from "./Chat";
+import { sendMessage } from "./API/ChatAPI";
 
 const ChatInput = () => {
     const [newMessage, setNewMessage] = useState("");
@@ -16,10 +15,6 @@ const ChatInput = () => {
         event.preventDefault();
         await sendMessage(roomName, user, newMessage);
         setNewMessage("");
-        // const data = await getChat(roomName);
-        // const messages = data.messages;
-        // if (messages.length > 0)
-        //     setNewestMessage.set(messages[messages.length-1].id);
     };
 
     return (

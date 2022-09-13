@@ -5,10 +5,11 @@ import "./styles/ChatMessage.css";
 const ChatMessage = (props) => {
     const [text] = useState(props.text);
     const [time, setTime] = useState(props.time);
-    const [user, setUser] = useState(props.user);
+    const [id, setId] = useState(props.id);
+    const [user, setUser] = useState("");
 
     useEffect(() => {
-        getUsername(user);
+        getUsername(id);
         let date = new Date(null)
         if(typeof(time) === "string") return;
         date.setMilliseconds(time)
@@ -17,12 +18,13 @@ const ChatMessage = (props) => {
         setTime(resultsub)
     });
 
-    const getUsername = async (target) => {
+    const getUsername = async () => {
         const data = await getUsers();
         const list = data.users;
-        let name = "no name found";
-        const result = list.find( (id) => { return toString(target) === toString(id) } )
-        setUser(result.name || name);
+        const result = list.find( (element) => {
+            return id === element.id; 
+        });
+        setUser(result && result.name || "no name found");
     };
 
     return (
