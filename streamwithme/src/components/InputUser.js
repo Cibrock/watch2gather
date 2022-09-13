@@ -46,6 +46,7 @@ const InputUser = () => {
                         id="UserName"
                         value={name}
                         placeholder="Name"
+                        maxLength = "20"
                         onChange={handleInputChange} />
                     <input type="submit" value="Bestätigen"/>
                 </form>

@@ -39,7 +39,7 @@ const Chat = () => {
 
     return (
         <div className="flex-chat">
-            <ul className='chat-list' aria-label="Chat">
+            <ul className='chat-list' aria-label="Chat" aria-live="polite">
                 {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} id={m.userId} />))}
                 <li className="chat-input">
                     <ChatInput />

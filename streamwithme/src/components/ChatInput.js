@@ -28,6 +28,7 @@ const ChatInput = () => {
                 id="chatMessage"
                 value={newMessage}
                 placeholder="Neue Nachricht"
+                maxLength = "50"
                 onChange={handleInputChange} />
             <input type="submit" value="Senden" />
         </form>

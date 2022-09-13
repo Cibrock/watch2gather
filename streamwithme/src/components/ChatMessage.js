@@ -9,22 +9,20 @@ const ChatMessage = (props) => {
     const [user, setUser] = useState("");
 
     useEffect(() => {
-        getUsername(id);
-        let date = new Date(null)
-        if(typeof(time) === "string") return;
-        date.setMilliseconds(time)
-        let result = date.toISOString()
-        let resultsub = result.substring(11, 19)
-        setTime(resultsub)
+        getUsername();
+        let date = new Date(null);
+        if (typeof (time) === "string") return;
+        date.setMilliseconds(time);
+        let result = date.toISOString();
+        let resultsub = result.substring(11, 16);
+        setTime(resultsub);
     });
 
     const getUsername = async () => {
         const data = await getUsers();
         const list = data.users;
-        const result = list.find( (element) => {
-            return id === element.id; 
-        });
-        setUser(result && result.name || "no name found");
+        const result = list.find((element) => { return id === element.id; });
+        setUser(result && result.name || "[deleted]");
     };
 
     return (
