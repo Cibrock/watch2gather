@@ -17,16 +17,12 @@ const ChatMessage = (props) => {
         setTime(resultsub)
     });
 
-    const getUsername = async (id) => {
+    const getUsername = async (target) => {
         const data = await getUsers();
-        const list = data.users
-        for (let i = 0; i < list.length; i++) {
-            if (toString(list[i].id) === toString(id)) {
-                setUser(list[i].name);
-                return
-            }
-        }
-        setUser("no Name found");
+        const list = data.users;
+        let name = "no name found";
+        const result = list.find( (id) => { return toString(target) === toString(id) } )
+        setUser(result.name || name);
     };
 
     return (

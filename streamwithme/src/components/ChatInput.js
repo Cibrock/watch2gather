@@ -14,11 +14,12 @@ const ChatInput = () => {
 
     const submitInput = async (event) => {
         event.preventDefault();
-        sendMessage(roomName, user, newMessage);
+        await sendMessage(roomName, user, newMessage);
         setNewMessage("");
-        const data = await getChat(roomName);
-        const messages = data.messages;
-        setNewestMessage.set(messages[messages.length-1].id);
+        // const data = await getChat(roomName);
+        // const messages = data.messages;
+        // if (messages.length > 0)
+        //     setNewestMessage.set(messages[messages.length-1].id);
     };
 
     return (
