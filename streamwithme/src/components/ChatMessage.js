@@ -5,7 +5,7 @@ import "./styles/ChatMessage.css";
 const ChatMessage = (props) => {
     const [text] = useState(props.text);
     const [time, setTime] = useState(props.time);
-    const [id, setId] = useState(props.id);
+    const [id] = useState(props.id);
     const [user, setUser] = useState("");
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const ChatMessage = (props) => {
         const data = await getUsers();
         const list = data.users;
         const result = list.find((element) => { return id === element.id; });
-        setUser(result && result.name || "[deleted]");
+        setUser(result ? result.name : "[deleted]");
     };
 
     return (

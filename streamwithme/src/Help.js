@@ -13,7 +13,7 @@ const Help = () => {
     return (
         <div className='Help'>
             <Helmet>
-                <title>{APP + " - " + "Help"}</title>
+                <title>{APP + " - Help"}</title>
             </Helmet>
             <Navbar />
             Funktionen erklärt
