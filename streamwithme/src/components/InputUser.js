@@ -42,7 +42,7 @@ const InputUser = () => {
                 <h2 className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
                 <button className = "modal-btn" onClick={toggle}>×</button>
                 <form onSubmit={submitInput}>
-                    <label htmlFor="UserName">
+                    <label htmlFor="UserName" className="input-user-label">
                         Name eingeben
                     </label>
                     <input

@@ -1,11 +1,33 @@
 .flex-chat{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     margin: 0;
     padding: 0;
 }
-
-.chat-input{
-    list-style: none;
+.chat-header{
+    z-index: 2;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    height: 4vh;
+    margin:0;
+    background-color: rgb(26, 25, 25);
 }
 .chat-list{
-    
+    padding-left: 1vw;
+    padding-right: 1vw; 
+    height: 58vh;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.chat-input{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    height: 10vh;
+    margin:0;
 }

@@ -1,0 +1,16 @@
+.flex-user-list{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.user-element{
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    color: antiquewhite;
+}
+
+.user-list{
+    padding-left: 1vw;
+    padding-right: 1vw; 
+}

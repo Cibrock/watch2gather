@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./styles/navbar.css";
-import { Link } from "react-router-dom";
 import { hookstate, useHookstate } from '@hookstate/core';
 import { leaveRoom } from './API/RoomAPI';
 import { userState } from '../App';
@@ -21,6 +20,12 @@ const Navbar = () => {
         }
         navigateToHome();
     }
+    const toggleHelp = () => {
+        // TODO
+    }
+    const copyLink = () => {
+        // TODO
+    }
 
     return (
         <div className='sum'>
@@ -28,10 +33,10 @@ const Navbar = () => {
                 <p tabIndex="0" className="logo-link" onClick={handleNavigate} onKeyDown={handleKeyDown} >StreamWithMe</p>
             </div>
             <div className='logo'>
-                {room}
+                <p className='logo-link' tabIndex="0" onClick={copyLink}>{room}</p>
             </div>
-            <div className='help'>
-                <Link to="/Help">Help</Link>
+            <div className='logo'>
+                <p className="logo-link" tabIndex="0" onClick={toggleHelp}>Help</p>
             </div>
         </div>
     );

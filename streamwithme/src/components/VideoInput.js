@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { userState } from "../App";
 import { roomState } from "../Room";
 import { changeVideoUrl } from './API/VideoAPI';
+import "./styles/VideoInput.css"
 
 const VideoInput = () => {
     const roomName = roomState.get();
@@ -24,9 +25,9 @@ const VideoInput = () => {
     };
 
     return (
-        <div className="VideoInput">
+        <div className="videoInput">
             <form onSubmit={urlInput}>
-                <label htmlFor="Url">
+                <label htmlFor="Url" className="video-input-label">
                     Video URL eingeben
                 </label>
                 <input

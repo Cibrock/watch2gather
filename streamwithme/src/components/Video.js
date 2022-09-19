@@ -2,9 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import "./styles/Video.css";
 import { userState } from '../App';
-import { changeVideoUrl, getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI';
+import { getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI';
 import { roomState } from '../Room';
-import VideoInput from './VideoInput';
 
 const Video = () => {
     const [url, setUrl] = useState("");
@@ -55,32 +54,29 @@ const Video = () => {
         const newPos = dataPos.position;
         setPos(newPos);
         playerRef.current.seekTo(newPos, 'seconds');
-        changeVideoStatus(roomName, user, "paused")
+        changeVideoStatus(roomName, user, "paused");
     };
 
     return (
         <div className="video-container">
-            <VideoInput/>
-            <div className="video">
-                <ReactPlayer
-                    height='70vh'
-                    width='70vw'
-                    border='bold'
-                    controls
-                    muted
-                    playing={isPlaying}
-                    url={url}
-                    ref={playerRef}
-                    progressInterval={3000}
-                    onReady={setupVideo}
-                    onStart={() => changeVideoStatus(roomName, user, 'playing')}
-                    onPause={() => changeVideoStatus(roomName, user, 'paused')}
-                    onProgress={(data) => { changeVideoPosition(roomName, user, Math.round(data.playedSeconds)); }}
-                    onSeek={(data) => { changeVideoPosition(roomName, user, Math.round(data.playedSeconds)); }}
-                    onEnded={() => console.log('onEnd callback')}
-                    onError={() => console.log('onError callback')}
-                />
-            </div>
+            <ReactPlayer
+                height='72vh'
+                width='75vw'
+                border='bold'
+                controls
+                muted
+                playing={isPlaying}
+                url={url}
+                ref={playerRef}
+                progressInterval={3000}
+                onReady={setupVideo}
+                onStart={() => changeVideoStatus(roomName, user, 'playing')}
+                onPause={() => changeVideoStatus(roomName, user, 'paused')}
+                onProgress={(data) => { changeVideoPosition(roomName, user, Math.round(data.playedSeconds)); }}
+                onSeek={(data) => { changeVideoPosition(roomName, user, Math.round(data.playedSeconds)); }}
+                onEnded={() => console.log('onEnd callback')}
+                onError={() => console.log('onError callback')}
+            />
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { userState } from "../App";
 import { roomState } from "../Room";
 import { sendMessage } from "./API/ChatAPI";
+import "./styles/ChatInput.css"
 
 const ChatInput = () => {
     const [newMessage, setNewMessage] = useState("");
@@ -20,7 +21,7 @@ const ChatInput = () => {
 
     return (
         <form onSubmit={submitInput}>
-            <label htmlFor="chatMessage">
+            <label className="chat-input-label" htmlFor="chatMessage">
                 Nachricht eingeben
             </label>
             <input
@@ -29,9 +30,9 @@ const ChatInput = () => {
                 id="chatMessage"
                 value={newMessage}
                 placeholder="Neue Nachricht"
-                maxLength = "50"
-                onChange={handleInputChange} />
-            <input type="submit" value="Senden" />
+                maxLength="50"
+                autoComplete="off"
+                onChange={handleInputChange}/>
         </form>
     );
 };

@@ -3,13 +3,11 @@ import { roomState } from "../Room";
 import { getChat } from "./API/ChatAPI";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
-import { hookstate, useHookstate } from '@hookstate/core';
 import "./styles/Chat.css";
 
-export const setNewestMessage = hookstate("");
+const MAX_MESSAGES = 10;
 
 const Chat = () => {
-    const newestMessage = useHookstate(setNewestMessage);
     const roomName = roomState.get();
     const [displayed,setDisplayed] = useState([]);
 
@@ -25,11 +23,11 @@ const Chat = () => {
         const data = await getChat(roomName);
         const messages = data.messages;
         if (messages === undefined) return;
-        if (messages.length < 10) { 
+        if (messages.length < MAX_MESSAGES) { 
             setDisplayed(messages);
             return;
         }
-        for (let i = messages.length - 10; i < messages.length; i++) {
+        for (let i = messages.length - MAX_MESSAGES; i < messages.length; i++) {
             out.push({
                 id: messages[i].id,
                 time: messages[i].time,
@@ -42,12 +40,11 @@ const Chat = () => {
 
     return (
         <div className="flex-chat">
+            <h2 className='chat-header'>Chat</h2>
             <ul className='chat-list' aria-label="Chat" aria-live="polite">
                 {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} id={m.userId} />))}
-                <li className="chat-input">
-                    <ChatInput />
-                </li>
             </ul>
+            <div className="chat-input"> <ChatInput /> </div>
         </div>
     );
 };

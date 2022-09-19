@@ -1,16 +1,10 @@
-.flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .footer-container {
     width: 100vw;
-    height: 3em;
+    height: 8vh;
     position: absolute;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: white;
     background: rgb(0, 0, 0);
@@ -19,7 +13,7 @@
 
 @media only screen and (max-width:900px) and (min-width:700px) {
     .footer-container {
-        width: 80%;
+        width: 100vw;
         padding-left: 1em;
         padding-right: 1em;
         height: 4em;
@@ -30,7 +24,7 @@
 
 @media only screen and (max-width:700px) {
     .footer-container {
-        width: 450px;
+        width: 100vw;
         padding-left: 1em;
         padding-right: 1em;
         height: 4em;
@@ -39,8 +33,10 @@
     }
 }
 
-p{
-    margin:0px;
+.footer-p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 5vw;
     height: 1em;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }

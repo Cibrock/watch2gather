@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import { hookstate, useHookstate } from '@hookstate/core';
 import Chat from "./components/Chat";
 import UserList from "./components/UserList";
+import VideoInput from "./components/VideoInput";
 
 export const roomState = hookstate(false);
 
@@ -43,11 +44,12 @@ const Room = () => {
                 <Helmet>
                     <title>{APP + " - " + roomName.get()}</title>
                 </Helmet>
-                <div className="header">    <Navbar /></div>
-                <div className="video">     <div><Video /></div></div>
-                <div className="chat">      <h2>Chat</h2><Chat /></div>
-                <div className="users">     <h2>Users</h2><UserList /></div>
-                <div className="footer">    <Footer /></div>
+                <div className="header">    <Navbar /> </div>
+                <div className="videoInput"><VideoInput/> </div>
+                <div className="video">     <Video /> </div>
+                <div className="chat">      <Chat /> </div>
+                <div className="users">     <UserList /> </div>
+                <div className="footer">    <Footer /> </div>
             </HelmetProvider>
         </div>
     );

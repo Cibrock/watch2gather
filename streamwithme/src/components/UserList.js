@@ -5,9 +5,8 @@ import { roomState } from '../Room';
 
 const UserListElement = (props) => {
     const [name] = useState(props.name);
-
     return (
-        <li className='element'>
+        <li className='user-element'>
             {name}
         </li>
     );
@@ -30,12 +29,11 @@ const UserList = () => {
     };
 
     return (
-        <div className="flex-userList">
-            <div className='userList_container'>
-                <ul className='userList' aria-label="User">
-                    {displayed.map(user => (<UserListElement name={user.name} key={user.id} />))}
-                </ul>
-            </div>
+        <div className="flex-user-list">
+            <h2 className='user-list'>Users</h2>
+            <ul className='user-list' aria-label="User">
+                {displayed.map(user => (<UserListElement name={user.name} key={user.id} />))}
+            </ul>
         </div>
     );
 };
