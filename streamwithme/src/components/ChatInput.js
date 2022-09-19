@@ -4,6 +4,7 @@ import { roomState } from "../Room";
 import { sendMessage } from "./API/ChatAPI";
 import "./styles/ChatInput.css"
 
+
 const ChatInput = () => {
     const [newMessage, setNewMessage] = useState("");
     const roomName = roomState.get();

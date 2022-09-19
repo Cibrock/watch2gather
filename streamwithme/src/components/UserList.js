@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './styles/UserList.css';
 import { getRoomUsers } from './API/RoomAPI';
 import { roomState } from '../Room';
@@ -6,17 +6,27 @@ import { roomState } from '../Room';
 const UserListElement = (props) => {
     const [name] = useState(props.name);
     return (
-        <li className='user-element'>
+        <div className='user-element' role="listitem">
             {name}
-        </li>
+        </div>
     );
 };
 
 const UserList = () => {
     const roomName = roomState.get();
     const [displayed, setDisplayed] = useState([]);
+    const endRef = useRef(null);
+    const [lastCount, setLastCount] = useState(0);
+
+    const scrollToBottom = () => {
+        endRef.current.scrollIntoView({ behavior: "smooth" });
+    };
 
     useEffect(() => {
+        if (lastCount < displayed.length) {
+            setLastCount(displayed.length);
+            scrollToBottom();
+        }
         const interval = setInterval( async () => { await shownUsers(); }, 3000);
         return () => clearInterval(interval);
     });
@@ -30,10 +40,11 @@ const UserList = () => {
 
     return (
         <div className="flex-user-list">
-            <h2 className='user-list'>Users</h2>
-            <ul className='user-list' aria-label="User">
+            <h2 className='user-list-header'>Users</h2>
+            <div className='user-list' role="list" aria-label="User">
                 {displayed.map(user => (<UserListElement name={user.name} key={user.id} />))}
-            </ul>
+                <div ref={endRef} />
+            </div>
         </div>
     );
 };

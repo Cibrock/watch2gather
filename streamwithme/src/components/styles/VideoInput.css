@@ -1,25 +1,31 @@
-.videoInput {
+.video-input-form{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    background-color: rgb(30, 30, 30); 
+    height: 10vh;
 }
-
 #Url{
-    width: 40vw;
+    width: 30vw;
 }
 
 input[type=submit]{
     background-color:rgb(0, 217, 255);
+    color:white;
+    font-weight: bold;
+    cursor: pointer;
     border: none;
-    margin: 1em;
+    margin: 1vw;
+    height: 3vh;
+    width: 15vw;
     border-radius: 0.3em;
 }
 
 .video-input-label{
     color:white;
     font-weight: bold;
+    width: 15vw;
     font-family: 'Helvetica', 'Arial', sans-serif;
-    margin: 1em;
+    margin: 1vw;
+    text-align: right;
 }

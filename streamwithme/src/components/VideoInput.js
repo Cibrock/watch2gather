@@ -1,14 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { userState } from "../App";
 import { roomState } from "../Room";
 import { changeVideoUrl } from './API/VideoAPI';
-import "./styles/VideoInput.css"
+import "./styles/VideoInput.css";
 
 const VideoInput = () => {
     const roomName = roomState.get();
     const user = userState.get();
     const [input, setInput] = useState("");
-
     const handleInputChange = (event) => {
         //Update the shown text whilst typing
         setInput(event.target.value);
@@ -25,8 +24,8 @@ const VideoInput = () => {
     };
 
     return (
-        <div className="videoInput">
-            <form onSubmit={urlInput}>
+        <div className="video-input">
+            <form className="video-input-form" onSubmit={urlInput}>
                 <label htmlFor="Url" className="video-input-label">
                     Video URL eingeben
                 </label>
@@ -38,7 +37,7 @@ const VideoInput = () => {
                     value={input}
                     onChange={handleInputChange}
                 />
-                <input type="submit" className="submitVideo" value="Video Teilen" />
+                <input type="submit" className="submitVideo" value="Teilen" />
             </form>
         </div>
     );

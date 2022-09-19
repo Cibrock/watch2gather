@@ -1,49 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { roomState } from "../Room";
 import { getChat } from "./API/ChatAPI";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 import "./styles/Chat.css";
 
-const MAX_MESSAGES = 10;
-
 const Chat = () => {
     const roomName = roomState.get();
-    const [displayed,setDisplayed] = useState([]);
+    const [displayed, setDisplayed] = useState([]);
+    const endRef = useRef(null);
+    const [lastCount, setLastCount] = useState(0);
+
+    const scrollToBottom = () => {
+        endRef.current.scrollIntoView({ behavior: "smooth" });
+    };
 
     useEffect(() => {
+        if (lastCount < displayed.length) {
+            setLastCount(displayed.length);
+            scrollToBottom();
+        }
         const interval = setInterval(async () => {
             await shownMessages();
-        }, 3000 );
+        }, 1000);
         return () => clearInterval(interval);
     });
 
     const shownMessages = async () => {
-        const out = [];
         const data = await getChat(roomName);
         const messages = data.messages;
         if (messages === undefined) return;
-        if (messages.length < MAX_MESSAGES) { 
-            setDisplayed(messages);
-            return;
-        }
-        for (let i = messages.length - MAX_MESSAGES; i < messages.length; i++) {
-            out.push({
-                id: messages[i].id,
-                time: messages[i].time,
-                text: messages[i].text,
-                userId: messages[i].userId
-            });
-        }
-        setDisplayed(out);
+        setDisplayed(messages);
     };
 
     return (
-        <div className="flex-chat">
+        <div className="flex-chat" >
             <h2 className='chat-header'>Chat</h2>
-            <ul className='chat-list' aria-label="Chat" aria-live="polite">
+            <div className='chat-list' role="list" aria-label="Chat" aria-live="polite" tabIndex="0" onfocus="scrollToBottom()">
                 {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} id={m.userId} />))}
-            </ul>
+                <div ref={endRef} />
+            </div>
             <div className="chat-input"> <ChatInput /> </div>
         </div>
     );

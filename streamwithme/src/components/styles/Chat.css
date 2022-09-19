@@ -7,8 +7,7 @@
 }
 .chat-header{
     z-index: 2;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: 1vh 1vw 1vh 1vw;
     height: 4vh;
     margin:0;
     background-color: rgb(26, 25, 25);
@@ -16,11 +15,14 @@
 .chat-list{
     padding-left: 1vw;
     padding-right: 1vw; 
-    height: 58vh;
+    height: 56vh;
+    overflow-y: auto;
     margin:0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+}
+.chat-list > :first-child{
+    margin-top: auto;
 }
 .chat-input{
     display: flex;
@@ -31,3 +33,22 @@
     height: 10vh;
     margin:0;
 }
+ /* width */
+ ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(1, 103, 123);;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 217, 255);
+  } 

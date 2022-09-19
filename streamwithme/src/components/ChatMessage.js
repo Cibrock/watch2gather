@@ -26,11 +26,11 @@ const ChatMessage = (props) => {
     };
 
     return (
-        <li className="messages">
+        <div className="messages"  role="listitem">
             <span className="messageTime">{time}</span>
             <span className="messageUser">{user}:</span>
             <span className="messageText">{text}</span>
-        </li>
+        </div>
     );
 };
 

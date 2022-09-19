@@ -15,12 +15,12 @@ const CreateRoom = () => {
         if (userState.get() === false) {
             popupState.set(true);
             console.log("Blocked create room, user is not set");
-            return 
+            return;
         }
         const roomName = await createRoom();
-        joinRoom(roomName, userState.get())
-        roomState.set(roomName)
-        titleState.set(roomName)
+        joinRoom(roomName, userState.get());
+        roomState.set(roomName);
+        titleState.set(roomName);
         navigateToRoom();
     };
 
@@ -31,11 +31,9 @@ const CreateRoom = () => {
                     <h2 className="accessibility">Einen Raum erstellen</h2>
                     <h2 role="none">enjoy with me.</h2>
                 </div>
-                <div>
-                    <button type="button" onClick={instantiateRoom} id="roombutton">
-                        Einen Raum Erstellen
-                    </button>
-                </div>
+                <button type="button" onClick={instantiateRoom} id="roombutton">
+                    Einen Raum Erstellen
+                </button>
             </div>
         </div>
     );

@@ -3,10 +3,9 @@
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
-    color: antiquewhite;
+    color: white;
 }
 
 .element:hover{
-    color:aqua;
-    transition: 50ms;
+    color:rgb(0, 217, 255);
 }

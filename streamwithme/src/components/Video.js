@@ -11,7 +11,7 @@ const Video = () => {
     const [isPlaying, setPlaying] = useState(false);
     const [pos, setPos] = useState(0);
 
-    const playerRef = useRef(null);
+    const playerRef = useRef();
     const roomName = roomState.get();
     const user = userState.get();
 
@@ -60,8 +60,8 @@ const Video = () => {
     return (
         <div className="video-container">
             <ReactPlayer
-                height='72vh'
-                width='75vw'
+                height='70vh'
+                width='72vw'
                 border='bold'
                 controls
                 muted
@@ -77,6 +77,7 @@ const Video = () => {
                 onEnded={() => console.log('onEnd callback')}
                 onError={() => console.log('onError callback')}
             />
+            <div className='video-outline'/>
         </div>
     );
 };

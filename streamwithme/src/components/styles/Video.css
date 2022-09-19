@@ -1,7 +1,5 @@
 .video-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: none;
-    border: none;
+    width: 72vw;
+    height: 70vh;
+    border: 1px solid black;
 }
