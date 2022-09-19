@@ -14,7 +14,7 @@
     font-weight: bolder;
     height: 2em;
 }
-.logo-link{
+.logo-link :focus-visible{
     cursor: pointer;
 }
 .help{
