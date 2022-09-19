@@ -4,14 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from "./API/UserAPI";
 import { hookstate, useHookstate } from '@hookstate/core';
 import { roomState } from "../Room";
+import { joinRoom } from "./API/RoomAPI";
+import { userState } from "../App";
 
 export const popupState = hookstate(false);
 
 const InputUser = () => {
-    const [name, setName] = useState("");
-    const status = useHookstate(popupState);
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
+    const [name, setName] = useState("");
+    const status = useHookstate(popupState);
 
     const handleInputChange = (event) => {
         //Update the shown text whilst typing
@@ -23,11 +25,14 @@ const InputUser = () => {
     }
 
     const submitInput = async (event) => {
-        createUser(name);
-        setName("");
-        toggle();
-        if (roomState.get() !== false) navigateToRoom();
         event.preventDefault();
+        await createUser(name);
+        if (roomState.get() !== false) {
+            joinRoom(roomState.get(),userState.get())
+            navigateToRoom();
+        }
+        toggle();
+        setName("");
     };
 
     return (status.get()) && (

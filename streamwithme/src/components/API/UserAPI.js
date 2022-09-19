@@ -1,4 +1,4 @@
-import { SetUser } from "../../App"
+import { userState } from "../../App"
 
 export const createUser = async (_name) => {
     try {
@@ -14,7 +14,8 @@ export const createUser = async (_name) => {
             }
         )
         let json = await res.json()
-        SetUser(json.id)
+        if (userState.get() !== false) deleteUser(userState.get());
+        userState.set(json.id);
     }
     catch (error) {
         console.log(error)
@@ -34,10 +35,11 @@ export const getUsers = async () => {
 }
 export const deleteUser = (userId) => {
     try {
-         fetch('https://gruppe10.toni-barth.com/users/' + userId,
+        fetch('https://gruppe10.toni-barth.com/users/' + userId,
             {
                 method: "DELETE"
             })
+        userState.set(false);
     }
     catch (error) {
         console.log(error)

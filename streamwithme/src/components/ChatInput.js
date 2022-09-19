@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { user } from "../App";
+import { userState } from "../App";
 import { roomState } from "../Room";
 import { sendMessage } from "./API/ChatAPI";
 
 const ChatInput = () => {
     const [newMessage, setNewMessage] = useState("");
     const roomName = roomState.get();
+    const user = userState.get();
     const handleInputChange = (event) => {
         //Update the shown text whilst typing
         setNewMessage(event.target.value);

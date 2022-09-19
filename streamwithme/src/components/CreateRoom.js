@@ -3,7 +3,7 @@ import "./styles/CreateRoom.css";
 import { useNavigate } from 'react-router-dom';
 import { createRoom, joinRoom } from './API/RoomAPI';
 import { roomState } from '../Room';
-import { user } from '../App';
+import { userState } from '../App';
 import 'reactjs-popup/dist/index.css';
 import { popupState } from './InputUser';
 import { titleState } from './Navbar';
@@ -12,13 +12,13 @@ const CreateRoom = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     const instantiateRoom = async () => {
-        if (user === undefined) {
+        if (userState.get() === false) {
             popupState.set(true);
-            console.log("Blocked create room, user is " + user);
+            console.log("Blocked create room, user is not set");
             return 
         }
         const roomName = await createRoom();
-        joinRoom(roomName, user)
+        joinRoom(roomName, userState.get())
         roomState.set(roomName)
         titleState.set(roomName)
         navigateToRoom();

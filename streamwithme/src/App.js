@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './components/styles/App.css';
 import Navbar from './components/Navbar';
 import CreateRoom from './components/CreateRoom';
@@ -11,24 +10,20 @@ import Backgroundvideo from './components/Backgroundvideo';
 import RoomList from './components/RoomList';
 import { leaveRoom } from './components/API/RoomAPI';
 import { roomState } from './Room';
+import { hookstate, useHookstate } from '@hookstate/core';
 
-const TITLE = 'StreamWithMe'
-export let user
-
-export function SetUser(id) {
-    //Set the user id and delete the previous if necessary
-    if (user !== null) deleteUser(user);
-    user = id;
-}
+const TITLE = 'StreamWithMe';
+export const userState = hookstate(false)
 
 const App = () => {
+    const user = useHookstate(userState);
     useEffect(() => {
         //Delete the current user when the side is closed
         const handleTabClose = event => {
             event.preventDefault();
-            if (roomState.get()!== "") leaveRoom(roomState.get(), user);
+            if (roomState.get() !== false) leaveRoom(roomState.get(), user); //Artefakt, sollte niemals möglich sein
             console.log('beforeunload event triggered');
-            deleteUser(user)
+            deleteUser(user);
             return (event.returnValue = 'Are you sure you want to exit?');
         };
 
@@ -50,6 +45,6 @@ const App = () => {
             <Backgroundvideo />
         </div>
     );
-}
+};
 
 export default App;

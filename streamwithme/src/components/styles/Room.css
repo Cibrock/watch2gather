@@ -14,7 +14,7 @@
     grid-template-areas: 
         "header header  header" 
         "users  video   video" 
-        "chat   .   ." 
+        "chat   . ." 
         "footer footer  footer";
 }
 .header{

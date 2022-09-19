@@ -1,0 +1,6 @@
+.video-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 20vh;
+}

@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import "./styles/Video.css";
-import { user } from '../App';
+import { userState } from '../App';
 import { changeVideoUrl, getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI';
 import { roomState } from '../Room';
+import VideoInput from './VideoInput';
 
 const Video = () => {
-    const [input, setInput] = useState("");
     const [url, setUrl] = useState("");
     const [status, setStatus] = useState("paused");
     const [isPlaying, setPlaying] = useState(false);
@@ -14,23 +14,7 @@ const Video = () => {
 
     const playerRef = useRef(null);
     const roomName = roomState.get();
-
-    const handleInputChange = (event) => {
-        //Update the shown text whilst typing
-        setInput(event.target.value);
-        setPlaying(false);
-    };
-
-    const urlInput = (event) => {
-        //On Submit create the user and join a room if possible
-        if (user === undefined) console.log("user is " + user);
-        else {
-            changeVideoUrl(roomName, user, input);
-            setUrl(input);
-            setInput("");
-        }
-        event.preventDefault();
-    };
+    const user = userState.get();
 
     useEffect(() => {
         const interval = setInterval(async () => {
@@ -76,30 +60,7 @@ const Video = () => {
 
     return (
         <div className="video-container">
-            <div className="video-input">
-                <form onSubmit={urlInput}>
-                    <label htmlFor="Url">
-                        Video URL eingeben
-                    </label>
-                    <input
-                        type='text'
-                        name="Url"
-                        id="Url"
-                        placeholder="z.B: https://youtu.be/dQw4w9WgXcQ"
-                        value={input}
-                        onChange={handleInputChange}
-                    />
-                    <input type="submit" className="submitVideo" value="Video Teilen" />
-                    <div role='presentation' className='previewVideo'>
-                        <ReactPlayer
-                            height='9em'
-                            width='18em'
-                            poster={input}
-                            url={input}
-                        />
-                    </div>
-                </form>
-            </div>
+            <VideoInput/>
             <div className="video">
                 <ReactPlayer
                     height='70vh'

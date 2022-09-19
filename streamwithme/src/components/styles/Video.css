@@ -4,14 +4,6 @@
     justify-content: flex-start;
     background-color: none;
     border: none;
-    height: 0;
-}
-
-.video-input {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    height: 20vh;
 }
 
 #Url{

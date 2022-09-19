@@ -1,10 +1,10 @@
 import React, { useEffect, useCallback } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./components/styles/Room.css";
-import { user } from "./App";
+import { userState } from "./App";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Video from "./components/Video";
-import Navbar, { titleState } from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import { leaveRoom } from "./components/API/RoomAPI";
 import { deleteUser } from "./components/API/UserAPI";
 import Footer from "./components/Footer";
@@ -26,9 +26,9 @@ const Room = () => {
         }
         const handleTabClose = event => {
             event.preventDefault();
-            titleState.set(false);
-            leaveRoom(roomName.get(), user);
-            deleteUser(user);
+            leaveRoom(roomName.get(), userState.get());
+            deleteUser(userState.get());
+            // navigateToHome();
             console.log("beforeunload");
             return (event.returnValue = 'Are you sure you want to exit?');
         };

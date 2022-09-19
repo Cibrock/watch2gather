@@ -24,8 +24,11 @@ const Chat = () => {
         const out = [];
         const data = await getChat(roomName);
         const messages = data.messages;
-        if (messages === undefined) return out;
-        if (messages.length < 10) return messages;
+        if (messages === undefined) return;
+        if (messages.length < 10) { 
+            setDisplayed(messages);
+            return;
+        }
         for (let i = messages.length - 10; i < messages.length; i++) {
             out.push({
                 id: messages[i].id,
@@ -43,7 +46,6 @@ const Chat = () => {
                 {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} id={m.userId} />))}
                 <li className="chat-input">
                     <ChatInput />
-                    {newestMessage.id}
                 </li>
             </ul>
         </div>

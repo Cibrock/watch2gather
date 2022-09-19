@@ -1,20 +1,23 @@
+import { roomState } from "../../Room";
+import { titleState } from "../Navbar";
+
 export const createRoom = async () => {
     try {
         let res = await fetch('https://gruppe10.toni-barth.com/rooms/',
             {
                 method: "POST",
             }
-        )
-        let json = await res.json()
-        return json.name
+        );
+        let json = await res.json();
+        return json.name;
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
+};
 export const joinRoom = async (roomName, id) => {
     try {
-        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/users',
+        fetch('https://gruppe10.toni-barth.com/rooms/' + roomName + '/users',
             {
                 method: "PUT",
                 headers: {
@@ -24,28 +27,28 @@ export const joinRoom = async (roomName, id) => {
                     "user": id
                 })
             }
-        )
+        );
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
+};
 export const getRoomUsers = async (roomName) => {
     try {
-        let res = await fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/users',
+        let res = await fetch('https://gruppe10.toni-barth.com/rooms/' + roomName + '/users',
             {
                 method: "GET",
             }
-        )
-        return await res.json()
+        );
+        return await res.json();
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
+};
 export const leaveRoom = async (roomName, id) => {
     try {
-        fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+ '/users',
+        fetch('https://gruppe10.toni-barth.com/rooms/' + roomName + '/users',
             {
                 method: "DELETE",
                 headers: {
@@ -55,12 +58,14 @@ export const leaveRoom = async (roomName, id) => {
                     "user": id
                 })
             }
-        )
+        );
+        titleState.set(false);
+        roomState.set(false);
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
+};
 
 export const getRooms = async () => {
     try {
@@ -68,10 +73,10 @@ export const getRooms = async () => {
             {
                 method: "GET",
             }
-        )
-        return await res.json()
+        );
+        return await res.json();
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
+};
