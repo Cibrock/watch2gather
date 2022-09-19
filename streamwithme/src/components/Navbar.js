@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./styles/Navbar.css";
+import "./styles/navbar.css";
 import { Link } from "react-router-dom";
 import { hookstate, useHookstate } from '@hookstate/core';
 import { leaveRoom } from './API/RoomAPI';
@@ -24,7 +24,7 @@ const Navbar = () => {
     return (
         <div className='sum'>
             <div className='logo'>
-                <p className="logo-link" onClick={handleNavigate} >StreamWithMe</p>
+                <p tabindex="0" className="logo-link" onClick={handleNavigate} >StreamWithMe</p>
             </div>
             <div className='logo'>
                 {room}

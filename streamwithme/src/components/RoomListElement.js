@@ -26,7 +26,7 @@ const RoomListElement = (props) => {
     };
 
     return (
-        <li className='element' onClick={enterRoom}>
+        <li tabindex="0" className='element' onClick={enterRoom}>
             {roomName}
         </li>
     );
