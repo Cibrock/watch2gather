@@ -10,7 +10,6 @@ const ChatInput = () => {
     const roomName = roomState.get();
     const user = userState.get();
     const handleInputChange = (event) => {
-        //Update the shown text whilst typing
         setNewMessage(event.target.value);
     };
 
@@ -31,7 +30,7 @@ const ChatInput = () => {
                 id="chatMessage"
                 value={newMessage}
                 placeholder="Neue Nachricht"
-                maxLength="50"
+                maxLength="500"
                 autoComplete="off"
                 onChange={handleInputChange}/>
         </form>
