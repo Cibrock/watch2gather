@@ -21,12 +21,12 @@ const Room = () => {
     const navigateToHome = useCallback(() => navigate("/", { replace: true }), [navigate]);
 
     useEffect(() => {
-        if (roomName.get() === false ) {
+        if (roomName.get() === false) {
             navigateToHome();
         }
         const handleTabClose = event => {
             event.preventDefault();
-            titleState.set(false)
+            titleState.set(false);
             leaveRoom(roomName.get(), user);
             deleteUser(user);
             console.log("beforeunload");

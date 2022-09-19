@@ -14,7 +14,10 @@ const Navbar = () => {
     const navigate = useNavigate();
     const navigateToHome = useCallback(() => navigate("/", { replace: true }), [navigate] );
     const handleNavigate = () => {
-        if (room !== "") leaveRoom(room, user);
+        if (room !== false) {
+            titleState.set(false);
+            leaveRoom(room, user);
+        }
         navigateToHome();
     }
 

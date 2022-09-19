@@ -16,11 +16,11 @@ const RoomListElement = (props) => {
         if (user === undefined) {
             popupState.set(true);
             console.log("Blocked join room, user is " + user);
-            return 
-        }else{
+            return;
+        } else {
             roomState.set(roomName);
-            titleState.set(roomName)
-            joinRoom(roomName, user)
+            titleState.set(roomName);
+            joinRoom(roomName, user);
             navigateToRoom();
         }
     };
