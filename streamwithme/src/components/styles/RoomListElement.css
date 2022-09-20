@@ -4,7 +4,7 @@
     color: white;
     border-radius: 0.3em;
     border: 1px black solid;
-    height: 4vh;
+    height: 5vh;
     padding: 0.5vh 0.5vw 0.5vh 0.5vw;
     margin: 0.5vw;
     overflow-y: hidden;
@@ -25,9 +25,8 @@
 .room-element-name{
     font-weight: bold;
     font-size: larg;
-    height: 5vh;
+    height: 6vh;
     margin: 0;
-
 }
 .room-element-count{
     color: black;
