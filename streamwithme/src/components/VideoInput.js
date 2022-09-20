@@ -9,18 +9,13 @@ const VideoInput = () => {
     const user = userState.get();
     const [input, setInput] = useState("");
     const handleInputChange = (event) => {
-        //Update the shown text whilst typing
         setInput(event.target.value);
     };
 
     const urlInput = (event) => {
-        //On Submit create the user and join a room if possible
-        if (user === false) console.log("user is not set");
-        else {
-            changeVideoUrl(roomName, user, input);
-            setInput("");
-        }
         event.preventDefault();
+        changeVideoUrl(roomName, user, input);
+        setInput("");
     };
 
     return (

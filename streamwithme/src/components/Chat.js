@@ -20,9 +20,7 @@ const Chat = () => {
             setLastCount(displayed.length);
             scrollToBottom();
         }
-        const interval = setInterval(async () => {
-            await shownMessages();
-        }, 1000);
+        const interval = setInterval(async () => { await shownMessages();}, 1000);
         return () => clearInterval(interval);
     });
 

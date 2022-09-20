@@ -1,46 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import RoomListElement from "./RoomListElement";
 import './styles/RoomList.css';
-import Async from "react-async";
-import { getRooms } from './API/RoomAPI';
-
+import { getRooms} from './API/RoomAPI';
 
 const RoomList = () => {
-    const startIndex = 0;
-    const endIndex = 35;
+    const [displayed, setDisplayed] = useState([]);
+    
+    useEffect(() => {
+        const interval = setInterval(async () => { await shownRooms(); }, 1000);
+        return () => clearInterval(interval);
+    });
 
-    const shownRooms = (rooms) => {
-        const out = [];
-        if (rooms.length === 0) return out;
-        for (let i = startIndex; i < endIndex; i++) {
-            if (typeof (rooms[i]) == "object")
-                out[i] = rooms[i].name;
-        }
-        return out;
+    const shownRooms = async () => {
+        const data = await getRooms();
+        const rooms = data.rooms;
+        if (rooms === undefined) return;
+        setDisplayed(rooms);
     };
 
     return (
-        <Async promiseFn={getRooms}>
-            {({ data, error, isLoading }) => {
-                if (isLoading) return "Loading...";
-                if (error) return 'Something went wrong: ' + error.message;
-                if (data)
-                    return (
-                        <div className="flex-rooms">
-                            <div><h2>Einem Raum beitreten</h2></div>
-                            <div className="flex-room">
-                                <div className='roomlist_container'>
-                                    <ul className='roomlist' aria-label="Räume">
-                                        {shownRooms(data.rooms).map(room => (<RoomListElement name={room} key={room} />))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                return null;
-            }}
-        </Async>
-    )
+        <div className="flex-rooms">
+            <h2 className='room-header'>Einem Raum beitreten</h2>
+            <div className='room-list' aria-label="Räume">
+                {displayed.map(e => (<RoomListElement name={e.name} key={e.name}/>))}
+            </div>
+        </div>
+    );
 };
 
 export default RoomList;

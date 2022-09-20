@@ -27,7 +27,7 @@ const UserList = () => {
             setLastCount(displayed.length);
             scrollToBottom();
         }
-        const interval = setInterval( async () => { await shownUsers(); }, 3000);
+        const interval = setInterval( async () => { await shownUsers(); }, 1000);
         return () => clearInterval(interval);
     });
 

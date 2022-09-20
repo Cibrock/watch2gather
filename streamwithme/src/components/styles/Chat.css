@@ -33,22 +33,3 @@
     height: 10vh;
     margin:0;
 }
- /* width */
- ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: rgb(1, 103, 123);;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: white;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(0, 217, 255);
-  } 
