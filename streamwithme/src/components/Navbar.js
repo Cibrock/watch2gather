@@ -13,7 +13,7 @@ const Navbar = () => {
     useHookstate(roomTitleState);
     let linkIsVis = false;
     const room = roomTitleState.get();
-    const [title,setTitle] = useState("StreamWithMe");
+    const [title,setTitle] = useState("Me");
     const [roomTitle,setRoomTitle] = useState(room);
 
     const navigate = useNavigate();
@@ -26,13 +26,13 @@ const Navbar = () => {
             const data = await getUsers();
             const users = data.users;
             if(users===undefined){
-                setTitle("StreamWithMe")
+                setTitle("Me")
                 return;
             }
             const u = users.find((u)=> userState.get()===u.id)
-            setTitle("StreamWith"+u.name);
+            setTitle(u.name);
         }
-        else setTitle("StreamWithMe");
+        else setTitle("Me");
     }
 
     const handleKeyDown = (e) => { if (e.key === "Enter") handleNavigate(); }
@@ -58,7 +58,10 @@ const Navbar = () => {
     return (
         <div className='sum'>
             <div className='logo'>
-                <p tabIndex="0" className="logo-link" onClick={handleNavigate} onKeyDown={handleKeyDown} >{title}</p>
+                <div tabIndex="0" className="logo-link" onClick={handleNavigate} onKeyDown={handleKeyDown} >
+                    <div className='logo-stream'>StreamWith</div>
+                    <div className='logo-title'>{title}</div>
+                </div>
             </div>
             <div className='logo'>
                 <p className='logo-link' tabIndex="0" onClick={copyLink}>{roomTitle}</p>

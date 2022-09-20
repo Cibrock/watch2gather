@@ -18,9 +18,9 @@ const Video = () => {
     useEffect(() => {
         const interval = setInterval(async () => {
             await videoUrl();
-            await videoPosition();
             await videoStatus();
-        }, 3000);
+            await videoPosition();
+        }, 1000);
         return () => clearInterval(interval);
     });
 
@@ -68,16 +68,17 @@ const Video = () => {
                 playing={isPlaying}
                 url={url}
                 ref={playerRef}
-                progressInterval={3000}
+                progressInterval={1000}
                 onReady={setupVideo}
                 onStart={() => changeVideoStatus(roomName, user, 'playing')}
+                onPlay={() => changeVideoStatus(roomName, user, 'playing')}
                 onPause={() => changeVideoStatus(roomName, user, 'paused')}
-                onProgress={(data) => { changeVideoPosition(roomName, user, Math.round(data.playedSeconds)); }}
-                onSeek={(data) => { changeVideoPosition(roomName, user, Math.round(data.playedSeconds)); }}
+                onProgress={(data) => changeVideoPosition(roomName, user, Math.floor(data.playedSeconds))}
+                onSeek={(data) => changeVideoPosition(roomName, user, Math.floor(data.playedSeconds)) }
                 onEnded={() => console.log('onEnd callback')}
                 onError={() => console.log('onError callback')}
             />
-            <div className='video-outline'/>
+            <div className='video-outline' />
         </div>
     );
 };
