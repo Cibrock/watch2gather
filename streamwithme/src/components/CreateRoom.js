@@ -6,7 +6,7 @@ import { roomState } from '../Room';
 import { userState } from '../App';
 import 'reactjs-popup/dist/index.css';
 import { popupState } from './InputUser';
-import { titleState } from './Navbar';
+import { roomTitleState } from './Navbar';
 
 const CreateRoom = () => {
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const CreateRoom = () => {
         const roomName = await createRoom();
         joinRoom(roomName, userState.get());
         roomState.set(roomName);
-        titleState.set(roomName);
+        roomTitleState.set(roomName);
         navigateToRoom();
     };
 

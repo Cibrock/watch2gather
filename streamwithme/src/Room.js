@@ -16,7 +16,6 @@ import VideoInput from "./components/VideoInput";
 export const roomState = hookstate(false);
 
 const Room = () => {
-    const APP = 'StreamWithMe';
     const roomName = useHookstate(roomState);
     const navigate = useNavigate();
     const navigateToHome = useCallback(() => navigate("/", { replace: true }), [navigate]);
@@ -42,7 +41,7 @@ const Room = () => {
         <div className="Room">
             <HelmetProvider>
                 <Helmet>
-                    <title>{APP + " - " + roomName.get()}</title>
+                    <title>{"StreamWithMe - " + roomName.get()}</title>
                 </Helmet>
                 <div className="header">    <Navbar /> </div>
                 <div className="videoInput"><VideoInput/> </div>

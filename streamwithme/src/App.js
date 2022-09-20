@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './components/styles/App.css';
-import Navbar, { titleState } from './components/Navbar';
+import Navbar, { roomTitleState } from './components/Navbar';
 import CreateRoom from './components/CreateRoom';
 import { Helmet } from 'react-helmet';
 import { deleteUser } from './components/API/UserAPI';
@@ -17,7 +17,6 @@ import { useLocation } from 'react-router-dom';
 export const userState = hookstate(false)
 
 const App = () => {
-    const TITLE = 'StreamWithMe';
     const user = useHookstate(userState);
     
     const location = useLocation();
@@ -46,10 +45,10 @@ const App = () => {
         const rooms = data.rooms;
         if (rooms === undefined) return;
         if (path === "") return;
-        const target = rooms.find((room)=>{return room.name==path});
+        const target = rooms.find((room)=>{return room.name===path});
         if (target===undefined) return navigateToNotFound();
         roomState.set(path);
-        titleState.set(path);
+        roomTitleState.set(path);
         popupState.set(true);
         console.log("Blocked join room, user is not set");
     }
@@ -57,7 +56,7 @@ const App = () => {
     return (
         <div className="App">
             <Helmet>
-                <title>{TITLE}</title>
+                <title>StreamWithMe</title>
             </Helmet>
             <div className='header'>    <Navbar /></div>
             <div className='create'>    <CreateRoom /></div>

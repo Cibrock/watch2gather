@@ -4,7 +4,7 @@ import "./styles/RoomListElement.css";
 import { roomState } from '../Room';
 import { userState } from '../App';
 import { popupState } from './InputUser';
-import { titleState } from './Navbar';
+import { roomTitleState } from './Navbar';
 import { getRoomUsers, joinRoom } from './API/RoomAPI';
 import { useEffect } from 'react';
 
@@ -27,7 +27,7 @@ const RoomListElement = (props) => {
     const handleKeyDown = (e) => { if (e.key === "Enter") enterRoom(); }
     const enterRoom = async () => {
         roomState.set(roomName);
-        titleState.set(roomName);
+        roomTitleState.set(roomName);
         if (userState.get() === false) {
             popupState.set(true);
             console.log("Blocked join room, user is not set");

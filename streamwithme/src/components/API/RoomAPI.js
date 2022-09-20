@@ -1,5 +1,5 @@
 import { roomState } from "../../Room";
-import { titleState } from "../Navbar";
+import { roomTitleState } from "../Navbar";
 
 export const createRoom = async () => {
     try {
@@ -59,7 +59,7 @@ export const leaveRoom = async (roomName, id) => {
                 })
             }
         );
-        titleState.set(false);
+        roomTitleState.set(false);
         roomState.set(false);
     }
     catch (error) {
