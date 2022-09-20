@@ -15,6 +15,9 @@
     background-color:rgb(0, 217, 255);
     height: 13vh;
     z-index: 1;
+    /* margin-top: -2vh;
+    margin-left: -1vw; */
+    margin: 0 -2vw -2vh 0;
     transition: 100ms;
 }
 .room-element:focus{
@@ -24,7 +27,6 @@
 }
 .room-element-name{
     font-weight: bold;
-    font-size: larg;
     height: 6vh;
     margin: 0;
 }

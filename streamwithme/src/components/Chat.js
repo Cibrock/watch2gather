@@ -34,7 +34,7 @@ const Chat = () => {
     return (
         <div className="flex-chat" >
             <h2 className='chat-header'>Chat</h2>
-            <div className='chat-list' role="list" aria-label="Chat" aria-live="polite" tabIndex="0" onfocus="scrollToBottom()">
+            <div className='chat-list' role="list" aria-label="Chat" aria-live="polite" tabIndex="0" onFocus={scrollToBottom}>
                 {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} id={m.userId} />))}
                 <div ref={endRef} />
             </div>
