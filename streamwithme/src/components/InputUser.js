@@ -7,13 +7,13 @@ import { roomState } from "../Room";
 import { joinRoom } from "./API/RoomAPI";
 import { userState } from "../App";
 
-export const popupState = hookstate(false);
+export const popupInputState = hookstate(false);
 
 const InputUser = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     const [name, setName] = useState("");
-    const status = useHookstate(popupState);
+    const status = useHookstate(popupInputState);
 
     const handleInputChange = (event) => {
         //Update the shown text whilst typing

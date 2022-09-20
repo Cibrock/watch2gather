@@ -1,16 +1,25 @@
-.Help{ 
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;  
-    margin: 0;
-    padding: 0;
+.modal-help2-content {
+    z-index: 4;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: black;
+    padding: 14px 28px;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 3px;
+}
+
+.modal-help-content {
+    z-index: 3;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    padding: 1vh 1vw;
+    border-radius: 0.3rem;
+    height: 50vh;
+    width: 50vw;
     color: white;
 }

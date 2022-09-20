@@ -5,7 +5,7 @@ import { createRoom, joinRoom } from './API/RoomAPI';
 import { roomState } from '../Room';
 import { userState } from '../App';
 import 'reactjs-popup/dist/index.css';
-import { popupState } from './InputUser';
+import { popupInputState } from './InputUser';
 import { roomTitleState } from './Navbar';
 
 const CreateRoom = () => {
@@ -13,7 +13,7 @@ const CreateRoom = () => {
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     const instantiateRoom = async () => {
         if (userState.get() === false) {
-            popupState.set(true);
+            popupInputState.set(true);
             console.log("Blocked create room, user is not set");
             return;
         }

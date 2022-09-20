@@ -6,13 +6,14 @@ import CreateRoom from './components/CreateRoom';
 import { Helmet } from 'react-helmet';
 import { deleteUser } from './components/API/UserAPI';
 import Footer from './components/Footer';
-import InputUser, { popupState } from './components/InputUser.js';
+import InputUser, { popupInputState } from './components/InputUser.js';
 import Backgroundvideo from './components/Backgroundvideo';
 import RoomList from './components/RoomList';
 import { getRooms, leaveRoom } from './components/API/RoomAPI';
 import { roomState } from './Room';
 import { hookstate, useHookstate } from '@hookstate/core';
 import { useLocation } from 'react-router-dom';
+import Help from './components/Help';
 
 export const userState = hookstate(false)
 
@@ -49,7 +50,7 @@ const App = () => {
         if (target===undefined) return navigateToNotFound();
         roomState.set(path);
         roomTitleState.set(path);
-        popupState.set(true);
+        popupInputState.set(true);
         console.log("Blocked join room, user is not set");
     }
 
@@ -58,12 +59,13 @@ const App = () => {
             <Helmet>
                 <title>StreamWithMe</title>
             </Helmet>
-            <div className='header'>    <Navbar /></div>
-            <div className='create'>    <CreateRoom /></div>
-            <div className='join'>      <RoomList /></div>
-            <div className='footer'>    <Footer /></div>
+            <Navbar />
+            <CreateRoom />
+            <RoomList />
+            <Footer />
             <InputUser />
             <Backgroundvideo />
+            <Help/>
         </div>
     );
 };

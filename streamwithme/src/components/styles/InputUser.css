@@ -2,7 +2,7 @@
     color: white;
     font-weight: bold;
     font-family: 'Helvetica', 'Arial', sans-serif;
-    margin: 1em;
+    margin: 1vw;
 }
 
 #UserName {
@@ -20,6 +20,12 @@
     position: fixed;
     font-size: larger;
     font-weight: bold;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.modal-btn:hover{
+    background-color:rgb(1, 103, 123);
 }
 
 .modal .overlay {

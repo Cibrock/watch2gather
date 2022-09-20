@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./styles/RoomListElement.css";
 import { roomState } from '../Room';
 import { userState } from '../App';
-import { popupState } from './InputUser';
+import { popupInputState } from './InputUser';
 import { roomTitleState } from './Navbar';
 import { getRoomUsers, joinRoom } from './API/RoomAPI';
 import { useEffect } from 'react';
@@ -29,7 +29,7 @@ const RoomListElement = (props) => {
         roomState.set(roomName);
         roomTitleState.set(roomName);
         if (userState.get() === false) {
-            popupState.set(true);
+            popupInputState.set(true);
             console.log("Blocked join room, user is not set");
         } else {
             joinRoom(roomName, userState.get());                

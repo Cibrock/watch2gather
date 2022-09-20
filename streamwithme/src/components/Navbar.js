@@ -5,6 +5,7 @@ import { hookstate, useHookstate } from '@hookstate/core';
 import { leaveRoom } from './API/RoomAPI';
 import { userState } from '../App';
 import { getUsers } from './API/UserAPI';
+import { popupHelpStatus } from './Help';
 
 export const roomTitleState = hookstate("");
 
@@ -43,9 +44,7 @@ const Navbar = () => {
         navigateToHome();
     }
 
-    const toggleHelp = () => {
-        // TODO
-    }
+    const toggleHelp = () => { popupHelpStatus.set(true); }
 
     const copyLink = () => {
         if (!linkIsVis){

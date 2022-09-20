@@ -12,6 +12,7 @@ import { hookstate, useHookstate } from '@hookstate/core';
 import Chat from "./components/Chat";
 import UserList from "./components/UserList";
 import VideoInput from "./components/VideoInput";
+import Help from "./components/Help";
 
 export const roomState = hookstate(false);
 
@@ -28,7 +29,6 @@ const Room = () => {
             event.preventDefault();
             leaveRoom(roomName.get(), userState.get());
             deleteUser(userState.get());
-            // navigateToHome();
             console.log("beforeunload");
             return (event.returnValue = 'Are you sure you want to exit?');
         };
@@ -49,6 +49,7 @@ const Room = () => {
                 <div className="chat">      <Chat /> </div>
                 <div className="users">     <UserList /> </div>
                 <div className="footer">    <Footer /> </div>
+                <Help/>
             </HelmetProvider>
         </div>
     );
