@@ -39,14 +39,14 @@ const Chat = () => {
     };
 
     return (
-        <div className="flex-chat">
+        <>
             <h2 className='chat-header'>Chat</h2>
-            <button className="chat-btn-skip" onClick={focusOnLast} tabIndex="0">Zur letzten Chat-Nachricht springen</button>
             <div className='chat-list' role="list" aria-label="Chat" aria-live="polite" tabIndex="0" onFocus={scrollToBottom}>
-                {displayed.map((m,i,a) => <ChatMessage ref={i===a.length-1 ? endRef:null} key={m.id} time={m.time} text={m.text} name={m.user}/> )}
+                {displayed.map((m) => <ChatMessage key={m.id} time={m.time} text={m.text} name={m.user}/> )}
             </div>
             <div className="chat-input"> <ChatInput /> </div>
-        </div>
+            <div ref={endRef}/>
+        </>
     );
 };
 

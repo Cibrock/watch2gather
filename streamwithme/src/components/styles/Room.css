@@ -19,26 +19,30 @@
 }
 .header{
     grid-area: header; 
-    height: 10vh;
 }
 .videoInput{
-    background-color: rgb(26, 25, 25);
     grid-area: input;
+    padding: 0 2vw 2vh 2vw;
 }
 .video {
     grid-area: video;
     display: flex;
     justify-content: center;
     align-self: center;
-    background-color: rgb(26, 25, 25);
     height: 72vh;
+    padding: 0 2vw 2vh 2vw;
 }
 .chat{
     grid-area: chat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     background-color: rgb(26, 25, 25);
     border-right: rgb(0, 0, 0) 1px solid;
     list-style: none;
+    margin: 0;
     height:72vh;
+    padding: 0 2vw 2vh 2vw;
 }
 .users{
     grid-area: users;
@@ -48,7 +52,7 @@
     align-items: center;
     background-color: rgb(26, 25, 25);
     border: 1px solid black;
-    height: 10vh;
+    padding: 0 2vw 0 2vw;
 }
 .footer{
     grid-area: footer;
@@ -61,22 +65,21 @@ h1 {
     margin: 1em;
 } 
 
-@media only screen and (max-width:700px){
+@media only screen and (max-width:900px){
     .Room{
-        grid-template-rows: 5vh, 5vh, 65vh, 25vh, 3vh;
-        grid-gap: 0.5rem;
-        grid-template-areas: "header" "title" "video" "chat" "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: 
+            "header " 
+            "input  " 
+            "video  " 
+            "chat   " 
+            "footer ";
     }
     .video{
-        grid-area: video;
-        height: 50vh;
+        height:30vh;
     }
     .chat{
-        margin-top: 0;
-        grid-area: chat;
-        justify-content: flex-start;
-    }
-    h1{
-        margin: 0;
+        height:40vh;
     }
 }

@@ -1,20 +1,11 @@
-.flex-chat{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-}
 .chat-header{
     z-index: 2;
-    padding: 1vh 1vw 1vh 1vw;
+    padding: 1vh 0 1vh 0;
     height: 4vh;
     margin:0;
     background-color: rgb(26, 25, 25);
 }
 .chat-list{
-    padding-left: 1vw;
-    padding-right: 1vw; 
     height: 56vh;
     overflow-y: auto;
     margin:0;
@@ -26,10 +17,21 @@
 }
 .chat-input{
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
-    padding-left: 1vw;
-    padding-right: 1vw;
     height: 10vh;
-    margin:0;
+}
+
+@media only screen and (max-width:900px){
+    .chat-list{
+        height:24vh;
+    }
+    .chat-header{
+        width:96vw;
+    }
+    .chat-input{
+        flex-direction:column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 }

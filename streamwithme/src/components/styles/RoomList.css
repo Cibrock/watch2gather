@@ -20,22 +20,6 @@
     overflow-y: auto;
 }
 
-@media only screen and (max-width:900px) and (min-width:700px){
-    .room-list{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 2.5rem;
-    }
-}
+@media only screen and (max-width:900px){
 
-@media only screen and (max-width:700px){
-    .room-list{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-auto-rows: 2rem;
-    }
-    .flex-rooms{
-        padding: 1em;
-        margin: 1rem;
-    }
 }

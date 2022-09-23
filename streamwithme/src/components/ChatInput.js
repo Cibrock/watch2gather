@@ -20,7 +20,7 @@ const ChatInput = () => {
     };
 
     return (
-        <form onSubmit={submitInput}>
+        <form className="chat-form" onSubmit={submitInput}>
             <label className="chat-input-label" htmlFor="chatMessage">
                 Nachricht eingeben
             </label>

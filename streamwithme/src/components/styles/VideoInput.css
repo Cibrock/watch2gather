@@ -5,8 +5,18 @@
     align-items: center;
     height: 10vh;
 }
+.video-input-label{
+    color:white;
+    font-weight: bold;
+    width: 15vw;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin: 1vw;
+    text-align: right;
+}
 #Url{
     width: 30vw;
+    height:4vh;
+    border:none;
 }
 
 input[type=submit]{
@@ -16,16 +26,26 @@ input[type=submit]{
     cursor: pointer;
     border: none;
     margin: 1vw;
-    height: 3vh;
+    height: 4vh;
     width: 15vw;
     border-radius: 0.3em;
 }
 
-.video-input-label{
-    color:white;
-    font-weight: bold;
-    width: 15vw;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    margin: 1vw;
-    text-align: right;
+@media only screen and (max-width:900px){
+    .video-input-form{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:96vw;
+    }
+    .video-input-label{
+        text-align: center;
+        width:96vw;
+    }
+    #Url{
+        width:96vw;
+    }
+    input[type=submit]{
+        width:96vw;
+    }
 }

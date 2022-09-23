@@ -15,14 +15,13 @@
     background-color:rgb(0, 217, 255);
     height: 13vh;
     z-index: 1;
-    /* margin-top: -2vh;
-    margin-left: -1vw; */
     margin: 0 -2vw -2vh 0;
     transition: 100ms;
 }
 .room-element:focus{
     background-color:rgb(0, 217, 255);
     height: 13vh;
+    margin: 0 -2vw -2vh 0;
     z-index: 1; 
 }
 .room-element-name{
@@ -30,6 +29,9 @@
     height: 6vh;
     margin: 0;
 }
-.room-element-count{
+.room-element-info{
     color: black;
+}
+@media only screen and (max-width:900px){
+
 }

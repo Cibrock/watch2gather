@@ -15,26 +15,21 @@
     white-space: nowrap;
     font-family: 'Courier New', Courier, monospace;
     font-size:small;
-    margin: 0.5vh;
+    margin: 0.5vw;
 }
 .messageUser{
     white-space: nowrap;
-    margin: 0.5vh;
+    margin: 0.5vw;
     font-weight: bold;
 }
 .messageText{
-    margin: 5px;
+    margin: 0.5vw;
     padding-bottom: 0;
     overflow-wrap: break-word;
 }
-@media only screen and (max-width:700px){
-    .messages{
-        margin: 1px;
-        margin-right: 1vh;
-    }
-    .messageUser::after{
-        content: normal;
-        white-space: pre;
-    }
 
+@media only screen and (max-width:900px){
+    .messages{
+        max-width: 96vw;
+    }
 }

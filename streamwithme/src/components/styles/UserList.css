@@ -27,8 +27,11 @@
     align-items: center;
 }
 .user-list-header{
-    padding: 1vh 1vw 1vh 1vw;
+    padding: 1vh 0 1vh 0;
     height: 8vh;
     margin: 0;
     grid-area: "header";
+}
+@media only screen and (max-width:900px){
+
 }

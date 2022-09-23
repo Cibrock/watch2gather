@@ -11,26 +11,8 @@
     bottom: 0px;
 }
 
-@media only screen and (max-width:900px) and (min-width:700px) {
-    .footer-container {
-        width: 100vw;
-        padding-left: 1em;
-        padding-right: 1em;
-        height: 4em;
-        align-items: center;
-        flex-direction: column;
-    }
-}
+@media only screen and (max-width:900px) {
 
-@media only screen and (max-width:700px) {
-    .footer-container {
-        width: 100vw;
-        padding-left: 1em;
-        padding-right: 1em;
-        height: 4em;
-        align-items: center;
-        flex-direction: column;
-    }
 }
 
 .footer-p{
