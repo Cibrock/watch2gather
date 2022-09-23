@@ -44,10 +44,10 @@ const Room = () => {
                     <title>{"StreamWithMe - " + roomName.get()}</title>
                 </Helmet>
                 <div className="header">    <Navbar /> </div>
+                <div className="users">     <UserList /> </div>
+                <div className="chat">      <Chat /> </div>
                 <div className="videoInput"><VideoInput/> </div>
                 <div className="video">     <Video /> </div>
-                <div className="chat">      <Chat /> </div>
-                <div className="users">     <UserList /> </div>
                 <div className="footer">    <Footer /> </div>
                 <Help/>
             </HelmetProvider>

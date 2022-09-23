@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./styles/Help.css";
 import { hookstate, useHookstate } from '@hookstate/core';
 
@@ -14,7 +14,7 @@ const Help = () => {
             <div className="modal-help-content">
                 <button className = "modal-btn" onClick={toggle}>×</button>
                 <h2>Funktionen erklärt</h2>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+                <span tabIndex={1} autoFocus >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
                  et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
                   Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
                    amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -26,7 +26,7 @@ const Help = () => {
 
                 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
                  feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-                  delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
+                  delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</span>
             </div>
         </div>
     );

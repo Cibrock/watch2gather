@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { getUsers } from "./API/UserAPI";
 import "./styles/ChatMessage.css";
 
 const ChatMessage = (props) => {

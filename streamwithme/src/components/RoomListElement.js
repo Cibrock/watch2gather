@@ -39,6 +39,7 @@ const RoomListElement = (props) => {
 
     return (
         <div tabIndex="0" className='room-element' onClick={enterRoom} onKeyDown={handleKeyDown}>
+            <span >Raum</span>
             <span className='room-element-name'>{roomName}</span>
             <span className='room-element-count'>{viewers} watching</span>
         </div>

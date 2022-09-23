@@ -36,10 +36,11 @@ const InputUser = () => {
     };
 
     return (status.get()) && (
-        <div className="modal">
+        <div className="modal" role="dialog" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
             <div className="overlay" onClick={toggle}></div>
             <div className="modal-content">
-                <h2 className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
+                <p id="dialog1Desc" className='accessibility'>Ein Popup zur Nutzernameneingabe hat sich geöffnet, Sie können es jederzeit mit der ESC taste schliessen</p>
+                <h2 id="dialog1Title" className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
                 <button className = "modal-btn" onClick={toggle}>×</button>
                 <form onSubmit={submitInput}>
                     <label htmlFor="UserName" className="input-user-label">

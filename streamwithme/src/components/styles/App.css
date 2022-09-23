@@ -1,16 +1,14 @@
 .App{ 
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;  
-    margin: 0;
-    padding: 0;
     display: flex;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    bottom: 0;
     flex-direction: column;
+    justify-content: space-between;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
