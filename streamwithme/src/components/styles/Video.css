@@ -4,5 +4,8 @@
     border: 1px solid black;
 }
 @media only screen and (max-width:900px){
-
+    .video-container{
+        width: 96vw;
+        height: 25vh;
+    }
 }

@@ -14,9 +14,7 @@ const RoomListElement = (props) => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     
-    useEffect(()=>{
-        getViewers();
-    });
+    useEffect(()=>{ getViewers(); });
     
     const getViewers = async () => {
         const data = await getRoomUsers(roomName);
@@ -39,9 +37,9 @@ const RoomListElement = (props) => {
 
     return (
         <div tabIndex="0" className='room-element' onClick={enterRoom} onKeyDown={handleKeyDown}>
-            <span className='room-element-info'>Raum</span>
+            <span className='room-element-info accessibility'>Raum</span>
             <span className='room-element-name'>{roomName}</span>
-            <span className='room-element-info'>{viewers} Zuschauer</span>
+            <span className='room-element-info'>{viewers} streamen</span>
         </div>
     );
 };

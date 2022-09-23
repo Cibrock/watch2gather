@@ -2,7 +2,7 @@
     font-family: 'Helvetica', 'Arial', sans-serif;
     color: white;
     list-style: none;
-    max-width: 23vw;
+    max-width: 20vw;
     background-color:rgb(1, 103, 123);
     border-radius: 0.3em;
     padding: 5px;
@@ -30,6 +30,6 @@
 
 @media only screen and (max-width:900px){
     .messages{
-        max-width: 96vw;
+        max-width: 90vw;
     }
 }

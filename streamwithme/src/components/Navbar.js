@@ -6,6 +6,7 @@ import { leaveRoom } from './API/RoomAPI';
 import { userState } from '../App';
 import { getUsers } from './API/UserAPI';
 import { popupHelpStatus } from './Help';
+import { eventState } from './EventHandler';
 
 export const roomTitleState = hookstate("");
 
@@ -47,12 +48,8 @@ const Navbar = () => {
     const toggleHelp = () => { popupHelpStatus.set(true); }
 
     const copyLink = () => {
-        if (!linkIsVis){
-            setRoomTitle("https://cibrock.github.io/watch2gather/#/"+room);
             navigator.clipboard.writeText("https://cibrock.github.io/watch2gather/#/"+room);
-            setTimeout(()=>{ setRoomTitle(room); linkIsVis = false; },10000)
-            linkIsVis = true;
-        }
+            eventState.set("✔ Link in Zwischenablage kopiert");
     }
 
     return (
@@ -66,7 +63,7 @@ const Navbar = () => {
             </div>
             <div className='logo title'>
                 <span className='accessibility'>LinkGenerieren</span>
-                <p className='logo-link' role="RoomLinkGenerator" tabIndex={roomTitle ? "0" : "-1" } onClick={copyLink}>{roomTitle}</p>
+                <p className='logo-link' role="RoomLinkGenerator" tabIndex={roomTitle ? "0" : "-1" } onClick={copyLink}>{roomTitle ? roomTitle+" 🖫" : null}</p>
             </div>
             <div className='logo help'>
                 <span className='accessibility'>HelpButton</span>

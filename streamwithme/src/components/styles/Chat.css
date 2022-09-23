@@ -1,9 +1,7 @@
 .chat-header{
-    z-index: 2;
     padding: 1vh 0 1vh 0;
     height: 4vh;
     margin:0;
-    background-color: rgb(26, 25, 25);
 }
 .chat-list{
     height: 56vh;
@@ -19,6 +17,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+    margin-top: 1vh;
     height: 10vh;
 }
 

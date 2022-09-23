@@ -10,7 +10,7 @@
 }
 #chatMessage{
     padding: 5px 0 5px 0;
-    margin: 5px 0 1vh 0;
+    margin: 5px 0 1.8vh 0;
     width: 23vw;
     border:none;
 }
@@ -21,6 +21,5 @@
     }
     #chatMessage{
         width:96vw;
-        /* margin:0; */
     }
 }

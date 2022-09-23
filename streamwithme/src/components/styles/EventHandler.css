@@ -1,0 +1,31 @@
+.event-flex-hidden{
+    position: fixed;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: white;
+    background-color: rgb(9, 219, 65);
+    width: 100vw;
+    height: 4vh;
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    padding: 1vh 2vw;
+    z-index: 5;
+    top:-8vh;
+    transition: 500ms;
+}
+
+.event-flex-shown{
+    position: fixed;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: white;
+    background-color: rgb(9, 219, 65);
+    width: 100vw;
+    height: 4vh;
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    padding: 1vh 2vw;
+    z-index: 5;
+    top:0;
+    transition: 100ms;
+}

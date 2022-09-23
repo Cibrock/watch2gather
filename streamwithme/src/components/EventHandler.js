@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { hookstate, useHookstate } from "@hookstate/core";
 import { useEffect } from "react";
+import "./styles/EventHandler.css";
 
-export const eventState = hookstate(false);
+export const eventState = hookstate("");
 
-const EventHandler = () =>{
+const EventHandler = () => {
     const event = useHookstate(eventState);
 
-    useEffect(()=>{
-        console.log(event.get())
-    })
+    useEffect(() => {
+        const timeout = setTimeout(() => { event.set("") }, 3000);
+        return () => clearTimeout(timeout)
+    });
 
-    return(
-        <div className="event-flex" aria-live="polite">
+    return (
+        <div className={event.get()!==""?"event-flex-shown":"event-flex-hidden"} aria-live="polite">
             {event.get()}
         </div>
-    )
-}
+    );
+};
 
 export default EventHandler;
