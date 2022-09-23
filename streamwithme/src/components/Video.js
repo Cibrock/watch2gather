@@ -4,6 +4,7 @@ import "./styles/Video.css";
 import { userState } from '../App';
 import { getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, changeVideoPosition } from './API/VideoAPI';
 import { roomState } from '../Room';
+import { eventState } from './EventHandler';
 
 const Video = () => {
     const [url, setUrl] = useState("");
@@ -27,7 +28,10 @@ const Video = () => {
     const videoUrl = async () => {
         const dataUrl = await getVideoUrl(roomName);
         const newUrl = dataUrl.url;
-        if (newUrl !== url) setUrl(newUrl);
+        if (newUrl !== url) {
+            eventState.set("Neues Video")
+            setUrl(newUrl)
+        };
     };
 
     const videoStatus = async () => {
@@ -35,6 +39,7 @@ const Video = () => {
         const newStatus = dataStatus.status;
         if (newStatus !== status) {
             setStatus(newStatus);
+            eventState.set("Video " + newStatus==="paused" ? "ist pausiert" : "läuft")
             if (newStatus === "paused") setPlaying(false);
             else if (newStatus === "playing") setPlaying(true);
         }
@@ -46,6 +51,7 @@ const Video = () => {
         if (Math.abs(newPos - pos) > 3) {
             setPos(newPos);
             playerRef.current.seekTo(newPos, 'seconds');
+            eventState.set("Es wurde gespult")
         }
     };
 

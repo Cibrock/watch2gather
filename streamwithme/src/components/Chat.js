@@ -5,15 +5,15 @@ import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 import "./styles/Chat.css";
 import { getUsers } from "./API/UserAPI";
+
 const Chat = () => {
     const roomName = roomState.get();
     const [displayed, setDisplayed] = useState([]);
-    const endRef = useRef(null);
+    const endRef = useRef();
     const [lastCount, setLastCount] = useState(0);
 
-    const scrollToBottom = () => {
-        endRef.current.scrollIntoView({ behavior: "smooth" });
-    };
+    const scrollToBottom = () => endRef.current.scrollIntoView({ behavior: "smooth" });
+    const focusOnLast = () => endRef.current.focus();
 
     useEffect(() => {
         if (lastCount < displayed.length) {
@@ -32,18 +32,18 @@ const Chat = () => {
         const list = data2.users;
         messages.forEach((message)=>{
             const user = list.find((element) => { return message.userId === element.id; })
-            const name = user ? user.name : "[deleted]"
+            const name = user ? user.name : "[gelöscht]"
             message.user = name;
         })
         setDisplayed(messages);
     };
 
     return (
-        <div className="flex-chat" >
+        <div className="flex-chat">
             <h2 className='chat-header'>Chat</h2>
+            <button className="chat-btn-skip" onClick={focusOnLast} tabIndex="0">Zur letzten Chat-Nachricht springen</button>
             <div className='chat-list' role="list" aria-label="Chat" aria-live="polite" tabIndex="0" onFocus={scrollToBottom}>
-                {displayed.map(m => (<ChatMessage key={m.id} time={m.time} text={m.text} name={m.user} />))}
-                <div ref={endRef} />
+                {displayed.map((m,i,a) => <ChatMessage ref={i===a.length-1 ? endRef:null} key={m.id} time={m.time} text={m.text} name={m.user}/> )}
             </div>
             <div className="chat-input"> <ChatInput /> </div>
         </div>

@@ -1,15 +1,3 @@
-.modal-help2-content {
-    z-index: 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    padding: 14px 28px;
-    width: 50vw;
-    height: 50vh;
-    border-radius: 3px;
-}
-
 .modal-help-content {
     z-index: 3;
     position: absolute;

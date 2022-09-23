@@ -60,10 +60,10 @@ const App = () => {
                 <title>StreamWithMe</title>
             </Helmet>
             <Navbar />
+            <InputUser />
             <CreateRoom />
             <RoomList />
             <Footer />
-            <InputUser />
             <Backgroundvideo />
             <Help/>
         </div>

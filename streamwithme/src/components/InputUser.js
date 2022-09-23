@@ -4,8 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from "./API/UserAPI";
 import { hookstate, useHookstate } from '@hookstate/core';
 import { roomState } from "../Room";
-import { joinRoom } from "./API/RoomAPI";
+import { createRoom, joinRoom } from "./API/RoomAPI";
 import { userState } from "../App";
+import ReactModal from 'react-modal';
+import { roomTitleState } from "./Navbar";
+ReactModal.setAppElement('#root');
 
 export const popupInputState = hookstate(false);
 
@@ -15,33 +18,37 @@ const InputUser = () => {
     const [name, setName] = useState("");
     const status = useHookstate(popupInputState);
 
-    const handleInputChange = (event) => {
-        //Update the shown text whilst typing
-        setName(event.target.value);
-    };
-
-    const toggle = () => {
-        status.set(!status.get())
-    }
+    const handleInputChange = (event) => { setName(event.target.value); };
+    const toggle = () => { status.set(!status.get()) }
 
     const submitInput = async (event) => {
         event.preventDefault();
         await createUser(name);
-        if (roomState.get() !== false) {
-            joinRoom(roomState.get(),userState.get())
-            navigateToRoom();
+        if (roomState.get() === false) {
+            const roomName = await createRoom();
+            roomState.set(roomName);
+            roomTitleState.set(roomName);
         }
+        joinRoom(roomState.get(),userState.get())
+        navigateToRoom();
         toggle();
         setName("");
     };
-
-    return (status.get()) && (
-        <div className="modal" role="dialog" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
-            <div className="overlay" onClick={toggle}></div>
-            <div className="modal-content">
-                <p id="dialog1Desc" className='accessibility'>Ein Popup zur Nutzernameneingabe hat sich geöffnet, Sie können es jederzeit mit der ESC taste schliessen</p>
-                <h2 id="dialog1Title" className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
-                <button className = "modal-btn" onClick={toggle}>×</button>
+    return (
+        <ReactModal 
+            overlayClassName = "overlay"
+            className = "modal-content"
+            isOpen={status.get()}
+            onRequestClose={toggle}
+            shouldFocusAfterRender = {true}
+            shouldCloseOnOverlayClick = {true} 
+            shouldCloseOnEsc = {true}
+            shouldReturnFocusAfterClose = {true}
+            preventScroll = {true}
+            contentLabel={"Popup für Nutzernameneingabe geöffnet"}
+            >
+            <div className = "modal-content">
+                <h2 className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
                 <form onSubmit={submitInput}>
                     <label htmlFor="UserName" className="input-user-label">
                         Name eingeben
@@ -56,8 +63,9 @@ const InputUser = () => {
                         onChange={handleInputChange} />
                     <input type="submit" value="Bestätigen"/>
                 </form>
+                <button className = "modal-btn" onClick={toggle}>×</button>
             </div>
-        </div>
+        </ReactModal>
     );
 };
 export default InputUser;

@@ -15,13 +15,13 @@ const CreateRoom = () => {
         if (userState.get() === false) {
             popupInputState.set(true);
             console.log("Blocked create room, user is not set");
-            return;
+        }else{
+            const roomName = await createRoom();
+            roomState.set(roomName);
+            roomTitleState.set(roomName);
+            joinRoom(roomName, userState.get());
+            navigateToRoom();
         }
-        const roomName = await createRoom();
-        joinRoom(roomName, userState.get());
-        roomState.set(roomName);
-        roomTitleState.set(roomName);
-        navigateToRoom();
     };
 
     return (

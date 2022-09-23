@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 
 const RoomListElement = (props) => {
     const [roomName] = useState(props.name);
-    const [viewers,setViewers] = useState(props.watchers ? ("are " + props.watchers + " people") : ("is one person"));
+    const [viewers,setViewers] = useState(props.watchers ? ("are " + props.watchers + " people") : ("ist eine Person"));
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);
     
@@ -21,7 +21,7 @@ const RoomListElement = (props) => {
     const getViewers = async () => {
         const data = await getRoomUsers(roomName);
         const users = data.users;
-        setViewers(users.length === 1 ? "1 person is" : users.length + " people are ");
+        setViewers(users.length === 1 ? "1 Person is" : users.length + " Leute ");
     }
 
     const handleKeyDown = (e) => { if (e.key === "Enter") enterRoom(); }

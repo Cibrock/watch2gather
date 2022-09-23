@@ -13,6 +13,7 @@ import Chat from "./components/Chat";
 import UserList from "./components/UserList";
 import VideoInput from "./components/VideoInput";
 import Help from "./components/Help";
+import EventHandler from './components/EventHandler';
 
 export const roomState = hookstate(false);
 
@@ -49,6 +50,7 @@ const Room = () => {
                 <div className="videoInput"><VideoInput/> </div>
                 <div className="video">     <Video /> </div>
                 <div className="footer">    <Footer /> </div>
+                <EventHandler/>
                 <Help/>
             </HelmetProvider>
         </div>

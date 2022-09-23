@@ -58,15 +58,18 @@ const Navbar = () => {
     return (
         <div className='sum'>
             <div className='logo'>
-                <div tabIndex="0" className="logo-link" onClick={handleNavigate} onKeyDown={handleKeyDown} >
+                <div tabIndex="0" role="HomeButton" className="logo-link" onClick={handleNavigate} onKeyDown={handleKeyDown} >
+                    <span className='accessibility'>HomeButton</span>
                     <div className='logo-stream'>StreamWith</div>
                     <div className='logo-title'>{title}</div>
                 </div>
             </div>
             <div className='logo'>
-                <p className='logo-link' tabIndex="0" onClick={copyLink}>{roomTitle}</p>
+                <span className='accessibility'>LinkGenerieren</span>
+                <p className='logo-link' role="RoomLinkGenerator" tabIndex={roomTitle ? "0" : "-1" } onClick={copyLink}>{roomTitle}</p>
             </div>
             <div className='logo'>
+                <span className='accessibility'>HelpButton</span>
                 <p className="logo-link" tabIndex="0" onClick={toggleHelp}>Help</p>
             </div>
         </div>
