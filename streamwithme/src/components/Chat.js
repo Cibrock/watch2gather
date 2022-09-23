@@ -13,7 +13,6 @@ const Chat = () => {
     const [lastCount, setLastCount] = useState(0);
 
     const scrollToBottom = () => endRef.current.scrollIntoView({ behavior: "smooth" });
-    const focusOnLast = () => endRef.current.focus();
 
     useEffect(() => {
         if (lastCount < displayed.length) {
