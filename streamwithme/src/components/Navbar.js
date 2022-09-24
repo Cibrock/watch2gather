@@ -41,7 +41,10 @@ const Navbar = () => {
         else setTitle("Me");
     };
 
-    const handleKeyDown = (e) => { if (e.key === "Enter") handleNavigate(); };
+    const handleKeyDown = (e) => {
+        if (e.target.id === "home" && e.key === "Enter") handleNavigate();
+        if (e.target.id === "help" && e.key === "Enter") toggleHelp();
+    };
     const handleNavigate = () => {
         if (room !== false) {
             roomTitleState.set(false);
@@ -60,7 +63,7 @@ const Navbar = () => {
     return (
         <div className='sum'>
             <div className='logo home'>
-                <div tabIndex="0" className="logo-link" onClick={handleNavigate} onKeyDown={handleKeyDown} >
+                <div tabIndex="0" className="logo-link" id="home" onClick={handleNavigate} onKeyDown={handleKeyDown} >
                     <span className='accessibility'>HomeButton</span>
                     <div className='logo-stream'>StreamWith</div>
                     <div className='logo-title'>{title}</div>
@@ -74,7 +77,7 @@ const Navbar = () => {
             </div>
             <div className='logo help'>
                 <span className='accessibility'>HelpButton</span>
-                <p className="logo-link" tabIndex="0" onClick={toggleHelp}>Hilfe</p>
+                <p className="logo-link" tabIndex="0" id="help" onClick={toggleHelp} onKeyDown={handleKeyDown} >Hilfe</p>
             </div>
         </div>
     );
