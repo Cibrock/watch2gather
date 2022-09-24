@@ -1,3 +1,6 @@
+/* 
+Hier werden die API-Calls definiert um die Nutzung zu vereinfachen.
+*/
 export const getVideoStatus = async (roomName) => {
     try {
         let res = await fetch('https://gruppe10.toni-barth.com/rooms/'+roomName+'/status',

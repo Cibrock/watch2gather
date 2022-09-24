@@ -4,6 +4,8 @@ import { roomState } from "../Room";
 import { changeVideoUrl } from './API/VideoAPI';
 import "./styles/VideoInput.css";
 
+// Über den Video-Input, kann der Nutzer ein Video-Link mit dem Raum teilen
+
 const VideoInput = () => {
     const roomName = roomState.get();
     const user = userState.get();

@@ -7,7 +7,13 @@ import { userState } from '../App';
 import { getUsers } from './API/UserAPI';
 import { popupHelpStatus } from './Help';
 import { eventState } from './EventHandler';
-
+/* 
+Die Navbar erlaubt die Navigation zur Startseite sowie die Hilfe.
+Wenn ein Nutzer erstellt wurde, ändert sich der Titel zu StreamWith+Nutzername
+Hier wird auch der Raumname gezeigt, wenn man einen betritt.
+Zuletzt kann man den Raumnamen clicken um einen Link zu diesem zu erhalten.
+Über den Hookstate lässt sich der Raumname von anderen Elementen ändern.
+ */
 export const roomTitleState = hookstate("");
 
 const Navbar = () => {

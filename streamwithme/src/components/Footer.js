@@ -1,6 +1,8 @@
 import React from 'react'
 import "./styles/Footer.css"
 
+// Ein einfacher Footer mit den geforderten Informationen.
+
 const Footer = () => {
     return (
         <div className='footer-container'>

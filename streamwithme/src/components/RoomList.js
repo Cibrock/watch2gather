@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import RoomListElement from "./RoomListElement";
 import './styles/RoomList.css';
 import { getRooms} from './API/RoomAPI';
-
+/* 
+Die RoomList zeigt alle offenen Räume an.
+Sie aktuallisiert sich jede Sekunde.
+ */
 const RoomList = () => {
     const [displayed, setDisplayed] = useState([]);
     

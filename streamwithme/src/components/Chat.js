@@ -6,6 +6,13 @@ import ChatInput from "./ChatInput";
 import "./styles/Chat.css";
 import { getUsers } from "./API/UserAPI";
 
+/* Dieses Element umfasst den Chat, als auch die Eingabefläche.
+Die API wird regelmäßig auf neue Nachrichten angefragt.
+Beim ersten Laden und bei neuen Nachrichten wird nach unten gescrollt.
+Falls eine Nachricht keinem Nutzer zugewiesen werden kann(meist: Nutzer wurde gelöscht)
+so wird dies angezeigt. 
+*/
+
 const Chat = () => {
     const roomName = roomState.get();
     const [displayed, setDisplayed] = useState([]);
@@ -19,7 +26,7 @@ const Chat = () => {
             setLastCount(displayed.length);
             scrollToBottom();
         }
-        const interval = setInterval(async () => { await shownMessages();}, 3000);
+        const interval = setInterval(async () => { await shownMessages();}, 1000);
         return () => clearInterval(interval);
     });
 

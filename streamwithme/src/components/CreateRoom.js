@@ -8,6 +8,8 @@ import 'reactjs-popup/dist/index.css';
 import { popupInputState } from './InputUser';
 import { roomTitleState } from './Navbar';
 
+// Hiermit kann ein Nutzer einen neuen Raum anlegen und beitreten
+
 const CreateRoom = () => {
     const navigate = useNavigate();
     const navigateToRoom = useCallback(() => navigate("/Room", { replace: true }), [navigate]);

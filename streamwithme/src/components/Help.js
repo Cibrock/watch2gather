@@ -3,7 +3,10 @@ import "./styles/Help.css";
 import { hookstate, useHookstate } from '@hookstate/core';
 import ReactModal from 'react-modal';
 
+// In diesem Popup wird die Nutzung der Seite erklärt.
+
 export const popupHelpStatus = hookstate(false)
+
 const Help = () => {
     const status = useHookstate(popupHelpStatus);
 

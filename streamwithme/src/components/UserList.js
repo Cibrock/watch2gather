@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/UserList.css';
 import { getRoomUsers } from './API/RoomAPI';
 import { roomState } from '../Room';
-
+/* 
+Jedes Element soll nur den Namen zeigen. 
+Der accessibility span dient der Barrierefreiheit. 
+Er wird von ScreenReader als Benachrichtigung gelesen.
+ */
 const UserListElement = (props) => {
     const [name] = useState(props.name);
     return (
@@ -13,21 +17,13 @@ const UserListElement = (props) => {
     );
 };
 
+// Die UserList zeigt alle im Raum befindlichen Nutzer an.
+
 const UserList = () => {
     const roomName = roomState.get();
     const [displayed, setDisplayed] = useState([]);
-    const endRef = useRef(null);
-    const [lastCount, setLastCount] = useState(0);
-
-    const scrollToBottom = () => {
-        endRef.current.scrollIntoView({ behavior: "smooth" });
-    };
 
     useEffect(() => {
-        if (lastCount < displayed.length) {
-            setLastCount(displayed.length);
-            scrollToBottom();
-        }
         const interval = setInterval( async () => { await shownUsers(); }, 1000);
         return () => clearInterval(interval);
     });
@@ -44,7 +40,6 @@ const UserList = () => {
             <h2 className='user-list-header'>Users</h2>
             <div className='user-list' role="list" aria-label="User" aria-live="polite">
                 {displayed.map(user => (<UserListElement name={user.name} key={user.id} />))}
-                <div ref={endRef} />
             </div>
         </div>
     );

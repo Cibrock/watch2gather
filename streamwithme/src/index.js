@@ -4,9 +4,12 @@ import App from './App';
 import Room from './Room';
 import {HashRouter as Router, Routes, Route} from 'react-router-dom'
 import NotFound from './NotFound';
-
-
+/* 
+Hier wird nur der Router definiert. 
+Jeder unbekannte Pfad wird an die App geleitet und dort evvaluiert.
+*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
     <Router base="/">
     <Routes>
