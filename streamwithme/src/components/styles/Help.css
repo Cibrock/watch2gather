@@ -1,15 +1,40 @@
 .modal-help-content {
-    z-index: 3;
+    z-index: 1;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: black;
+    background-color: rgb(26, 25, 25);
     padding: 1vh 1vw;
     border-radius: 0.3rem;
-    height: 50vh;
-    width: 50vw;
+    height: 70vh;
+    width: 80vw;
     color: white;
+    overflow-y: auto;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+.help-element{
+    z-index: 2;
+    color: white;
+    border-radius: 0.3em;
+    border: 1px black solid;
+    height: 5.7vh;
+    padding: 0.5vh 0.5vw 0.5vh 0.5vw;
+    margin: 0.5vw;
+    overflow-y: hidden;
+    background-color:rgb(1, 103, 123);
+}
+
+.help-element:hover{
+    background-color:rgb(1, 103, 123);
+    height: auto;
+    z-index: 4;
+    transition: 100ms;
+}
+.help-element:focus{
+    background-color:rgb(1, 103, 123);
+    height: auto;
+    z-index: 4; 
 }
 @media only screen and (max-width:900px){
 

@@ -9,3 +9,9 @@
         height: 25vh;
     }
 }
+@media only screen and (max-height:400px){
+    .video-container{
+        width: 96vw;
+        height: 75vh;
+    }
+}

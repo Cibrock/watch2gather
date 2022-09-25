@@ -65,7 +65,8 @@ h1 {
     margin: 1em;
 } 
 
-@media only screen and (max-width:900px){
+@media only screen and (max-width:900px)
+{
     .Room{
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 1fr);
@@ -81,5 +82,23 @@ h1 {
     }
     .chat{
         height:40vh;
+    }
+}
+
+@media only screen and (max-height:400px){
+    .Room{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 
+            "header " 
+            "video  "
+            "footer ";
+    }
+    .header{
+        height:12vh;
+    }
+    .video{
+        margin-top:2vh;
+        height:70vh;
     }
 }

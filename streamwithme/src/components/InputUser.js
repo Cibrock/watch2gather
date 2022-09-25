@@ -52,24 +52,23 @@ const InputUser = () => {
             preventScroll = {true}
             contentLabel={"Popup für Nutzernameneingabe geöffnet"}
             >
-            <div className = "modal-content">
-                <h2 className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
-                <form onSubmit={submitInput}>
-                    <label htmlFor="UserName" className="input-user-label">
-                        Name eingeben
-                    </label>
-                    <input
-                        name="UserName"
-                        type="name"
-                        id="UserName"
-                        value={name}
-                        placeholder="Name"
-                        maxLength = "20"
-                        onChange={handleInputChange} />
-                    <input type="submit" value="Bestätigen"/>
-                </form>
-                <button className = "modal-btn" onClick={toggle}>×</button>
-            </div>
+            <h2 className="modal-h2">Bitte erstellen Sie einen Nutzer um Räumen beitreten zu können</h2>
+            <form onSubmit={submitInput} className="input-user-grid">
+                <label htmlFor="UserName" className="input-user-label">
+                    Name eingeben
+                </label>
+                <input
+                    className="input-user-input"
+                    name="UserName"
+                    type="name"
+                    id="UserName"
+                    value={name}
+                    placeholder="Name"
+                    maxLength = "20"
+                    onChange={handleInputChange} />
+                <input className="input-user-submit" type="submit" value="Bestätigen"/>
+            </form>
+            <button className = "modal-btn " onClick={toggle}>×</button>
         </ReactModal>
     );
 };
