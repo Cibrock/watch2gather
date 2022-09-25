@@ -38,6 +38,7 @@ const Help = () => {
                 <h4> Die Raum-Liste</h4>
                 <p>Die Raumliste finden Sie auf der Hauptseite im unteren drittel. Hier werden alle derzeit geöffneten Räume, mit verschiedenen Informationen gelistet. Wählen Sie
                     einen Raum an um ihm beizutreten. Sollten Sie noch keinen Nutzernamen haben werden Sie nun aufgefordert einen Benutzernamen einzugeben.
+                    </p>
                 <h4> Der Einladelink</h4>
                 <p>Einladelinks sind Links, die in den einzelnen Räumen erstellt und weitergegeben werden können. Beim ausführen des Links werden Sie direkt zum Beitrit des dazugehörigen Raums geleitet.
                     Sollten Sie noch keinen Nutzernamen haben werden Sie nun aufgefordert einen Benutzernamen einzugeben.
