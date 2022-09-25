@@ -28,7 +28,8 @@ const Help = () => {
             <h2>Erklärung der einzelnen Funktionen</h2>
             <div className="help-element">
                 <h3 id="help-0">Einen Raum erstellen</h3>
-                <p>Wählen Sie den "Einen Raum Erstellen" Button in der Mitte der Seite an. Sollten Sie noch keinen Nutzernamen haben werden Sie nun aufgefordert einen Benutzernamen einzugeben. Wenn Sie diesen bestätigen,
+                <p>
+                    Wählen Sie den "Einen Raum erstellen" Button in der Mitte der Seite an. Sollten Sie noch keinen Nutzernamen haben werden Sie nun aufgefordert einen Benutzernamen einzugeben. Wenn Sie diesen bestätigen,
                     wird Ihr Raum erstellt und Sie werden direkt zu Ihrem Raum weitergeleitet.
                 </p>
             </div>

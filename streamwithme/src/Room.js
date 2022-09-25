@@ -51,7 +51,7 @@ const Room = () => {
                 <Helmet>
                     <title>{"StreamWithMe - " + roomName.get()}</title>
                 </Helmet>
-                <div className="header">    <Navbar /> </div>
+                <Navbar />
                 <div className="users">     <UserList /> </div>
                 <div className="chat">      <Chat /> </div>
                 <div className="videoInput"><VideoInput /> </div>
