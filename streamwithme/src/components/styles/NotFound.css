@@ -40,9 +40,11 @@
 }
 
 @media only screen and (max-width:900px) {
-    .monkey{
-        display: none;
+    .not-found-container{
+        flex-direction:column-reverse;
+        height: 70vh;
     }
+
     .not-found-flex{
         width: 70vw;
         height: 45vh;

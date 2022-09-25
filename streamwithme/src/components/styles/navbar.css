@@ -28,8 +28,10 @@
 
 @media only screen and (max-width:900px){
     .sum{
-        flex-direction: column;
-        align-items: flex-start;
+        display: grid;
+        grid-template-areas:
+            ". hilfe"
+            ". .";
         height: 10vh;
         margin-bottom: 1vh;
     }
@@ -38,11 +40,13 @@
         height:1.5em;
     }
     .help{
-        display: none;
+        grid-area: hilfe;
+        display: inline;
     }
 }
 @media only screen and (max-height:400px){
     .sum{
+        display: flex;
         flex-direction:row;
         height: 14vh;
         margin-bottom: 2vh;

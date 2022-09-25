@@ -5,35 +5,41 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(26, 25, 25);
-    padding: 1vh 1vw;
-    border-radius: 0.3rem;
-    height: 70vh;
+    padding: 2vh 2vw;
+    height: 80vh;
     width: 80vw;
     color: white;
-    overflow-y: auto;
+    overflow-y: hidden;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
 .help-element{
     z-index: 2;
     color: white;
-    border-radius: 0.3em;
-    border: 1px black solid;
-    height: 5.7vh;
+    max-height: 5vh;
     padding: 0 0.5vw 0.5vh 0.5vw;
     margin: 1vh 0;
     overflow-y: hidden;
     background-color:rgb(1, 103, 123);
+    transition: max-height 300ms ease-out;
 }
-
 .help-element:hover{
-    height: auto;
-    transition: 400ms;
+    max-height: 100vh;
+    transition: max-height 400ms ease-in;
 }
 .help-element:focus{
-    height: auto;
+    max-height: 100vh;
+    transition: max-height  ;   
 }
 @media only screen and (max-width:900px){
+    .modal-help-content{
+        overflow-y: auto;
+    }
     .help-element{
         height: auto;
+        max-height: auto;
+    }
+    .help-element:hover{
+        height: auto;
+        max-height: auto;
     }
 }
