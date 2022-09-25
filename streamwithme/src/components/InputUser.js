@@ -8,9 +8,14 @@ import { createRoom, joinRoom } from "./API/RoomAPI";
 import { userState } from "../App";
 import ReactModal from 'react-modal';
 import { roomTitleState } from "./Navbar";
-ReactModal.setAppElement('#root');
-
+/* 
+Dieses Popup erlaubt die Erstellung eines Nutzers.
+Es erscheint, wenn ein Raum betreten oder erstellt wird.
+Durch die Nutzung des ReactModal-Moduls ist es Barrierefrei.
+ */
 export const popupInputState = hookstate(false);
+
+ReactModal.setAppElement('#root');
 
 const InputUser = () => {
     const navigate = useNavigate();

@@ -1,5 +1,8 @@
 import { userState } from "../../App"
-
+/* 
+Hier werden die API-Calls definiert um die Nutzung zu vereinfachen.
+Außerdem wird der userState von create und delete gemanaged.
+*/
 export const createUser = async (_name) => {
     try {
         let res = await fetch('https://gruppe10.toni-barth.com/users/',

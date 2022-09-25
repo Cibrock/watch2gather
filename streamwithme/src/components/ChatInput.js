@@ -4,15 +4,14 @@ import { roomState } from "../Room";
 import { sendMessage } from "./API/ChatAPI";
 import "./styles/ChatInput.css"
 
+// Hiermit können Nachrichten in den Chat gesendet werden.
 
 const ChatInput = () => {
     const [newMessage, setNewMessage] = useState("");
     const roomName = roomState.get();
     const user = userState.get();
-    const handleInputChange = (event) => {
-        setNewMessage(event.target.value);
-    };
-
+    
+    const handleInputChange = (event) => { setNewMessage(event.target.value); };
     const submitInput = async (event) => {
         event.preventDefault();
         await sendMessage(roomName, user, newMessage);

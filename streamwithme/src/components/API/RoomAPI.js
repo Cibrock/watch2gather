@@ -1,6 +1,9 @@
 import { roomState } from "../../Room";
 import { roomTitleState } from "../Navbar";
-
+/* 
+Hier werden die API-Calls definiert um die Nutzung zu vereinfachen.
+Außerdem managed leaveRoom auch den roomState.
+*/
 export const createRoom = async () => {
     try {
         let res = await fetch('https://gruppe10.toni-barth.com/rooms/',

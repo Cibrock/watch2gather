@@ -6,7 +6,11 @@ import { getVideoUrl, changeVideoStatus, getVideoStatus, getVideoPosition, chang
 import { roomState } from '../Room';
 import { eventState } from './EventHandler';
 import {useMediaQuery } from '@react-hook/media-query';
-
+/*  
+Das Video-Element enthällt den React-Player und synchronisiert sich mit der API.
+Jede Sekunden werden die URL, der Status und die Position abgefragt und wenn nötig
+geändert. Über matches wird der Player. responsiv gemacht. 
+ */
 const Video = () => {
     const [url, setUrl] = useState("");
     const [status, setStatus] = useState("paused");
@@ -69,7 +73,7 @@ const Video = () => {
         <div className="video-container">
             <ReactPlayer
                 height={matches ? '25vh' : '70vh'}
-                width={matches ? '96vw' : '72vw'}
+                width={matches ? '96vw' : '70vw'}
                 border='bold'
                 controls
                 muted

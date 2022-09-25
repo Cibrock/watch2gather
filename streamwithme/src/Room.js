@@ -15,6 +15,13 @@ import VideoInput from "./components/VideoInput";
 import Help from "./components/Help";
 import EventHandler from './components/EventHandler';
 
+/* 
+Dies ist die Raum-Seite. Hier kommt man nur als Nutzer rein.
+Wenn man hier direkt hinnaviggiert, also ohne einen Raum beizutreten, 
+wird man auf die Startseite zurückgeworfen.
+Beim Verlassen der Seite, wird der Raum verlassen und der Nutzer gelöscht.
+*/
+
 export const roomState = hookstate(false);
 
 const Room = () => {
@@ -47,11 +54,11 @@ const Room = () => {
                 <div className="header">    <Navbar /> </div>
                 <div className="users">     <UserList /> </div>
                 <div className="chat">      <Chat /> </div>
-                <div className="videoInput"><VideoInput/> </div>
+                <div className="videoInput"><VideoInput /> </div>
                 <div className="video">     <Video /> </div>
                 <div className="footer">    <Footer /> </div>
-                <EventHandler/>
-                <Help/>
+                <EventHandler />
+                <Help />
             </HelmetProvider>
         </div>
     );
