@@ -9,7 +9,6 @@
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
 #chatMessage{
-    padding: 5px 0 5px 0;
     margin: 5px 0 1.8vh 0;
     width: 23vw;
 }
@@ -19,6 +18,6 @@
         width:96vw;
     }
     #chatMessage{
-        width:96vw;
+        width:94vw;
     }
 }

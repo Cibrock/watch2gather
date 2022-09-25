@@ -1,14 +1,13 @@
 .footer-container {
+    grid-area: footer;
     width: 96vw;
-    height: 5vh;
-    position: absolute;
+    height: 3vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
     background: rgb(0, 0, 0);
     padding: 1vh 2vw 1vh 2vw;
-    bottom: 0px;
 }
 .footer-p{
     margin-top: 5px;
@@ -30,5 +29,15 @@
     .footer-p{
         white-space: pre;
         font-size:small;
+    }
+}
+
+@media only screen and (max-height:400px){
+    .footer-container{
+        height: 6vh;
+        flex-direction: row;
+    }
+    .footer-p{
+        white-space:nowrap;
     }
 }

@@ -17,9 +17,6 @@
         "chat   video  video  video" 
         "footer footer footer footer";
 }
-.header{
-    grid-area: header; 
-}
 .videoInput{
     grid-area: input;
     padding: 0 2vw 2vh 2vw;
@@ -54,10 +51,6 @@
     border: 1px solid black;
     padding: 0 2vw 0 2vw;
 }
-.footer{
-    grid-area: footer;
-    height: 8vh;
-}
 h1 {
     font-family: 'Helvetica', 'Arial', sans-serif;
     color: white;
@@ -81,7 +74,7 @@ h1 {
         height:25vh;
     }
     .chat{
-        height:40vh;
+        height:38vh;
     }
 }
 

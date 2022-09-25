@@ -56,7 +56,7 @@ const Room = () => {
                 <div className="chat">      <Chat /> </div>
                 <div className="videoInput"><VideoInput /> </div>
                 <div className="video">     <Video /> </div>
-                <div className="footer">    <Footer /> </div>
+                <Footer />
                 <EventHandler />
                 <Help />
             </HelmetProvider>
