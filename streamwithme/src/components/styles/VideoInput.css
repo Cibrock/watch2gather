@@ -13,13 +13,13 @@
     margin: 1vw;
     text-align: right;
 }
-#Url{
+.video-input-url{
     width: 30vw;
     height:4vh;
     border:none;
 }
 
-input[type=submit]{
+.video-input-submit{
     background-color:rgb(0, 217, 255);
     color:white;
     font-size: large;
@@ -42,10 +42,10 @@ input[type=submit]{
         text-align: center;
         width:96vw;
     }
-    #Url{
+    .video-input-url{
         width:96vw;
     }
-    input[type=submit]{
+    .video-input-submit{
         width:96vw;
     }
 }

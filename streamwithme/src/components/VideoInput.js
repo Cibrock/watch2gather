@@ -30,11 +30,12 @@ const VideoInput = () => {
                     type='text'
                     name="Url"
                     id="Url"
+                    className="video-input-url"
                     placeholder="z.B: https://youtu.be/dQw4w9WgXcQ"
                     value={input}
                     onChange={handleInputChange}
                 />
-                <input type="submit" className="submitVideo" value="Teilen" />
+                <input type="submit" className="video-input-submit" value="Teilen" />
             </form>
         </div>
     );

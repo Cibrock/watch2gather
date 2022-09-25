@@ -11,7 +11,7 @@ Die API wird regelmäßig auf neue Nachrichten angefragt.
 Beim ersten Laden und bei neuen Nachrichten wird nach unten gescrollt.
 Falls eine Nachricht keinem Nutzer zugewiesen werden kann(meist: Nutzer wurde gelöscht)
 so wird dies angezeigt. 
-*/
+*/ 
 
 const Chat = () => {
     const roomName = roomState.get();

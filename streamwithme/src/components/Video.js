@@ -16,7 +16,8 @@ const Video = () => {
     const [status, setStatus] = useState("paused");
     const [isPlaying, setPlaying] = useState(false);
     const [pos, setPos] = useState(0);
-    const matches = useMediaQuery("only screen and (max-width:900px)");
+    const matchesWidth = useMediaQuery("only screen and (max-width:900px)");
+    const matchesHeight = useMediaQuery("only screen and (max-height:400px)")
 
     const playerRef = useRef();
     const roomName = roomState.get();
@@ -72,8 +73,8 @@ const Video = () => {
     return (
         <div className="video-container">
             <ReactPlayer
-                height={matches ? '25vh' : '70vh'}
-                width={matches ? '96vw' : '70vw'}
+                height={ matchesHeight ? '75vh' : (matchesWidth ? '25vh' :  '70vh') }
+                width={  matchesHeight ? '96vw' : (matchesWidth ? '96vw' :  '70vw') }
                 border='bold'
                 controls
                 muted

@@ -1,8 +1,37 @@
+.input-user-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "label input"
+        "submit submit";
+}
+
 .input-user-label {
+    grid-area:label;
     color: white;
     font-weight: bold;
     font-family: 'Helvetica', 'Arial', sans-serif;
-    margin: 1vw;
+    height:2vh;
+    margin: 1vw 0;
+    padding: 5px 0;
+}
+
+.input-user-input{
+    grid-area: input;
+    height:2vh;
+    margin: 1vw 0;
+}
+.input-user-submit{
+    grid-area: submit;
+    background-color:rgb(0, 217, 255);
+    color:white;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1vw 0;
+    height: 4vh;
+    border-radius: 0.3em;
 }
 
 .modal-btn {
@@ -27,18 +56,30 @@
     width: 100vw;
     height: 100vh;
 }
-
+.modal-h2{
+    margin-top:30px;
+    margin-right: 30px;
+}
 .modal-content {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
-    padding: 1vh 2vw;
+    padding: 1vh 2vw 1vh 2vw;
     border-radius: 0.3rem;
-    max-width: 600px;
-    min-width: 300px;
+    width: 50vw;
 }
 @media only screen and (max-width:900px){
-
+    .input-user-grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "label" 
+            "input" 
+            "submit";
+    }
+    .modal-content {
+        width: 75vw;
+    }
 }

@@ -61,23 +61,18 @@ const Navbar = () => {
     };
 
     return (
-        <div className='sum'>
+        <div className='sum' role="navigation">
             <div className='logo home'>
-                <div tabIndex="0" className="logo-link" id="home" onClick={handleNavigate} onKeyDown={handleKeyDown} >
-                    <span className='accessibility'>HomeButton</span>
+                <div tabIndex="0" role="link" id="home" aria-label="HomeButton" className="logo-link" onClick={handleNavigate} onKeyDown={handleKeyDown} >
                     <div className='logo-stream'>StreamWith</div>
                     <div className='logo-title'>{title}</div>
                 </div>
             </div>
             <div className='logo title'>
-                <span className='accessibility'>LinkGenerieren</span>
-                <p className='logo-link' tabIndex={roomTitle ? "0" : "-1"} onClick={copyLink}>
-                    {roomTitle ? roomTitle + " 🖫" : null}
-                </p>
+                <div className='logo-link' role="link" aria-label="Raum-Link erstellen" tabIndex={roomTitle ? "0" : "-1" } onClick={copyLink}>{roomTitle ? roomTitle+" 🖫" : null}</div>
             </div>
             <div className='logo help'>
-                <span className='accessibility'>HelpButton</span>
-                <p className="logo-link" tabIndex="0" id="help" onClick={toggleHelp} onKeyDown={handleKeyDown} >Hilfe</p>
+                <div className="logo-link" role="link" id="help" aria-label="Hilfe öffnen" tabIndex="0" onClick={toggleHelp} onKeyDown={handleKeyDown}>Hilfe</div>
             </div>
         </div>
     );

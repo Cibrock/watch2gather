@@ -39,3 +39,11 @@
         display: none;
     }
 }
+@media only screen and (max-height:400px){
+    .sum{
+        flex-direction:row;
+    }
+    .help{
+        display: inline;
+    }
+}
