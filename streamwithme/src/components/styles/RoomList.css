@@ -1,4 +1,5 @@
 .flex-rooms{
+    grid-area: list;
     display: flex;
     height: 37vh;
     flex-direction: column;
@@ -21,8 +22,11 @@
 }
 
 @media only screen and (max-width:900px){
+    .flex-rooms{
+        height: 50vh;
+    }
     .room-list{
-        height: 28vh;
+        height: 30vh;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: 10vh;
     }

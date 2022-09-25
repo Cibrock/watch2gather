@@ -73,7 +73,7 @@ const Video = () => {
     return (
         <div className="video-container">
             <ReactPlayer
-                height={ matchesHeight ? '75vh' : (matchesWidth ? '25vh' :  '70vh') }
+                height={ matchesHeight ? '70vh' : (matchesWidth ? '25vh' :  '70vh') }
                 width={  matchesHeight ? '96vw' : (matchesWidth ? '96vw' :  '70vw') }
                 border='bold'
                 controls

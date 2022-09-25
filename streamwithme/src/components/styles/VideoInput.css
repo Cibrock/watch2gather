@@ -15,7 +15,7 @@
 }
 .video-input-url{
     width: 30vw;
-    height:4vh;
+    height:2vh;
     border:none;
 }
 
@@ -43,7 +43,7 @@
         width:96vw;
     }
     .video-input-url{
-        width:96vw;
+        width:94vw;
     }
     .video-input-submit{
         width:96vw;

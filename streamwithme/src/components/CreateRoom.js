@@ -17,7 +17,7 @@ const CreateRoom = () => {
         if (userState.get() === false) {
             popupInputState.set(true);
             console.log("Blocked create room, user is not set");
-        }else{
+        } else {
             const roomName = await createRoom();
             roomState.set(roomName);
             roomTitleState.set(roomName);
@@ -27,16 +27,14 @@ const CreateRoom = () => {
     };
 
     return (
-        <div className="flex-container">
-            <div className="flex-inner">
-                <div>
-                    <h2 className="accessibility">Einen Raum erstellen</h2>
-                    <h2 role="none">enjoy with me.</h2>
-                </div>
-                <button type="button" onClick={instantiateRoom} id="roombutton">
-                    Einen Raum Erstellen
-                </button>
+        <div className="flex-create-room">
+            <div>
+                <h2 className="accessibility">Einen Raum erstellen</h2>
+                <h2 role="none">enjoy with me.</h2>
             </div>
+            <button type="button" onClick={instantiateRoom} id="roombutton">
+                Einen Raum Erstellen
+            </button>
         </div>
     );
 };

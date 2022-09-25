@@ -25,7 +25,7 @@ const Help = () => {
             preventScroll={true}
             contentLabel={"Popup für Hilfe"}
         >
-            <h2>Erklärung der einzelnen Funktionen von StreamWithMe</h2>
+            <h2>Erklärung der einzelnen Funktionen</h2>
             <div className="help-element">
                 <h3 id="help-0">Einen Raum erstellen</h3>
                 <p>Wählen Sie den "Einen Raum Erstellen" Button in der Mitte der Seite an. Sollten Sie noch keinen Nutzernamen haben werden Sie nun aufgefordert einen Benutzernamen einzugeben. Wenn Sie diesen bestätigen,
@@ -76,7 +76,6 @@ const Help = () => {
                 <h3>Der Chat</h3>
                 <p>Sie können den integrierten Chat nutzen um mit allen beigetretenen Nutzern des Raums zu kommunizieren. Mit dem Raum geteilte Nachrichten werden in der Chat-Box angezeigt.
                     Um selbst eine Nachricht mit dem Raum zu teilen, geben Sie einfach ihre gewünschte Nachricht in das mit "Nachricht eingeben" Eingabefeld ein und bestätigen Sie diese mit "Enter".
-                    Ihre Nachricht wird nun mit dem gesamten Raum und somit allen beigetreten Nutzern geteilt.
                 </p>
             </div>
             <button className="modal-btn" onClick={toggle}>×</button>
