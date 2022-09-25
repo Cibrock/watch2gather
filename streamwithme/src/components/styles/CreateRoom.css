@@ -1,3 +1,11 @@
+.flex-create-room{
+    grid-area: create;
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 #roombutton{
     padding: 15px 32px;
     text-align: center;
@@ -9,22 +17,9 @@
     border: solid 1px black;
     border-radius: 0.3em;
 }
-h2{
-    color: white;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-weight: bolder;
-}
-.flex-create-room{
-    grid-area: create;
-    display: flex;
-    height: 45vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
 @media only screen and (max-width:900px){
     .flex-create-room {
-        height: 25vh;
+        height: 40vh;
     }
 }

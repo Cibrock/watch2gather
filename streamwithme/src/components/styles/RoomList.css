@@ -23,10 +23,10 @@
 
 @media only screen and (max-width:900px){
     .flex-rooms{
-        height: 50vh;
+        height: 40vh;
     }
     .room-list{
-        height: 30vh;
+        height: 45vh;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: 10vh;
     }
