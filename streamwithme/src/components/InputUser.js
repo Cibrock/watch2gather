@@ -27,6 +27,7 @@ const InputUser = () => {
     const toggle = () => { status.set(!status.get()) }
 
     const submitInput = async (event) => {
+        if(name.lenth() < 3) return;
         event.preventDefault();
         await createUser(name);
         if (roomState.get() === false) {
