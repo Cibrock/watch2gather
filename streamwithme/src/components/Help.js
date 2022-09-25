@@ -5,12 +5,12 @@ import ReactModal from 'react-modal';
 
 // In diesem Popup wird die Nutzung der Seite erklärt.
 
-export const popupHelpStatus = hookstate(false)
+export const popupHelpStatus = hookstate(false);
 
 const Help = () => {
     const status = useHookstate(popupHelpStatus);
 
-    const toggle = () => { status.set(!status) }
+    const toggle = () => { status.set(!status); };
 
     return (
         <ReactModal
@@ -38,7 +38,7 @@ const Help = () => {
                 <h4> Die Raum-Liste</h4>
                 <p>Die Raumliste finden Sie auf der Hauptseite im unteren drittel. Hier werden alle derzeit geöffneten Räume, mit verschiedenen Informationen gelistet. Wählen Sie
                     einen Raum an um ihm beizutreten. Sollten Sie noch keinen Nutzernamen haben werden Sie nun aufgefordert einen Benutzernamen einzugeben.
-                    </p>
+                </p>
                 <h4> Der Einladelink</h4>
                 <p>Einladelinks sind Links, die in den einzelnen Räumen erstellt und weitergegeben werden können. Beim ausführen des Links werden Sie direkt zum Beitrit des dazugehörigen Raums geleitet.
                     Sollten Sie noch keinen Nutzernamen haben werden Sie nun aufgefordert einen Benutzernamen einzugeben.

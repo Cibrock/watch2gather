@@ -36,7 +36,7 @@ const Video = () => {
         const dataUrl = await getVideoUrl(roomName);
         const newUrl = dataUrl.url;
         if (newUrl !== url) {
-            eventState.set("Neues Video")
+            eventState.set("NewVideo")
             setUrl(newUrl)
         };
     };
@@ -46,7 +46,7 @@ const Video = () => {
         const newStatus = dataStatus.status;
         if (newStatus !== status) {
             setStatus(newStatus);
-            eventState.set("Das Video " + (newStatus==="paused" ? "wurde pausiert" : " wurde entpausiert"))
+            eventState.set("Video" + (newStatus==="paused" ? "Paused" : "Unpaused"))
             if (newStatus === "paused") setPlaying(false);
             else if (newStatus === "playing") setPlaying(true);
         }
@@ -57,7 +57,7 @@ const Video = () => {
         const newPos = dataPos.position;
         if (Math.abs(newPos - pos) > 3) {
             playerRef.current.seekTo(newPos, 'seconds');
-            eventState.set("Es wurde "+ (newPos>pos?"vor":"zurück") + "gespult")
+            eventState.set("Video"+ (newPos>pos?"FFW":"REW"))
         }
         setPos(newPos);
     };
@@ -88,8 +88,8 @@ const Video = () => {
                 onPause={() => changeVideoStatus(roomName, user, 'paused')}
                 onProgress={(data) => changeVideoPosition(roomName, user, data.playedSeconds)}
                 onSeek={(data) => changeVideoPosition(roomName, user, data.playedSeconds) }
-                onEnded={() => eventState.set("Das Video ist vorbei.")}
-                onError={() => eventState.set("Es ist ein Fehler beim Anzeigen des Videos passiert.")}
+                onEnded={() => eventState.set("VideoEnded")}
+                onError={() => eventState.set("VideoError")}
             />
             <div className='video-outline' />
         </div>

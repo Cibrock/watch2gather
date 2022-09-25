@@ -31,6 +31,7 @@ const ChatInput = () => {
                 placeholder="Neue Nachricht"
                 maxLength="500"
                 autoComplete="off"
+                minLength="1"
                 onChange={handleInputChange}/>
         </form>
     );

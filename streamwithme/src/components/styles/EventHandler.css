@@ -2,7 +2,6 @@
     position: fixed;
     font-family: 'Helvetica', 'Arial', sans-serif;
     color: white;
-    background-color: rgb(9, 219, 65);
     width: 100vw;
     height: 4vh;
     text-align: center;
@@ -18,7 +17,6 @@
     position: fixed;
     font-family: 'Helvetica', 'Arial', sans-serif;
     color: white;
-    background-color: rgb(9, 219, 65);
     width: 100vw;
     height: 4vh;
     text-align: center;
@@ -28,4 +26,14 @@
     z-index: 5;
     top:0;
     transition: 100ms;
+}
+
+.event-green{
+    background-color: #09db41;
+}
+.event-red{
+    background-color: #db0941;
+}
+.event-gray{
+    background-color: #414141;
 }

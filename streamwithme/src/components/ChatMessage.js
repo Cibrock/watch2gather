@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { eventState } from "./EventHandler";
 import "./styles/ChatMessage.css";
 /* 
 Hier werden die Nachrichten aus API sinnvoll dargestellt.
@@ -15,6 +16,7 @@ const ChatMessage = React.forwardRef((props,ref) => {
 
     useEffect(() => {
         if (time !== undefined) return;
+        eventState.set("NewMessage");
         const date = new Date(null);
         date.setMilliseconds(propTime);
         setTime(date.toISOString().substring(11, 16));
@@ -22,7 +24,6 @@ const ChatMessage = React.forwardRef((props,ref) => {
 
     return (
         <div className="messages" role="listitem" ref={ref}>
-            <span className="accessibility">Neue Nachricht</span>
             <span className="messageTime">{time}</span>
             <span className="messageUser">{name}:</span>
             <span className="messageText">{text}</span>

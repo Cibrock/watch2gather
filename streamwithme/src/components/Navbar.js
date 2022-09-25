@@ -57,7 +57,7 @@ const Navbar = () => {
 
     const copyLink = () => {
         navigator.clipboard.writeText("https://cibrock.github.io/watch2gather/#/" + room);
-        eventState.set("✔ Link in Zwischenablage kopiert");
+        eventState.set("LinkCopied");
     };
 
     return (

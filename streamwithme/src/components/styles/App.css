@@ -25,7 +25,7 @@
 }
 Button{ 
   border:none;
-  background-color: rgb(1, 103, 123);
+  background-color: rgb(1, 101, 121);
   color: white;
 }
 Button:hover{
@@ -34,6 +34,10 @@ Button:hover{
 input{
   border:none;
   padding: 5px;
+}
+h1{
+  margin-left: 0;
+  margin-right: 0;
 }
 
  /* width */

@@ -55,6 +55,7 @@ const App = () => {
         const rooms = data.rooms;
         if (rooms === undefined) return;
         if (path === "") return;
+        console.log(path);
         const target = rooms.find((room)=>{return room.name===path});
         if (target===undefined) return navigateToNotFound();
         roomState.set(path);
