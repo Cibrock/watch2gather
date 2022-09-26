@@ -26,7 +26,7 @@ const Help = () => {
             contentLabel={"Popup für Hilfe"}
         >
             <h2>Erklärung der einzelnen Funktionen</h2>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Einen Raum erstellen</h3>
                 <p>
                     Wählen Sie den "Einen Raum erstellen" Button in der Mitte der Seite an. 
@@ -34,7 +34,7 @@ const Help = () => {
                     Wenn Sie diesen bestätigen, wird Ihr Raum erstellt und Sie werden direkt zu Ihrem Raum weitergeleitet.
                 </p>
             </div>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Einem Raum beitreten</h3>
                 <p>Sie können Räume über die Raumliste, oder einen Einlade-Link betreten</p>
                 <h4>Die Raum-Liste</h4>
@@ -49,7 +49,7 @@ const Help = () => {
                     Beim Ausführen des Links werden Sie direkt zum Beitritt des dazugehörigen Raums geleitet.
                 </p>
             </div>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Der Benutzername</h3>
                 <p>
                     Der Benutzername identifiziert Sie in den einzelnen Räumen, daher ist er Voraussetzung um einen Raum zu erstellen oder beizutreten. 
@@ -58,7 +58,7 @@ const Help = () => {
                     Wenn sie die Seite verlassen, wird ihr Nutzername gelöscht.
                 </p>
             </div>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Einen Einlade-Link erstellen</h3>
                 <p>
                     Mit dem Einladelink können Ihre Freunde direkt Ihrem Raum beitreten. 
@@ -66,27 +66,27 @@ const Help = () => {
                     Der Link wird dann direkt in Ihre Zwischenablage kopiert und Sie können ihn bequem in jegliche Nachrichten kopieren.
                 </p>
             </div>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Ein Video Posten</h3>
                 <p>
                     Ein Video können Sie ganz bequem mit dem Raum teilen. 
                     Geben Sie den Link zu dem gewünschten Video einfach in das mit "Video URL eingeben" gekennzeichnete Eingabefeld ein.
                 </p>
             </div>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Funktionen des Players</h3>
                 <p>
                     Alle Videos übernehmen nicht nur die Funktionen der Plattform des Videos (YouTube, Vimeo, etc.), sondern der Fortschritt wird mit allen Nutzern des Raums geteilt.
                     Sie können das Video pausieren, spulen oder wechseln. Jegliche Aktionen werden in Ihrem Raum und somit allen Nutzern des Raums synchronisiert.
                 </p>
             </div>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Die User-Liste</h3>
                 <p>
                     Die User-Liste ist eine Aufzählung aller Nutzer, die derzeit diesem Raum beigetreten sind.
                 </p>
             </div>
-            <div className="help-element" tabIndex="0">
+            <div className="help-element" >
                 <h3>Der Chat</h3>
                 <p>
                     Sie können den integrierten Chat nutzen, um mit allen beigetretenen Nutzern des Raums zu kommunizieren. 
