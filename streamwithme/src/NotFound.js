@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import "./components/styles/NotFound.css";
 import Help from "./components/Help";
-import Backgroundvideo from "./components/Backgroundvideo";
 
 const NotFound = () => {
     const TITLE = "StreamWithMe - Room not found";
