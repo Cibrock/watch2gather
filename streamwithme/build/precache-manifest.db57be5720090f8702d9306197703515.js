@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "15d665e00a61cb441d6e",
-    "url": "/watch2gather/static/css/main.96fb0538.chunk.css"
+    "revision": "2c696796bffd1365c6d8",
+    "url": "/watch2gather/static/css/main.12eb0311.chunk.css"
   },
   {
-    "revision": "15d665e00a61cb441d6e",
-    "url": "/watch2gather/static/js/main.15d665e0.chunk.js"
+    "revision": "2c696796bffd1365c6d8",
+    "url": "/watch2gather/static/js/main.2c696796.chunk.js"
   },
   {
-    "revision": "7b805711efed4363247d",
+    "revision": "f13a3a962abfff057936",
     "url": "/watch2gather/static/css/1.99374c86.chunk.css"
   },
   {
-    "revision": "7b805711efed4363247d",
-    "url": "/watch2gather/static/js/1.7b805711.chunk.js"
+    "revision": "f13a3a962abfff057936",
+    "url": "/watch2gather/static/js/1.f13a3a96.chunk.js"
   },
   {
     "revision": "51ef4534b2b8f73edda4",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/watch2gather/static/media/bgvid.860475ab.860475ab.mp4"
   },
   {
-    "revision": "8b51b2339228d63aa90e58020e1d8d8d",
+    "revision": "d7835bbbd1c532c396e25db4d97f0570",
     "url": "/watch2gather/index.html"
   }
 ];
