@@ -1,16 +1,16 @@
 {
   "main.css": "/watch2gather/static/css/main.8cc0e3e7.chunk.css",
-  "main.js": "/watch2gather/static/js/main.8e923c92.chunk.js",
-  "main.js.map": "/watch2gather/static/js/main.8e923c92.chunk.js.map",
+  "main.js": "/watch2gather/static/js/main.b20cd766.chunk.js",
+  "main.js.map": "/watch2gather/static/js/main.b20cd766.chunk.js.map",
   "static/css/1.99374c86.chunk.css": "/watch2gather/static/css/1.99374c86.chunk.css",
   "static/js/1.f13a3a96.chunk.js": "/watch2gather/static/js/1.f13a3a96.chunk.js",
   "static/js/1.f13a3a96.chunk.js.map": "/watch2gather/static/js/1.f13a3a96.chunk.js.map",
   "runtime~main.js": "/watch2gather/static/js/runtime~main.51ef4534.js",
   "runtime~main.js.map": "/watch2gather/static/js/runtime~main.51ef4534.js.map",
   "static/media/bgvid.860475ab.mp4": "/watch2gather/static/media/bgvid.860475ab.860475ab.mp4",
-  "static/css/1.99374c86.chunk.css.map": "/watch2gather/static/css/1.99374c86.chunk.css.map",
   "static/css/main.8cc0e3e7.chunk.css.map": "/watch2gather/static/css/main.8cc0e3e7.chunk.css.map",
+  "static/css/1.99374c86.chunk.css.map": "/watch2gather/static/css/1.99374c86.chunk.css.map",
   "index.html": "/watch2gather/index.html",
-  "precache-manifest.822cf1735fee76ce8c7e3e842e9bde09.js": "/watch2gather/precache-manifest.822cf1735fee76ce8c7e3e842e9bde09.js",
+  "precache-manifest.5341aec4f7dcc264a1cf0fec80a61a15.js": "/watch2gather/precache-manifest.5341aec4f7dcc264a1cf0fec80a61a15.js",
   "service-worker.js": "/watch2gather/service-worker.js"
 }
