@@ -47,7 +47,7 @@ const Chat = () => {
     return (
         <>
             <h2 className='chat-header'>Chat</h2>
-            <div className='chat-list' role="list" aria-label="Chat" aria-live="polite" tabIndex="0" onFocus={scrollToBottom}>
+            <div className='chat-list' role="list" aria-label="Chat" aria-live="polite" onFocus={scrollToBottom}>
                 {displayed.map((m) => <ChatMessage key={m.id} time={m.time} text={m.text} name={m.user}/> )}
             </div>
             <div className="chat-input"> <ChatInput /> </div>
