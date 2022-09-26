@@ -28,7 +28,7 @@ const InputUser = () => {
 
     const submitInput = async (event) => {
         event.preventDefault();
-        if(name.length() < 3) return;
+        if(name.length < 3) return;
         await createUser(name);
         if (roomState.get() === false) {
             const roomName = await createRoom();
